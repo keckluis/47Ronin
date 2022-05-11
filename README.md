@@ -7,8 +7,8 @@ The project is supported by the Stadtmuseum Hornmoldhaus in Bietigheim-Bissingen
 
 Our team consists of master students from the courses "Computer Science & Media" and "Design of Interactive Media" at Furtwangen University:
 
-Salome Dieterle
-Luis Keck
-Lisa Räthsel
-Markus Schürmann
-Janine Wüst
+Salome Dieterle  
+Luis Keck  
+Lisa Räthsel  
+Markus Schürmann  
+Janine Wüst  

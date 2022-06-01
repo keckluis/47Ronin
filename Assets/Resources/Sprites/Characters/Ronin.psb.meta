@@ -2646,26 +2646,6 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Torso
-    spriteName: Torso
-    isGroup: 0
-    parentIndex: 0
-    spriteID: 86859e45e41cbbc4f8597983192377b0
-    layerID: 13
-    mosaicPosition: {x: 4, y: 330}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Kopf
-    spriteName: Kopf
-    isGroup: 0
-    parentIndex: 0
-    spriteID: bce75a2d3b1c44743bc447c3a1b5bf5e
-    layerID: 12
-    mosaicPosition: {x: 299, y: 330}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
   - name: Arm links
     spriteName: Arm links
     isGroup: 0
@@ -2693,6 +2673,26 @@ ScriptedImporter:
     spriteID: 60190be1de6c0144789bcb3baf226174
     layerID: 9
     mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Kopf
+    spriteName: Kopf
+    isGroup: 0
+    parentIndex: 0
+    spriteID: bce75a2d3b1c44743bc447c3a1b5bf5e
+    layerID: 12
+    mosaicPosition: {x: 299, y: 330}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Torso
+    spriteName: Torso
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 86859e45e41cbbc4f8597983192377b0
+    layerID: 13
+    mosaicPosition: {x: 4, y: 330}
     flatten: 0
     isImported: 1
     isVisible: 1

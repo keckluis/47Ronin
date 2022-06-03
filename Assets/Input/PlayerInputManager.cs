@@ -9,6 +9,7 @@ public class PlayerInputManager : MonoBehaviour
     private Rigidbody2D PlayerRb;
 
     private Vector2 movmentDirection;
+    private Vector2 ThrowDirection;
     public float maxSpeed;
     public Controls ActionMap;
 
@@ -25,7 +26,11 @@ public class PlayerInputManager : MonoBehaviour
     private void OnEnable()
     {
         ActionMap.PlayerControls.Enable();
-        ActionMap.PlayerControls.StoneTrowing.performed += StoneThrow;
+        
+        ActionMap.PlayerControls.ActivateThrowMode.started += activateThrowMode;
+        ActionMap.PlayerControls.ActivateThrowMode.canceled += deactivateThrowMode;
+        ActionMap.PlayerControls.StoneTrowing.performed += getThrowDirection;
+        ActionMap.PlayerControls.StoneTrowing.canceled += StoneThrow;
         ActionMap.PlayerControls.Movement.performed += ctx => movmentDirection = ctx.ReadValue<Vector2>();
     }
 
@@ -36,14 +41,33 @@ public class PlayerInputManager : MonoBehaviour
 
     void Movement(InputAction.CallbackContext ctx)
     {
-        Debug.Log("st"); 
         PlayerRb.velocity = ctx.ReadValue<Vector2>();
+    }
+    void activateThrowMode(InputAction.CallbackContext ctx)
+    {
+        ActionMap.PlayerControls.StoneTrowing.Enable();
+        ActionMap.PlayerControls.Movement.Disable();
+        movmentDirection = Vector2.zero;
+
+
+    }
+    void deactivateThrowMode(InputAction.CallbackContext ctx)
+    {
+        ActionMap.PlayerControls.StoneTrowing.Disable();
+        ActionMap.PlayerControls.Movement.Enable();
+    }
+    void getThrowDirection(InputAction.CallbackContext ctx)
+    {
+        ThrowDirection = ctx.ReadValue<Vector2>();
+        Debug.Log(ThrowDirection);
     }
     void StoneThrow(InputAction.CallbackContext ctx)
     {
         GameObject stoneInst = Instantiate(stone, transform.position, transform.rotation);
-        stoneInst.GetComponent<Rigidbody2D>().AddForce(((transform.right) + transform.up)* 250);
+        stoneInst.GetComponent<Rigidbody2D>().AddForce(ThrowDirection * 1000);
     }
+
+
 
     void Update()
     {

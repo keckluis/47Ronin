@@ -16,12 +16,21 @@
                 },
                 {
                     "name": "StoneTrowing",
+                    "type": "Value",
+                    "id": "0ae94f44-98a5-4ce1-a1eb-9c6f84f45974",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ActivateThrowMode",
                     "type": "Button",
-                    "id": "19968945-0d66-4478-a1b3-d2ccc50e141f",
+                    "id": "511975c4-cb35-434a-be95-0f9c49ef63c6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -126,12 +135,89 @@
                 },
                 {
                     "name": "",
-                    "id": "1e6440cd-6452-4b45-b435-e1bb491f3c7a",
-                    "path": "<Keyboard>/space",
+                    "id": "ad71ceee-80c5-4e1f-8c71-5be43b4d10de",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "StoneTrowing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "ba8707a1-0d80-449e-b3c6-97d0dbefd006",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StoneTrowing",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "8645dd84-905e-441c-96d3-7b0178df2a14",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "StoneTrowing",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "4ddcb93f-bb88-49d3-9d9c-d1bae69cbcf7",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "StoneTrowing",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "7acc0721-a680-42b6-9a1d-ba0191dc3a0e",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StoneTrowing",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "cc09a2b8-79b9-4d95-b318-6010153e784f",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Gamepad",
+                    "action": "StoneTrowing",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "fb8653a5-3943-40fa-a250-9901fe7d8b2d",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Gamepad",
+                    "action": "StoneTrowing",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9b61c6c7-258d-4e80-a0fd-cf228204f15a",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Gamepad",
+                    "action": "ActivateThrowMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

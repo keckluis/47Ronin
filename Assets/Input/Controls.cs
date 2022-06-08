@@ -224,7 +224,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""binding"",
                     ""id"": ""fb8653a5-3943-40fa-a250-9901fe7d8b2d"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Gamepad"",

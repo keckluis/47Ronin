@@ -12,23 +12,47 @@ public class GuardPatrol : MonoBehaviour
     Transform PointOfInterest;
 
     public GameObject TriggerPrefab;
+
+    private void Start()
+    {
+        lookAtDirection(transform.position, PatrolTargets[index].position);
+    }
     void FixedUpdate()
     {
         if (suspicios)
+        { 
             transform.position = Vector2.MoveTowards(transform.position, PointOfInterest.position, 0.051f);
-        else if (patroling)
+            lookAtDirection(transform.position, PointOfInterest.position);
+        }
+            else if (patroling)
             Patrol();
+
+
+           
     }
 
     private void Patrol()
     {
-            transform.position = Vector2.MoveTowards(transform.position, PatrolTargets[index].position, 0.051f);     
+        transform.position = Vector2.MoveTowards(transform.position, PatrolTargets[index].position, 0.051f);
+        lookAtDirection(transform.position, PatrolTargets[index].position);
+    }
+    private void lookAtDirection(Vector3 guardPos, Vector3 TargetPos)
+    {
+        if (guardPos.x + TargetPos.x > guardPos.x)
+        {
+            transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 11)
         {
-            index++;
+            //lookAtDirection(transform.position, PatrolTargets[index].position);
+            index++;        
             if (index >= PatrolTargets.Length)
                 index = 0;
         }
@@ -38,8 +62,10 @@ public class GuardPatrol : MonoBehaviour
             suspicios = false;
             index = 0;
             patroling = false;
-            
+            //lookAtDirection(transform.position, PointOfInterest.position);
+
         }
+
     }
 
     public void addPointofIntrest(Transform PoI)
@@ -53,14 +79,13 @@ public class GuardPatrol : MonoBehaviour
 
     IEnumerator Wait(int waitTime)
     {
-        //Print the time of when the function is first called.
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
-
-        //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(waitTime);
-
-        //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
         patroling = true;
     }
+
+    private void LookAtDirection(Transform Target)
+    {
+       
+    }
+
 }

@@ -6,15 +6,9 @@ public class VisionRaycast : MonoBehaviour
 {
     // Float a rigidbody object a set distance above a surface.
 
-    public float floatHeight;     // Desired floating height.
-    public float liftForce;       // Force to apply when lifting the rigidbody.
-    public float damping;         // Force reduction proportional to speed (reduces bouncing).
     public Transform startPoint;
     public LayerMask VisionLayer;
-
     Rigidbody2D rb2D;
-
-
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -26,7 +20,7 @@ public class VisionRaycast : MonoBehaviour
     void FixedUpdate()
     {
         // Cast a ray straight down.
-        RaycastHit2D hit = Physics2D.Raycast(startPoint.position, Vector2.left, Mathf.Infinity, VisionLayer);       
+        RaycastHit2D hit = Physics2D.Raycast(startPoint.position, transform.right, Mathf.Infinity, VisionLayer);       
         // If it hits something...
         if (hit.collider != null)   
         {

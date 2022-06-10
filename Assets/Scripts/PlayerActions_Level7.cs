@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum Facing
+{
+    LEFT,
+    RIGHT
+}
 public class PlayerActions_Level7 : MonoBehaviour
 {
     private Animator Animator;
     private bool isWalking = false;
-    private bool isStriking = false;
+    private bool actionPlaying = false;
     private bool walkState;
-    public float Speed;
+   
+    private float speedHori;
+    private float speedVert;
+    public Facing direction = Facing.LEFT;
+
+    public float SpeedHorizontal = 0.03f;
+    //public float SpeedVertical = 0.03f;
 
     void Start()
     {
@@ -20,48 +31,80 @@ public class PlayerActions_Level7 : MonoBehaviour
     {
         Animator.SetBool("isWalking", isWalking);
         if (isWalking)
-            transform.Translate(-Speed, 0, 0);
+            transform.Translate(-speedHori, 0, speedVert);
+        if (transform.position.z > 0)
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     public void Walk(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
 
-        if (input != null && !isStriking)
+        if (input != null && !actionPlaying)
         {
             if (input.x < 0)
             {
-                transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                direction = Facing.LEFT;
+                speedHori = SpeedHorizontal;
                 isWalking = true;
             }
             else if (input.x > 0)
             {
-                transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                direction = Facing.RIGHT;
+                speedHori = SpeedHorizontal;
                 isWalking = true;
             }
             else
+                speedHori = 0;
+
+            float dir;
+            if (direction == Facing.LEFT)
+                dir = 0;
+            else
+                dir = 180;
+            transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
+
+            /* if (input.y != 0)
+            {
+                if (direction == Facing.LEFT)
+                    speedVert = +(input.y * SpeedVertical);
+                else
+                    speedVert = -(input.y * SpeedVertical);
+                isWalking = true;
+            }
+            else
+            {
+                speedVert = 0;
+            } */
+
+            if (input.x == 0 && input.y == 0)
                 isWalking = false;
+            return;
         }
-        else
-        {
-            isWalking = false;
-        }
+        isWalking = false;
     }
 
-    public void Strike()
+    public void Action(string action)
     {
-        if (!isStriking)
+        if (!actionPlaying)
         {
-            isStriking = true;
+            actionPlaying = true;
             walkState = isWalking;
             isWalking = false;
-            Animator.SetTrigger("strike");
+            Animator.SetTrigger(action);
         }   
     }
 
-    public void StrikeFinished()
+    public void ActionFinished()
     {
-       isStriking = false;
+       actionPlaying = false;
        isWalking = walkState;
+
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
+        {
+            isWalking = false;
+        }
     }
+
+    
 }

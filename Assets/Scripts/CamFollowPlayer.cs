@@ -5,12 +5,15 @@ using UnityEngine;
 public class CamFollowPlayer : MonoBehaviour
 {
     public Transform Player;
-    public int OffsetX;
-    public int OffsetY;
-    public int OffsetZ;
+    public int OffsetX = -10;
+    public int OffsetY = 5;
+    public int OffsetZ = -15;
 
     void Update()
     {
-        transform.position = new Vector3(Player.position.x + OffsetX, Player.position.y + OffsetY, OffsetZ);
+        float x = Player.position.x + OffsetX;
+        float y = Player.position.y + OffsetY;
+        float z = Player.position.z + OffsetZ;
+        transform.position = new Vector3(x, y, z);
     }
 }

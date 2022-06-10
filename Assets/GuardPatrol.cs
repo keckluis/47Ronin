@@ -33,12 +33,12 @@ public class GuardPatrol : MonoBehaviour
 
     private void Patrol()
     {
-        transform.position = Vector2.MoveTowards(transform.position, PatrolTargets[index].position, 0.051f);
+        transform.position = Vector2.MoveTowards(transform.position, PatrolTargets[index].position, 0.05f);
         lookAtDirection(transform.position, PatrolTargets[index].position);
     }
     private void lookAtDirection(Vector3 guardPos, Vector3 TargetPos)
     {
-        if (guardPos.x + TargetPos.x > guardPos.x)
+        if (TargetPos.x > guardPos.x)
         {
             transform.localEulerAngles = new Vector3(0, 0, 0);
         }

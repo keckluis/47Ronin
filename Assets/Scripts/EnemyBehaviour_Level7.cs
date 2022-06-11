@@ -7,11 +7,13 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
     private Animator Animator;
     private bool isWalking = false;
     private bool actionPlaying = false;
+    public bool isCoolingDown = false;
 
     public GameObject Player;
-    public int Health = 5;
-    public float range = 4;
-    public float speed = 0.03f;
+    public int Health = 100;
+    public float Range = 4;
+    public float Cooldown = 1f;
+    public float Speed = 0.03f;
     public Facing direction = Facing.RIGHT;
 
     void Start()
@@ -23,13 +25,13 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
     {
         float distance = transform.position.x - Player.transform.position.x;
 
-        if(direction == Facing.RIGHT && distance > -range && distance <= 0)
+        if (direction == Facing.RIGHT && distance > -Range && distance <= 0 && !isCoolingDown)
         {
-            Strike();
+            Action("strike");
         }
-        else if(direction == Facing.LEFT && distance < range && distance >= 0)
+        else if (direction == Facing.LEFT && distance < Range && distance >= 0 && !isCoolingDown)
         {
-            Strike();
+            Action("strike");
         }
 
         float dir;
@@ -41,17 +43,19 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
 
         if (isWalking)
         {
-            transform.Translate(-speed, 0, 0);
+            transform.Translate(-Speed, 0, 0);
         }
     }
 
-    public void Strike()
+    public void Action(string action)
     {
-        if (!actionPlaying)
+        if (!actionPlaying || action == "hit")
         {
+            isCoolingDown = true;
             actionPlaying = true;
             isWalking = false;
-            Animator.SetTrigger("strike");
+            Animator.SetTrigger(action);
+            StartCoroutine(WaitForCooldown());
         }
     }
 
@@ -59,5 +63,29 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
     {
         actionPlaying = false;
         isWalking = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Player_Weapon")
+        {
+            Debug.Log("Enemy got hit.");
+            Action("hit");
+            Health -= 1;
+
+            if (Health <= 0)
+                Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Enemy dead.");
+    }
+
+    IEnumerator WaitForCooldown()
+    {
+        yield return new WaitForSeconds(Cooldown);
+        isCoolingDown = false;
     }
 }

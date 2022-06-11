@@ -14,6 +14,7 @@ public class PlayerActions_Level7 : MonoBehaviour
     private bool isWalking = false;
     private bool actionPlaying = false;
     private bool walkState;
+    public bool isBlocking = false;
    
     private float speedHori;
     private float speedVert;
@@ -22,9 +23,14 @@ public class PlayerActions_Level7 : MonoBehaviour
     public float SpeedHorizontal = 0.03f;
     //public float SpeedVertical = 0.03f;
 
+    public Collider2D Weapon;
+
+    public int Health = 100;
+
     void Start()
     {
         Animator = GetComponent<Animator>();
+        Weapon.enabled = false;
     }
 
     void Update()
@@ -86,7 +92,7 @@ public class PlayerActions_Level7 : MonoBehaviour
 
     public void Action(string action)
     {
-        if (!actionPlaying)
+        if (!actionPlaying || action == "hit")
         {
             actionPlaying = true;
             walkState = isWalking;
@@ -106,5 +112,59 @@ public class PlayerActions_Level7 : MonoBehaviour
         }
     }
 
-    
+    public void WeaponColliderOn()
+    {
+        Weapon.enabled = true;
+    }
+
+    public void WeaponColliderOff()
+    {
+        Weapon.enabled = false;
+    }
+
+    public void StartBlock()
+    {
+        isBlocking = true;
+    }
+    public void EndBlock()
+    {
+        isBlocking = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Enemy_Weapon")
+        {
+            if (isBlocking)
+            {
+                Debug.Log("Player blocked attack.");
+
+                Transform t = collider.transform;
+
+                while (t.parent != null)
+                {
+                    if (t.parent.tag == "Enemy")
+                    {
+                        t.parent.GetComponent<EnemyBehaviour_Level7>().Action("hit");
+                        return;
+                    }
+                    t = t.parent;
+                }
+            }
+            else
+            {
+                Debug.Log("Player got hit.");
+                Action("hit");
+                Health -= 1;
+
+                if (Health <= 0)
+                    GameOver();
+            }
+        }
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("GAME OVER");
+    }
 }

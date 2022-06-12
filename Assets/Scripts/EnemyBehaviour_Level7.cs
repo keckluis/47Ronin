@@ -73,8 +73,7 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player_Weapon")
-        {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(-1000, 750), ForceMode2D.Force);
+        {          
             if (BloodHolder != null)
             {
                 Destroy(BloodHolder);
@@ -85,13 +84,25 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
             Health -= 1;
 
             if (Health <= 0)
+            {
                 Action("die");
+                return;
+            }               
+
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(-1000, 750), ForceMode2D.Force);
         }
     }
 
     public void Remove()
     {
-        Instantiate(Dead, transform.position, Quaternion.Euler(0, 180, -90));
+        GameObject dead = Instantiate(Dead, transform.position, Quaternion.Euler(0, 180, -90));
+        SpriteRenderer[] rends = dead.GetComponentsInChildren<SpriteRenderer>();
+
+        for (int i = 0; i < rends.Length; i++)
+        {
+            rends[i].sortingLayerName = "5";
+        }
+        Destroy(BloodHolder);
         Destroy(gameObject);
     }
 

@@ -12,15 +12,15 @@ public class VisionRaycast : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        VisionLayer += LayerMask.GetMask("Player");
-        VisionLayer += LayerMask.GetMask("Obstruction");
+        //VisionLayer += LayerMask.GetMask("Player");
+        //VisionLayer += LayerMask.GetMask("Obstruction");
     }
 
     // See Order of Execution for Event Functions for information on FixedUpdate() and Update() related to physics queries
     void FixedUpdate()
     {
         // Cast a ray straight down.
-        RaycastHit2D hit = Physics2D.Raycast(startPoint.position, transform.right, Mathf.Infinity, VisionLayer);       
+        RaycastHit2D hit = Physics2D.Raycast(startPoint.position, transform.right*-1, Mathf.Infinity, VisionLayer);       
         // If it hits something...
         if (hit.collider != null)   
         {
@@ -28,6 +28,7 @@ public class VisionRaycast : MonoBehaviour
         
             if (!hit.collider.IsTouchingLayers(LayerMask.GetMask("Obstruction")))
             {
+
                 Debug.Log(hit.collider.gameObject);
             }
             

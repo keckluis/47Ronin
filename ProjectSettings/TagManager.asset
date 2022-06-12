@@ -18,8 +18,8 @@ TagManager:
   - Enemy
   - Obstruction
   - Throwable
-  - 
-  - 
+  - Ground
+  - HearingDistance
   - 
   - 
   - 

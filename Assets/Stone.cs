@@ -7,25 +7,43 @@ public class Stone : MonoBehaviour
     public PathCreation.PathCreator pathCreator;
     AudioSource audioSource;
     public GuardPatrol guardPatrol;
+    private bool hearedSomething;
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        GameObject a = GameObject.Find("Audio");
+        audioSource = a.GetComponent<AudioSource>();
         //pathCreator = new PathCreation.PathCreator();
        
     }
-
-
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject);
         if (collision.gameObject.layer == 9)
-            guardPatrol.addPointofIntrest(gameObject.transform);
+        { 
+            if(hearedSomething)
+            guardPatrol.addPointofIntrest(gameObject.transform.position);
+            audioSource.Play();
+            hearedSomething = false;
+      
+            Destroy(gameObject);
+        }
             //GameObject objToSpawn = new GameObject("Cool GameObject made from Code");
         //objToSpawn.transform.position = gameObject.transform.position;
-        audioSource.Play();
+       
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            hearedSomething = true;
+
+            guardPatrol = collision.gameObject.transform.parent.GetComponent<GuardPatrol>();
+        }
+
+    }
+    
 
     void addSuspiciousPos(Vector3 SuspiciosPoint)
     {

@@ -244,6 +244,151 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Level 7"",
+            ""id"": ""66cf8bc6-7a09-4af7-8d8e-687936976d85"",
+            ""actions"": [
+                {
+                    ""name"": ""Strike"",
+                    ""type"": ""Button"",
+                    ""id"": ""b47e6349-1fe2-4118-a75a-6d48bd0202bc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Walk"",
+                    ""type"": ""Value"",
+                    ""id"": ""4172b513-7c85-441e-a264-a7523f588054"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Block"",
+                    ""type"": ""Button"",
+                    ""id"": ""4d635347-1904-4fbc-b8e3-6391f7cc48e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""f4c5bcdc-9b93-47bd-938b-87ffac3afaf8"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Strike"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5e8ba03-5e5e-4437-81d4-4ab25e1a15c5"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Strike"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""5edbde26-cc31-4657-8c47-fd80d6dbf4dc"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d7a5bd2c-e6c3-4462-875c-ba6a029be4e5"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""1e07aaa3-fac5-4d3b-ba7a-87e97a977ffd"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""7f5e06ad-44fc-4403-b054-7953bf16fdbd"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""368bcffe-6c53-46a8-91d2-44a0fa322650"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c204cb36-ef64-413f-9655-7772bd5076c3"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58fb5c62-f6f2-45be-860e-0506996541b5"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9176bbf6-9974-429b-8929-6d61d68386eb"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -276,6 +421,11 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_PlayerControls_Movement = m_PlayerControls.FindAction("Movement", throwIfNotFound: true);
         m_PlayerControls_StoneTrowing = m_PlayerControls.FindAction("StoneTrowing", throwIfNotFound: true);
         m_PlayerControls_ActivateThrowMode = m_PlayerControls.FindAction("ActivateThrowMode", throwIfNotFound: true);
+        // Level 7
+        m_Level7 = asset.FindActionMap("Level 7", throwIfNotFound: true);
+        m_Level7_Strike = m_Level7.FindAction("Strike", throwIfNotFound: true);
+        m_Level7_Walk = m_Level7.FindAction("Walk", throwIfNotFound: true);
+        m_Level7_Block = m_Level7.FindAction("Block", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -380,6 +530,55 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         }
     }
     public PlayerControlsActions @PlayerControls => new PlayerControlsActions(this);
+
+    // Level 7
+    private readonly InputActionMap m_Level7;
+    private ILevel7Actions m_Level7ActionsCallbackInterface;
+    private readonly InputAction m_Level7_Strike;
+    private readonly InputAction m_Level7_Walk;
+    private readonly InputAction m_Level7_Block;
+    public struct Level7Actions
+    {
+        private @Controls m_Wrapper;
+        public Level7Actions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Strike => m_Wrapper.m_Level7_Strike;
+        public InputAction @Walk => m_Wrapper.m_Level7_Walk;
+        public InputAction @Block => m_Wrapper.m_Level7_Block;
+        public InputActionMap Get() { return m_Wrapper.m_Level7; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Level7Actions set) { return set.Get(); }
+        public void SetCallbacks(ILevel7Actions instance)
+        {
+            if (m_Wrapper.m_Level7ActionsCallbackInterface != null)
+            {
+                @Strike.started -= m_Wrapper.m_Level7ActionsCallbackInterface.OnStrike;
+                @Strike.performed -= m_Wrapper.m_Level7ActionsCallbackInterface.OnStrike;
+                @Strike.canceled -= m_Wrapper.m_Level7ActionsCallbackInterface.OnStrike;
+                @Walk.started -= m_Wrapper.m_Level7ActionsCallbackInterface.OnWalk;
+                @Walk.performed -= m_Wrapper.m_Level7ActionsCallbackInterface.OnWalk;
+                @Walk.canceled -= m_Wrapper.m_Level7ActionsCallbackInterface.OnWalk;
+                @Block.started -= m_Wrapper.m_Level7ActionsCallbackInterface.OnBlock;
+                @Block.performed -= m_Wrapper.m_Level7ActionsCallbackInterface.OnBlock;
+                @Block.canceled -= m_Wrapper.m_Level7ActionsCallbackInterface.OnBlock;
+            }
+            m_Wrapper.m_Level7ActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Strike.started += instance.OnStrike;
+                @Strike.performed += instance.OnStrike;
+                @Strike.canceled += instance.OnStrike;
+                @Walk.started += instance.OnWalk;
+                @Walk.performed += instance.OnWalk;
+                @Walk.canceled += instance.OnWalk;
+                @Block.started += instance.OnBlock;
+                @Block.performed += instance.OnBlock;
+                @Block.canceled += instance.OnBlock;
+            }
+        }
+    }
+    public Level7Actions @Level7 => new Level7Actions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -403,5 +602,11 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnStoneTrowing(InputAction.CallbackContext context);
         void OnActivateThrowMode(InputAction.CallbackContext context);
+    }
+    public interface ILevel7Actions
+    {
+        void OnStrike(InputAction.CallbackContext context);
+        void OnWalk(InputAction.CallbackContext context);
+        void OnBlock(InputAction.CallbackContext context);
     }
 }

@@ -15,12 +15,14 @@ public class PlayerInputManager : MonoBehaviour
 
     public GameObject stone;
 
+    private Animator Animator;
     
     void Awake()
     {
         ActionMap = new Controls();
         PlayerRb = GetComponent<Rigidbody2D>();
- 
+
+        Animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -76,6 +78,20 @@ public class PlayerInputManager : MonoBehaviour
         {
             PlayerRb.velocity = Vector3.ClampMagnitude(PlayerRb.velocity, maxSpeed);
             //ActionMap.PlayerControls.Movement.performed += ctx => movmentDirection = ctx.ReadValue<Vector2>();
+        }
+
+        if (movmentDirection.x == 0)
+        {
+            Animator.SetBool("isWalking", false);
+        }
+        else
+        {
+            Animator.SetBool("isWalking", true);
+
+            if(movmentDirection.x < 0)
+                transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            else
+                transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
         }
     }
 

@@ -13,9 +13,13 @@ public class GuardPatrol : MonoBehaviour
 
     public GameObject TriggerPrefab;
 
+    private Animator Animator;
+
     private void Start()
     {
         lookAtDirection(transform.position, PatrolTargets[index].position);
+        Animator = GetComponent<Animator>();
+        Animator.SetBool("isWalking", true);
     }
     void FixedUpdate()
     {
@@ -23,6 +27,7 @@ public class GuardPatrol : MonoBehaviour
         { 
             transform.position = Vector2.MoveTowards(transform.position, PointOfInterest.position, 0.051f);
             lookAtDirection(transform.position, PointOfInterest.position);
+            transform.Rotate(new Vector3(0, 180, 0));
         }
             else if (patroling)
             Patrol();
@@ -35,6 +40,7 @@ public class GuardPatrol : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, PatrolTargets[index].position, 0.05f);
         lookAtDirection(transform.position, PatrolTargets[index].position);
+        transform.Rotate(new Vector3(0, 180, 0));
     }
     private void lookAtDirection(Vector3 guardPos, Vector3 TargetPos)
     {

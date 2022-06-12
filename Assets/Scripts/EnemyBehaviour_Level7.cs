@@ -16,6 +16,11 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
     public float Speed = 0.03f;
     public Facing direction = Facing.RIGHT;
 
+    public GameObject Blood;
+    private GameObject BloodHolder;
+
+    public GameObject Dead;
+
     void Start()
     {
         Animator = GetComponent<Animator>();
@@ -49,7 +54,7 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
 
     public void Action(string action)
     {
-        if (!actionPlaying || action == "hit")
+        if (!actionPlaying || action == "hit" || action == "die")
         {
             isCoolingDown = true;
             actionPlaying = true;
@@ -69,18 +74,25 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player_Weapon")
         {
-            Debug.Log("Enemy got hit.");
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(-1000, 750), ForceMode2D.Force);
+            if (BloodHolder != null)
+            {
+                Destroy(BloodHolder);
+                BloodHolder = null;
+            }
+            BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
             Action("hit");
             Health -= 1;
 
             if (Health <= 0)
-                Die();
+                Action("die");
         }
     }
 
-    private void Die()
+    public void Remove()
     {
-        Debug.Log("Enemy dead.");
+        Instantiate(Dead, transform.position, Quaternion.Euler(0, 180, -90));
+        Destroy(gameObject);
     }
 
     IEnumerator WaitForCooldown()

@@ -20,10 +20,11 @@ public class PlayerActions_Level7 : MonoBehaviour
     private float speedVert;
     public Facing direction = Facing.LEFT;
 
-    public float SpeedHorizontal = 0.03f;
-    //public float SpeedVertical = 0.03f;
+    public float Speed = 0.03f;
 
     public Collider2D Weapon;
+    public GameObject Blood;
+    private GameObject BloodHolder;
 
     public int Health = 100;
 
@@ -51,13 +52,13 @@ public class PlayerActions_Level7 : MonoBehaviour
             if (input.x < 0)
             {
                 direction = Facing.LEFT;
-                speedHori = SpeedHorizontal;
+                speedHori = Speed;
                 isWalking = true;
             }
             else if (input.x > 0)
             {
                 direction = Facing.RIGHT;
-                speedHori = SpeedHorizontal;
+                speedHori = Speed;
                 isWalking = true;
             }
             else
@@ -69,19 +70,6 @@ public class PlayerActions_Level7 : MonoBehaviour
             else
                 dir = 180;
             transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
-
-            /* if (input.y != 0)
-            {
-                if (direction == Facing.LEFT)
-                    speedVert = +(input.y * SpeedVertical);
-                else
-                    speedVert = -(input.y * SpeedVertical);
-                isWalking = true;
-            }
-            else
-            {
-                speedVert = 0;
-            } */
 
             if (input.x == 0 && input.y == 0)
                 isWalking = false;
@@ -137,8 +125,6 @@ public class PlayerActions_Level7 : MonoBehaviour
         {
             if (isBlocking)
             {
-                Debug.Log("Player blocked attack.");
-
                 Transform t = collider.transform;
 
                 while (t.parent != null)
@@ -146,6 +132,7 @@ public class PlayerActions_Level7 : MonoBehaviour
                     if (t.parent.tag == "Enemy")
                     {
                         t.parent.GetComponent<EnemyBehaviour_Level7>().Action("hit");
+                        t.parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1000, 750), ForceMode2D.Force);
                         return;
                     }
                     t = t.parent;
@@ -153,7 +140,13 @@ public class PlayerActions_Level7 : MonoBehaviour
             }
             else
             {
-                Debug.Log("Player got hit.");
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(1000, 750), ForceMode2D.Force);
+                if (BloodHolder != null)
+                {
+                    Destroy(BloodHolder);
+                    BloodHolder = null;
+                }
+                BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
                 Action("hit");
                 Health -= 1;
 

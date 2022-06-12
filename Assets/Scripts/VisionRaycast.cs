@@ -20,7 +20,7 @@ public class VisionRaycast : MonoBehaviour
     void FixedUpdate()
     {
         // Cast a ray straight down.
-        RaycastHit2D hit = Physics2D.Raycast(startPoint.position, transform.right, Mathf.Infinity, VisionLayer);       
+        RaycastHit2D hit = Physics2D.Raycast(startPoint.position, transform.right*-1, Mathf.Infinity, VisionLayer);       
         // If it hits something...
         if (hit.collider != null)   
         {
@@ -28,7 +28,7 @@ public class VisionRaycast : MonoBehaviour
         
             if (!hit.collider.IsTouchingLayers(LayerMask.GetMask("Obstruction")))
             {
-                if(hit.collider.gameObject.layer == 3)
+
                 Debug.Log(hit.collider.gameObject);
             }
             

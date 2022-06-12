@@ -9,7 +9,7 @@ public class GuardPatrol : MonoBehaviour
     int index = 0;
     bool suspicios = false;
     bool patroling = true;
-    Transform PointOfInterest;
+    Vector3 PointOfInterest;
 
     public GameObject TriggerPrefab;
 
@@ -25,8 +25,8 @@ public class GuardPatrol : MonoBehaviour
     {
         if (suspicios)
         { 
-            transform.position = Vector2.MoveTowards(transform.position, PointOfInterest.position, 0.051f);
-            lookAtDirection(transform.position, PointOfInterest.position);
+            transform.position = Vector2.MoveTowards(transform.position, PointOfInterest, 0.051f);
+            lookAtDirection(transform.position, PointOfInterest);
             transform.Rotate(new Vector3(0, 180, 0));
         }
             else if (patroling)
@@ -68,18 +68,20 @@ public class GuardPatrol : MonoBehaviour
             suspicios = false;
             index = 0;
             patroling = false;
+            Destroy(other.gameObject);
+
             //lookAtDirection(transform.position, PointOfInterest.position);
 
         }
 
     }
 
-    public void addPointofIntrest(Transform PoI)
+    public void addPointofIntrest(Vector3 PoI)
     {
         suspicios = true;
         PointOfInterest = PoI;
         GameObject trigger = 
-            Instantiate(TriggerPrefab.gameObject, PointOfInterest.transform.position, PointOfInterest.transform.rotation);
+            Instantiate(TriggerPrefab.gameObject, PointOfInterest, Quaternion.identity);
        
     }
 

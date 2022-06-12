@@ -11,7 +11,8 @@ public class Stone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        GameObject a = GameObject.Find("Audio");
+        audioSource = a.GetComponent<AudioSource>();
         //pathCreator = new PathCreation.PathCreator();
        
     }
@@ -21,12 +22,15 @@ public class Stone : MonoBehaviour
         if (collision.gameObject.layer == 9)
         { 
             if(hearedSomething)
-            guardPatrol.addPointofIntrest(gameObject.transform);
+            guardPatrol.addPointofIntrest(gameObject.transform.position);
+            audioSource.Play();
             hearedSomething = false;
+      
+            Destroy(gameObject);
         }
             //GameObject objToSpawn = new GameObject("Cool GameObject made from Code");
         //objToSpawn.transform.position = gameObject.transform.position;
-        audioSource.Play();
+       
     }
 
     private void OnTriggerStay2D(Collider2D collision)

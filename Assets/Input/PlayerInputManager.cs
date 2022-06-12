@@ -12,6 +12,7 @@ public class PlayerInputManager : MonoBehaviour
     private Vector2 ThrowDirection;
     public float maxSpeed;
     public Controls ActionMap;
+    public Transform ThrowPos;
 
     public GameObject stone;
 
@@ -65,8 +66,8 @@ public class PlayerInputManager : MonoBehaviour
     }
     void StoneThrow(InputAction.CallbackContext ctx)
     {
-        GameObject stoneInst = Instantiate(stone, transform.position, transform.rotation);
-        stoneInst.GetComponent<Rigidbody2D>().AddForce(ThrowDirection * 1000);
+        GameObject stoneInst = Instantiate(stone, ThrowPos.position, ThrowPos.rotation);
+        stoneInst.GetComponent<Rigidbody2D>().AddForce(ThrowDirection * 500);
     }
 
 

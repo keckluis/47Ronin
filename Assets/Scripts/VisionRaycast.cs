@@ -12,8 +12,8 @@ public class VisionRaycast : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        VisionLayer += LayerMask.GetMask("Player");
-        VisionLayer += LayerMask.GetMask("Obstruction");
+        //VisionLayer += LayerMask.GetMask("Player");
+        //VisionLayer += LayerMask.GetMask("Obstruction");
     }
 
     // See Order of Execution for Event Functions for information on FixedUpdate() and Update() related to physics queries
@@ -28,6 +28,7 @@ public class VisionRaycast : MonoBehaviour
         
             if (!hit.collider.IsTouchingLayers(LayerMask.GetMask("Obstruction")))
             {
+                if(hit.collider.gameObject.layer == 3)
                 Debug.Log(hit.collider.gameObject);
             }
             

@@ -38,7 +38,11 @@ public class PlayerActions_Level7 : MonoBehaviour
     {
         Animator.SetBool("isWalking", isWalking);
         if (isWalking)
+        {
             transform.Translate(-speedHori, 0, speedVert);
+            WeaponColliderOff();
+        }
+            
         if (transform.position.z > 0)
             transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
@@ -93,11 +97,6 @@ public class PlayerActions_Level7 : MonoBehaviour
     {
        actionPlaying = false;
        isWalking = walkState;
-
-        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
-        {
-            isWalking = false;
-        }
     }
 
     public void WeaponColliderOn()
@@ -132,7 +131,8 @@ public class PlayerActions_Level7 : MonoBehaviour
                     if (t.parent.tag == "Enemy")
                     {
                         t.parent.GetComponent<EnemyBehaviour_Level7>().Action("hit");
-                        t.parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1000, 750), ForceMode2D.Force);
+                        t.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                        t.parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(-20000, 0));
                         return;
                     }
                     t = t.parent;
@@ -140,7 +140,6 @@ public class PlayerActions_Level7 : MonoBehaviour
             }
             else
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(1000, 750), ForceMode2D.Force);
                 if (BloodHolder != null)
                 {
                     Destroy(BloodHolder);
@@ -149,6 +148,9 @@ public class PlayerActions_Level7 : MonoBehaviour
                 BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
                 Action("hit");
                 Health -= 1;
+                WeaponColliderOff();
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 0));
 
                 if (Health <= 0)
                     GameOver();

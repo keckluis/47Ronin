@@ -5,9 +5,10 @@ using UnityEngine;
 public class EnemyBehaviour_Level7 : MonoBehaviour
 {
     private Animator Animator;
-    private bool isWalking = false;
-    private bool actionPlaying = false;
+    public bool isWalking = false;
+    public bool actionPlaying = false;
     public bool isCoolingDown = false;
+    private bool isGettingHit = false;
 
     public GameObject Player;
     public int Health = 100;
@@ -46,9 +47,11 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
             dir = 180;
         transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
 
+        Animator.SetBool("isWalking", isWalking);
         if (isWalking)
         {
             transform.Translate(-Speed, 0, 0);
+            Animator.SetBool("isWalking", true);
         }
     }
 
@@ -60,7 +63,9 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
             actionPlaying = true;
             isWalking = false;
             Animator.SetTrigger(action);
-            StartCoroutine(WaitForCooldown());
+            if(action == "strike")
+                StartCoroutine(WaitForCooldown());
+            isGettingHit = false;
         }
     }
 
@@ -79,17 +84,23 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
                 Destroy(BloodHolder);
                 BloodHolder = null;
             }
-            BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
-            Action("hit");
-            Health -= 1;
-
+            if (!isGettingHit)
+            {
+                BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
+                Action("hit");
+                Health -= 1;
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(-20000, 0));
+                isGettingHit = true;
+                Player.GetComponent<PlayerActions_Level7>().Weapon.enabled = false;
+            }
+                
             if (Health <= 0)
             {
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 Action("die");
                 return;
             }               
-
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(-1000, 750), ForceMode2D.Force);
         }
     }
 
@@ -102,6 +113,7 @@ public class EnemyBehaviour_Level7 : MonoBehaviour
         {
             rends[i].sortingLayerName = "5";
         }
+        GameObject.Find("GuardManager").GetComponent<GuardManager>().RemoveGuard(this);
         Destroy(BloodHolder);
         Destroy(gameObject);
     }

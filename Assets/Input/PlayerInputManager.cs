@@ -23,7 +23,8 @@ public class PlayerInputManager : MonoBehaviour
         ActionMap = new Controls();
         PlayerRb = GetComponent<Rigidbody2D>();
 
-        Animator = GetComponent<Animator>();
+        if (GetComponent<Animator>() != null)
+            Animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -51,7 +52,6 @@ public class PlayerInputManager : MonoBehaviour
         ActionMap.PlayerControls.StoneTrowing.Enable();
         ActionMap.PlayerControls.Movement.Disable();
         movmentDirection = Vector2.zero;
-
 
     }
     void deactivateThrowMode(InputAction.CallbackContext ctx)
@@ -81,18 +81,21 @@ public class PlayerInputManager : MonoBehaviour
             //ActionMap.PlayerControls.Movement.performed += ctx => movmentDirection = ctx.ReadValue<Vector2>();
         }
 
-        if (movmentDirection.x == 0)
+        if (Animator != null)
         {
-            Animator.SetBool("isWalking", false);
-        }
-        else
-        {
-            Animator.SetBool("isWalking", true);
-
-            if(movmentDirection.x < 0)
-                transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            if (movmentDirection.x == 0)
+            {
+                Animator.SetBool("isWalking", false);
+            }
             else
-                transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
+            {
+                Animator.SetBool("isWalking", true);
+
+                if (movmentDirection.x < 0)
+                    transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                else
+                    transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
+            }
         }
     }
 

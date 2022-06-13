@@ -18,8 +18,12 @@ public class GuardPatrol : MonoBehaviour
     private void Start()
     {
         lookAtDirection(transform.position, PatrolTargets[index].position);
-        Animator = GetComponent<Animator>();
-        Animator.SetBool("isWalking", true);
+
+        if (GetComponent<Animator>() != null)
+        {
+            Animator = GetComponent<Animator>();
+            Animator.SetBool("isWalking", true);
+        }         
     }
     void FixedUpdate()
     {

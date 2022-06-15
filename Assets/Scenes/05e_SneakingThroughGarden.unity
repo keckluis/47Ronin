@@ -189,11 +189,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 083427100be91494f83667c36bbd02df, type: 3}
+--- !u!1 &571420209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8683467638824585958, guid: d9609dc9c7086674690629b0d796eff4, type: 3}
+  m_PrefabInstance: {fileID: 2085786806}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &583656157 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8683467638824585957, guid: d9609dc9c7086674690629b0d796eff4, type: 3}
   m_PrefabInstance: {fileID: 2085786806}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &583656160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571420209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9a4d32f43de904fbd3e47f832d0182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &635970575
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,6 +773,7 @@ MonoBehaviour:
   PatrolTargets:
   - {fileID: 583656157}
   - {fileID: 1406080761}
+  index: 0
   TriggerPrefab: {fileID: 8293855945201519279, guid: 92a2454606d06c6489f6b23932aa2b0c, type: 3}
 --- !u!50 &1218575071
 Rigidbody2D:
@@ -1142,6 +1160,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8683467638824585957, guid: d9609dc9c7086674690629b0d796eff4, type: 3}
   m_PrefabInstance: {fileID: 795754400}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1438038898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8683467638824585958, guid: d9609dc9c7086674690629b0d796eff4, type: 3}
+  m_PrefabInstance: {fileID: 795754400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1438038901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438038898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9a4d32f43de904fbd3e47f832d0182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1449876669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1990,6 +2025,7 @@ MonoBehaviour:
   PatrolTargets:
   - {fileID: 1163811987}
   - {fileID: 259240786}
+  index: 0
   TriggerPrefab: {fileID: 8293855945201519279, guid: 92a2454606d06c6489f6b23932aa2b0c, type: 3}
 --- !u!114 &2129757125
 MonoBehaviour:
@@ -2299,6 +2335,7 @@ MonoBehaviour:
   PatrolTargets:
   - {fileID: 583656157}
   - {fileID: 1406080761}
+  index: 0
   TriggerPrefab: {fileID: 8293855945201519279, guid: 92a2454606d06c6489f6b23932aa2b0c, type: 3}
 --- !u!114 &398920171672182903
 MonoBehaviour:

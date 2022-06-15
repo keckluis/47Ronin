@@ -6,7 +6,7 @@ public class GuardPatrol : MonoBehaviour
 {
     public Transform[] PatrolTargets;
     // Update is called once per frame
-    int index = 0;
+    public int index = 0;
     bool suspicios = false;
     bool patroling = true;
     Vector3 PointOfInterest;
@@ -42,10 +42,26 @@ public class GuardPatrol : MonoBehaviour
 
     private void Patrol()
     {
+        
         transform.position = Vector2.MoveTowards(transform.position, PatrolTargets[index].position, 0.05f);
         lookAtDirection(transform.position, PatrolTargets[index].position);
         transform.Rotate(new Vector3(0, 180, 0));
     }
+
+    private void findTarget()
+    {
+        if (Vector3.Distance(transform.position, PatrolTargets[0].position) > Vector3.Distance(transform.position, PatrolTargets[1].position))
+        {
+            index = 0;
+            PatrolTargets[0].GetComponent<ColliderStatus>().active = true;
+        }
+        else
+        {
+            index = 1;
+            PatrolTargets[1].GetComponent<ColliderStatus>().active = true;
+        }
+    }
+         
     private void lookAtDirection(Vector3 guardPos, Vector3 TargetPos)
     {
         if (TargetPos.x > guardPos.x)
@@ -61,11 +77,17 @@ public class GuardPatrol : MonoBehaviour
     {
         if (other.gameObject.layer == 11)
         {
-            //lookAtDirection(transform.position, PatrolTargets[index].position);
-            index++;        
-            if (index >= PatrolTargets.Length)
-                index = 0;
+            if (other.GetComponent<ColliderStatus>().active)
+            {
+                PatrolTargets[index].GetComponent<ColliderStatus>().active = false;
+                //lookAtDirection(transform.position, PatrolTargets[index].position);
+                index++;
+                if (index >= PatrolTargets.Length)
+                    index = 0;
+                PatrolTargets[index].GetComponent<ColliderStatus>().active = true;
+            }
         }
+
         if (other.gameObject.layer == 12)
         {
             StartCoroutine(Wait(2));
@@ -92,7 +114,9 @@ public class GuardPatrol : MonoBehaviour
     IEnumerator Wait(int waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        findTarget();
         patroling = true;
+        
     }
 
     private void LookAtDirection(Transform Target)

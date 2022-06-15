@@ -59,7 +59,7 @@ public class PlayerActions_Level10 : MonoBehaviour
             isShooting = true;
             Animator.SetTrigger("shoot");
             Bow.SetTrigger("shoot");
-            AudioManager.PlayClip(AudioManager.Bow);
+            AudioManager.PlayClip(0);
         }  
     }
 

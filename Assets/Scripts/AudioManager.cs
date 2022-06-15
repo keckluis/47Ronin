@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip Bow;
+    public List<AudioClip> AudioClips = new List<AudioClip>();
     private AudioSource AudioSource;
     void Start()
     {
         AudioSource = GetComponent<AudioSource>();
     }
 
-    public void PlayClip(AudioClip clip)
+    public void PlayClip(int clip)
     {
-        AudioSource.PlayOneShot(clip);
+        AudioSource.PlayOneShot(AudioClips[clip]);
+
     }
 }

@@ -7,9 +7,11 @@ public class Enemy_Behaviour_Level10 : MonoBehaviour
     private Rigidbody2D rb;
     public float Speed = 1;
     public GameObject Dead;
+    private AudioManager AudioManager;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void Update()
@@ -38,6 +40,7 @@ public class Enemy_Behaviour_Level10 : MonoBehaviour
     {
         if(collision.gameObject.tag == "Arrow")
         {
+            AudioManager.PlayClip(2);
             Die(collision.transform);
         }
     }

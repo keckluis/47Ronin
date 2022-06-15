@@ -6,7 +6,58 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main.unity
+    path: Assets/Scenes/01_Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/02_Intro.unity
+    guid: 703d1163b74cad34f978b1c94a880511
+  - enabled: 1
+    path: Assets/Scenes/03_HouseScouting.unity
+    guid: afd0567fd7eb68c408f997ddb0bf5159
+  - enabled: 1
+    path: Assets/Scenes/04_SneakingThroughGardenText.unity
+    guid: d4be5940fe4e7d445aeb3b608eec75c8
+  - enabled: 1
+    path: Assets/Scenes/05a_SneakingThroughGarden.unity
+    guid: 977aa7bc72c3292498cf54863a66e9cc
+  - enabled: 1
+    path: Assets/Scenes/05d_SneakingThroughGarden.unity
+    guid: 9017d66c74aac664dac012f4d8c1a8c9
+  - enabled: 1
+    path: Assets/Scenes/05e_SneakingThroughGarden.unity
+    guid: 284019aec63cc2d408afe334e8ee5fb9
+  - enabled: 1
+    path: Assets/Scenes/06_BattleText.unity
+    guid: 4ea86e12b1cc2104d814393b385192d7
+  - enabled: 1
+    path: Assets/Scenes/07_Battle.unity
+    guid: 19ca6c919ac4eea4e85c1654de8137fc
+  - enabled: 1
+    path: Assets/Scenes/08_AlarmBellText.unity
+    guid: 0a13245a4c10f0348938ab7d0c64b89e
+  - enabled: 1
+    path: Assets/Scenes/09_AlarmBell.unity
+    guid: ccc9853cfd3f30540be76f369eb0dee8
+  - enabled: 1
+    path: Assets/Scenes/10_FindHideoutText.unity
+    guid: 39c9bfdadfa2a834496d3d82e2430bf1
+  - enabled: 1
+    path: Assets/Scenes/11_FindHideout.unity
+    guid: 7191cc7c22835e7438a0e754d15d240e
+  - enabled: 1
+    path: Assets/Scenes/12_FoundKiraText.unity
+    guid: 35ff3cfb8ed95b2428b6c30c7624c939
+  - enabled: 1
+    path: Assets/Scenes/13_BossFight.unity
+    guid: fd4f6f05ffc2a12409d2bc04233770ef
+  - enabled: 1
+    path: Assets/Scenes/14_KiraExecution.unity
+    guid: 5bb5e12de06b8e64ebdb4f4efef4e61a
+  - enabled: 1
+    path: Assets/Scenes/15_Outro.unity
+    guid: 76093401f00a403419a37985f2e98021
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: ecac2d7db590c3246858ca6dc54529d1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 46f87ddd86ac37644b4d90332f2778f8, type: 2}

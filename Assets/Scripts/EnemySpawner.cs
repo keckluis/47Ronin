@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject GuardPrefab;
+    public int GuardTotal = 10;
+
+    private int SpawnedGuards = 0;
 
     void Start()
     {
@@ -15,7 +18,18 @@ public class EnemySpawner : MonoBehaviour
     {
         if (transform.childCount == 0)
         {
+            if (SpawnedGuards >= GuardTotal)
+            {
+                Debug.Log("SUCCESS");
+                if (GameObject.Find("SceneLoader"))
+                {
+                    GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
+                }
+                Destroy(gameObject);
+            }
+
             int groupSize = Random.Range(1, 4);
+            SpawnedGuards += groupSize;
 
             for (int i = 0; i < groupSize; i++)
             {

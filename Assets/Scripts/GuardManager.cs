@@ -26,7 +26,11 @@ public class GuardManager : MonoBehaviour
             }
             else
                 Guards[0].isWalking = false;
-        }        
+        }
+        else
+        {
+            Debug.Log("SUCCESS");
+        }
     }
 
     public void RemoveGuard(EnemyBehaviour_Level7 Guard)

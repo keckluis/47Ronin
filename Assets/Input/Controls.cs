@@ -281,7 +281,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f4c5bcdc-9b93-47bd-938b-87ffac3afaf8"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -369,7 +369,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""58fb5c62-f6f2-45be-860e-0506996541b5"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -385,6 +385,54 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Level 10"",
+            ""id"": ""5a41e674-df8c-4bba-977a-c5ce0e56eb2c"",
+            ""actions"": [
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""a62d684a-105e-46cd-bfb6-9ffef322c5d1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""e489458b-929f-4f5a-a9db-b93516af5683"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9268bd0a-9009-4d50-af14-78bbd917df3c"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6800907e-6064-4cbb-9909-7187abe24cf7"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -426,6 +474,10 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Level7_Strike = m_Level7.FindAction("Strike", throwIfNotFound: true);
         m_Level7_Walk = m_Level7.FindAction("Walk", throwIfNotFound: true);
         m_Level7_Block = m_Level7.FindAction("Block", throwIfNotFound: true);
+        // Level 10
+        m_Level10 = asset.FindActionMap("Level 10", throwIfNotFound: true);
+        m_Level10_Shoot = m_Level10.FindAction("Shoot", throwIfNotFound: true);
+        m_Level10_Aim = m_Level10.FindAction("Aim", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -579,6 +631,47 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         }
     }
     public Level7Actions @Level7 => new Level7Actions(this);
+
+    // Level 10
+    private readonly InputActionMap m_Level10;
+    private ILevel10Actions m_Level10ActionsCallbackInterface;
+    private readonly InputAction m_Level10_Shoot;
+    private readonly InputAction m_Level10_Aim;
+    public struct Level10Actions
+    {
+        private @Controls m_Wrapper;
+        public Level10Actions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_Level10_Shoot;
+        public InputAction @Aim => m_Wrapper.m_Level10_Aim;
+        public InputActionMap Get() { return m_Wrapper.m_Level10; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Level10Actions set) { return set.Get(); }
+        public void SetCallbacks(ILevel10Actions instance)
+        {
+            if (m_Wrapper.m_Level10ActionsCallbackInterface != null)
+            {
+                @Shoot.started -= m_Wrapper.m_Level10ActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_Level10ActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_Level10ActionsCallbackInterface.OnShoot;
+                @Aim.started -= m_Wrapper.m_Level10ActionsCallbackInterface.OnAim;
+                @Aim.performed -= m_Wrapper.m_Level10ActionsCallbackInterface.OnAim;
+                @Aim.canceled -= m_Wrapper.m_Level10ActionsCallbackInterface.OnAim;
+            }
+            m_Wrapper.m_Level10ActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
+            }
+        }
+    }
+    public Level10Actions @Level10 => new Level10Actions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -608,5 +701,10 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnStrike(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
+    }
+    public interface ILevel10Actions
+    {
+        void OnShoot(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
     }
 }

@@ -86,6 +86,9 @@ public class PlayerActions_Level7 : MonoBehaviour
     {
         if (!actionPlaying || action == "hit")
         {
+            if (action == "block")
+                WeaponColliderOff();
+
             actionPlaying = true;
             walkState = isWalking;
             isWalking = false;

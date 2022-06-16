@@ -246,7 +246,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Level 7"",
+            ""name"": ""Level 07"",
             ""id"": ""66cf8bc6-7a09-4af7-8d8e-687936976d85"",
             ""actions"": [
                 {
@@ -391,7 +391,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Level 10"",
+            ""name"": ""Level 09"",
             ""id"": ""5a41e674-df8c-4bba-977a-c5ce0e56eb2c"",
             ""actions"": [
                 {
@@ -437,6 +437,54 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Story"",
+            ""id"": ""bb5bc2af-5e74-4f4f-a978-24199ed0d4ce"",
+            ""actions"": [
+                {
+                    ""name"": ""Next"",
+                    ""type"": ""Button"",
+                    ""id"": ""65c64d39-5bf0-40af-881e-82ec6e79ad4e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Previous"",
+                    ""type"": ""Button"",
+                    ""id"": ""c66b24b9-cc00-440e-8d13-039f6e04f1a8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""58becf82-21e4-4fe4-82c2-e25cab52e8ea"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""56c9de12-26aa-47e6-9039-6c4d6e55e1f6"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Previous"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -469,15 +517,19 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_PlayerControls_Movement = m_PlayerControls.FindAction("Movement", throwIfNotFound: true);
         m_PlayerControls_StoneTrowing = m_PlayerControls.FindAction("StoneTrowing", throwIfNotFound: true);
         m_PlayerControls_ActivateThrowMode = m_PlayerControls.FindAction("ActivateThrowMode", throwIfNotFound: true);
-        // Level 7
-        m_Level7 = asset.FindActionMap("Level 7", throwIfNotFound: true);
-        m_Level7_Strike = m_Level7.FindAction("Strike", throwIfNotFound: true);
-        m_Level7_Walk = m_Level7.FindAction("Walk", throwIfNotFound: true);
-        m_Level7_Block = m_Level7.FindAction("Block", throwIfNotFound: true);
-        // Level 10
-        m_Level10 = asset.FindActionMap("Level 10", throwIfNotFound: true);
-        m_Level10_Shoot = m_Level10.FindAction("Shoot", throwIfNotFound: true);
-        m_Level10_Aim = m_Level10.FindAction("Aim", throwIfNotFound: true);
+        // Level 07
+        m_Level07 = asset.FindActionMap("Level 07", throwIfNotFound: true);
+        m_Level07_Strike = m_Level07.FindAction("Strike", throwIfNotFound: true);
+        m_Level07_Walk = m_Level07.FindAction("Walk", throwIfNotFound: true);
+        m_Level07_Block = m_Level07.FindAction("Block", throwIfNotFound: true);
+        // Level 09
+        m_Level09 = asset.FindActionMap("Level 09", throwIfNotFound: true);
+        m_Level09_Shoot = m_Level09.FindAction("Shoot", throwIfNotFound: true);
+        m_Level09_Aim = m_Level09.FindAction("Aim", throwIfNotFound: true);
+        // Story
+        m_Story = asset.FindActionMap("Story", throwIfNotFound: true);
+        m_Story_Next = m_Story.FindAction("Next", throwIfNotFound: true);
+        m_Story_Previous = m_Story.FindAction("Previous", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -583,39 +635,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     }
     public PlayerControlsActions @PlayerControls => new PlayerControlsActions(this);
 
-    // Level 7
-    private readonly InputActionMap m_Level7;
-    private ILevel7Actions m_Level7ActionsCallbackInterface;
-    private readonly InputAction m_Level7_Strike;
-    private readonly InputAction m_Level7_Walk;
-    private readonly InputAction m_Level7_Block;
-    public struct Level7Actions
+    // Level 07
+    private readonly InputActionMap m_Level07;
+    private ILevel07Actions m_Level07ActionsCallbackInterface;
+    private readonly InputAction m_Level07_Strike;
+    private readonly InputAction m_Level07_Walk;
+    private readonly InputAction m_Level07_Block;
+    public struct Level07Actions
     {
         private @Controls m_Wrapper;
-        public Level7Actions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Strike => m_Wrapper.m_Level7_Strike;
-        public InputAction @Walk => m_Wrapper.m_Level7_Walk;
-        public InputAction @Block => m_Wrapper.m_Level7_Block;
-        public InputActionMap Get() { return m_Wrapper.m_Level7; }
+        public Level07Actions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Strike => m_Wrapper.m_Level07_Strike;
+        public InputAction @Walk => m_Wrapper.m_Level07_Walk;
+        public InputAction @Block => m_Wrapper.m_Level07_Block;
+        public InputActionMap Get() { return m_Wrapper.m_Level07; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(Level7Actions set) { return set.Get(); }
-        public void SetCallbacks(ILevel7Actions instance)
+        public static implicit operator InputActionMap(Level07Actions set) { return set.Get(); }
+        public void SetCallbacks(ILevel07Actions instance)
         {
-            if (m_Wrapper.m_Level7ActionsCallbackInterface != null)
+            if (m_Wrapper.m_Level07ActionsCallbackInterface != null)
             {
-                @Strike.started -= m_Wrapper.m_Level7ActionsCallbackInterface.OnStrike;
-                @Strike.performed -= m_Wrapper.m_Level7ActionsCallbackInterface.OnStrike;
-                @Strike.canceled -= m_Wrapper.m_Level7ActionsCallbackInterface.OnStrike;
-                @Walk.started -= m_Wrapper.m_Level7ActionsCallbackInterface.OnWalk;
-                @Walk.performed -= m_Wrapper.m_Level7ActionsCallbackInterface.OnWalk;
-                @Walk.canceled -= m_Wrapper.m_Level7ActionsCallbackInterface.OnWalk;
-                @Block.started -= m_Wrapper.m_Level7ActionsCallbackInterface.OnBlock;
-                @Block.performed -= m_Wrapper.m_Level7ActionsCallbackInterface.OnBlock;
-                @Block.canceled -= m_Wrapper.m_Level7ActionsCallbackInterface.OnBlock;
+                @Strike.started -= m_Wrapper.m_Level07ActionsCallbackInterface.OnStrike;
+                @Strike.performed -= m_Wrapper.m_Level07ActionsCallbackInterface.OnStrike;
+                @Strike.canceled -= m_Wrapper.m_Level07ActionsCallbackInterface.OnStrike;
+                @Walk.started -= m_Wrapper.m_Level07ActionsCallbackInterface.OnWalk;
+                @Walk.performed -= m_Wrapper.m_Level07ActionsCallbackInterface.OnWalk;
+                @Walk.canceled -= m_Wrapper.m_Level07ActionsCallbackInterface.OnWalk;
+                @Block.started -= m_Wrapper.m_Level07ActionsCallbackInterface.OnBlock;
+                @Block.performed -= m_Wrapper.m_Level07ActionsCallbackInterface.OnBlock;
+                @Block.canceled -= m_Wrapper.m_Level07ActionsCallbackInterface.OnBlock;
             }
-            m_Wrapper.m_Level7ActionsCallbackInterface = instance;
+            m_Wrapper.m_Level07ActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Strike.started += instance.OnStrike;
@@ -630,36 +682,36 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             }
         }
     }
-    public Level7Actions @Level7 => new Level7Actions(this);
+    public Level07Actions @Level07 => new Level07Actions(this);
 
-    // Level 10
-    private readonly InputActionMap m_Level10;
-    private ILevel10Actions m_Level10ActionsCallbackInterface;
-    private readonly InputAction m_Level10_Shoot;
-    private readonly InputAction m_Level10_Aim;
-    public struct Level10Actions
+    // Level 09
+    private readonly InputActionMap m_Level09;
+    private ILevel09Actions m_Level09ActionsCallbackInterface;
+    private readonly InputAction m_Level09_Shoot;
+    private readonly InputAction m_Level09_Aim;
+    public struct Level09Actions
     {
         private @Controls m_Wrapper;
-        public Level10Actions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Shoot => m_Wrapper.m_Level10_Shoot;
-        public InputAction @Aim => m_Wrapper.m_Level10_Aim;
-        public InputActionMap Get() { return m_Wrapper.m_Level10; }
+        public Level09Actions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_Level09_Shoot;
+        public InputAction @Aim => m_Wrapper.m_Level09_Aim;
+        public InputActionMap Get() { return m_Wrapper.m_Level09; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(Level10Actions set) { return set.Get(); }
-        public void SetCallbacks(ILevel10Actions instance)
+        public static implicit operator InputActionMap(Level09Actions set) { return set.Get(); }
+        public void SetCallbacks(ILevel09Actions instance)
         {
-            if (m_Wrapper.m_Level10ActionsCallbackInterface != null)
+            if (m_Wrapper.m_Level09ActionsCallbackInterface != null)
             {
-                @Shoot.started -= m_Wrapper.m_Level10ActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_Level10ActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_Level10ActionsCallbackInterface.OnShoot;
-                @Aim.started -= m_Wrapper.m_Level10ActionsCallbackInterface.OnAim;
-                @Aim.performed -= m_Wrapper.m_Level10ActionsCallbackInterface.OnAim;
-                @Aim.canceled -= m_Wrapper.m_Level10ActionsCallbackInterface.OnAim;
+                @Shoot.started -= m_Wrapper.m_Level09ActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_Level09ActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_Level09ActionsCallbackInterface.OnShoot;
+                @Aim.started -= m_Wrapper.m_Level09ActionsCallbackInterface.OnAim;
+                @Aim.performed -= m_Wrapper.m_Level09ActionsCallbackInterface.OnAim;
+                @Aim.canceled -= m_Wrapper.m_Level09ActionsCallbackInterface.OnAim;
             }
-            m_Wrapper.m_Level10ActionsCallbackInterface = instance;
+            m_Wrapper.m_Level09ActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Shoot.started += instance.OnShoot;
@@ -671,7 +723,48 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             }
         }
     }
-    public Level10Actions @Level10 => new Level10Actions(this);
+    public Level09Actions @Level09 => new Level09Actions(this);
+
+    // Story
+    private readonly InputActionMap m_Story;
+    private IStoryActions m_StoryActionsCallbackInterface;
+    private readonly InputAction m_Story_Next;
+    private readonly InputAction m_Story_Previous;
+    public struct StoryActions
+    {
+        private @Controls m_Wrapper;
+        public StoryActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Next => m_Wrapper.m_Story_Next;
+        public InputAction @Previous => m_Wrapper.m_Story_Previous;
+        public InputActionMap Get() { return m_Wrapper.m_Story; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(StoryActions set) { return set.Get(); }
+        public void SetCallbacks(IStoryActions instance)
+        {
+            if (m_Wrapper.m_StoryActionsCallbackInterface != null)
+            {
+                @Next.started -= m_Wrapper.m_StoryActionsCallbackInterface.OnNext;
+                @Next.performed -= m_Wrapper.m_StoryActionsCallbackInterface.OnNext;
+                @Next.canceled -= m_Wrapper.m_StoryActionsCallbackInterface.OnNext;
+                @Previous.started -= m_Wrapper.m_StoryActionsCallbackInterface.OnPrevious;
+                @Previous.performed -= m_Wrapper.m_StoryActionsCallbackInterface.OnPrevious;
+                @Previous.canceled -= m_Wrapper.m_StoryActionsCallbackInterface.OnPrevious;
+            }
+            m_Wrapper.m_StoryActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Next.started += instance.OnNext;
+                @Next.performed += instance.OnNext;
+                @Next.canceled += instance.OnNext;
+                @Previous.started += instance.OnPrevious;
+                @Previous.performed += instance.OnPrevious;
+                @Previous.canceled += instance.OnPrevious;
+            }
+        }
+    }
+    public StoryActions @Story => new StoryActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -696,15 +789,20 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnStoneTrowing(InputAction.CallbackContext context);
         void OnActivateThrowMode(InputAction.CallbackContext context);
     }
-    public interface ILevel7Actions
+    public interface ILevel07Actions
     {
         void OnStrike(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
     }
-    public interface ILevel10Actions
+    public interface ILevel09Actions
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+    }
+    public interface IStoryActions
+    {
+        void OnNext(InputAction.CallbackContext context);
+        void OnPrevious(InputAction.CallbackContext context);
     }
 }

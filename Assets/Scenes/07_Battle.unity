@@ -2389,15 +2389,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1169994953}
-  VisibleDistance: 15
+  VisibleDistance: 12
   Guards:
-  - {fileID: 2066076867}
-  - {fileID: 1542117386}
-  - {fileID: 1700728203}
-  - {fileID: 1136073200}
-  - {fileID: 689842554}
-  - {fileID: 834741667}
-  - {fileID: 829266010}
+  - {fileID: 2066076872}
+  - {fileID: 1542117390}
+  - {fileID: 1700728207}
+  - {fileID: 1136073204}
+  - {fileID: 689842558}
+  - {fileID: 834741671}
+  - {fileID: 829266014}
 --- !u!4 &625101058
 Transform:
   m_ObjectHideFlags: 0
@@ -2720,29 +2720,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 79f4c88ca3a49874691aa860f64e5d2d, type: 3}
   m_PrefabInstance: {fileID: 1000405818}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &689842554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689842552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWalking: 0
-  actionPlaying: 0
-  isCoolingDown: 0
-  Player: {fileID: 1169994950}
-  Health: 3
-  Range: 3
-  Cooldown: 2
-  Speed: 0.03
-  direction: 1
-  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
-  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!95 &689842555
 Animator:
   serializedVersion: 4
@@ -2800,6 +2777,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &689842558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689842552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWalking: 0
+  actionPlaying: 0
+  isCoolingDown: 0
+  Player: {fileID: 1169994950}
+  Health: 3
+  Range: 3
+  Cooldown: 2
+  Speed: 0.05
+  direction: 1
+  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
+  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!1001 &710867528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4060,29 +4060,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 79f4c88ca3a49874691aa860f64e5d2d, type: 3}
   m_PrefabInstance: {fileID: 728960174}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &829266010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829266008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWalking: 0
-  actionPlaying: 0
-  isCoolingDown: 0
-  Player: {fileID: 1169994950}
-  Health: 3
-  Range: 3
-  Cooldown: 2
-  Speed: 0.03
-  direction: 1
-  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
-  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!95 &829266011
 Animator:
   serializedVersion: 4
@@ -4140,6 +4117,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &829266014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829266008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWalking: 0
+  actionPlaying: 0
+  isCoolingDown: 0
+  Player: {fileID: 1169994950}
+  Health: 3
+  Range: 3
+  Cooldown: 2
+  Speed: 0.05
+  direction: 1
+  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
+  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!1001 &831522438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4372,29 +4372,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 79f4c88ca3a49874691aa860f64e5d2d, type: 3}
   m_PrefabInstance: {fileID: 56775538}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &834741667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834741665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWalking: 0
-  actionPlaying: 0
-  isCoolingDown: 0
-  Player: {fileID: 1169994950}
-  Health: 3
-  Range: 3
-  Cooldown: 2
-  Speed: 0.03
-  direction: 1
-  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
-  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!95 &834741668
 Animator:
   serializedVersion: 4
@@ -4452,6 +4429,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &834741671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834741665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWalking: 0
+  actionPlaying: 0
+  isCoolingDown: 0
+  Player: {fileID: 1169994950}
+  Health: 3
+  Range: 3
+  Cooldown: 2
+  Speed: 0.05
+  direction: 1
+  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
+  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!1001 &881212827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6179,29 +6179,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 79f4c88ca3a49874691aa860f64e5d2d, type: 3}
   m_PrefabInstance: {fileID: 1109180359}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1136073200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136073198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWalking: 0
-  actionPlaying: 0
-  isCoolingDown: 0
-  Player: {fileID: 1169994950}
-  Health: 3
-  Range: 3
-  Cooldown: 2
-  Speed: 0.03
-  direction: 1
-  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
-  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!95 &1136073201
 Animator:
   serializedVersion: 4
@@ -6259,6 +6236,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1136073204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136073198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWalking: 0
+  actionPlaying: 0
+  isCoolingDown: 0
+  Player: {fileID: 1169994950}
+  Health: 3
+  Range: 3
+  Cooldown: 2
+  Speed: 0.05
+  direction: 1
+  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
+  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!1 &1167161485
 GameObject:
   m_ObjectHideFlags: 0
@@ -7026,7 +7026,7 @@ MonoBehaviour:
   Speed: 0.1
   Weapon: {fileID: 1691408662}
   Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
-  Health: 100
+  Health: 10
 --- !u!4 &1169994953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: f56d6c283f151404c840c3ed65ad8354, type: 3}
@@ -7072,7 +7072,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1169994952}
-        m_TargetAssemblyTypeName: PlayerActions_Level7, Assembly-CSharp
+        m_TargetAssemblyTypeName: PlayerActions_Level07, Assembly-CSharp
         m_MethodName: Action
         m_Mode: 5
         m_Arguments:
@@ -7141,9 +7141,17 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4d635347-1904-4fbc-b8e3-6391f7cc48e1
     m_ActionName: Level 7/Block[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a62d684a-105e-46cd-bfb6-9ffef322c5d1
+    m_ActionName: Level 09/Shoot[/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e489458b-929f-4f5a-a9db-b93516af5683
+    m_ActionName: Level 09/Aim[/XInputControllerWindows/rightStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Xbox Gamepad
-  m_DefaultActionMap: Level 7
+  m_DefaultActionMap: Level 07
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!70 &1169994955
@@ -7728,29 +7736,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 79f4c88ca3a49874691aa860f64e5d2d, type: 3}
   m_PrefabInstance: {fileID: 1615985104}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1542117386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542117384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWalking: 0
-  actionPlaying: 0
-  isCoolingDown: 0
-  Player: {fileID: 1169994950}
-  Health: 3
-  Range: 3
-  Cooldown: 2
-  Speed: 0.03
-  direction: 1
-  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
-  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!95 &1542117387
 Animator:
   serializedVersion: 4
@@ -7808,6 +7793,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1542117390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542117384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWalking: 0
+  actionPlaying: 0
+  isCoolingDown: 0
+  Player: {fileID: 1169994950}
+  Health: 3
+  Range: 3
+  Cooldown: 2
+  Speed: 0.05
+  direction: 1
+  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
+  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!1 &1571004365 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: 79f4c88ca3a49874691aa860f64e5d2d, type: 3}
@@ -8639,29 +8647,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 79f4c88ca3a49874691aa860f64e5d2d, type: 3}
   m_PrefabInstance: {fileID: 1908002134}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1700728203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700728201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWalking: 0
-  actionPlaying: 0
-  isCoolingDown: 0
-  Player: {fileID: 1169994950}
-  Health: 3
-  Range: 3
-  Cooldown: 2
-  Speed: 0.03
-  direction: 1
-  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
-  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!95 &1700728204
 Animator:
   serializedVersion: 4
@@ -8719,6 +8704,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1700728207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700728201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWalking: 0
+  actionPlaying: 0
+  isCoolingDown: 0
+  Player: {fileID: 1169994950}
+  Health: 3
+  Range: 3
+  Cooldown: 2
+  Speed: 0.05
+  direction: 1
+  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
+  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!1 &1726159219 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: f56d6c283f151404c840c3ed65ad8354, type: 3}
@@ -10542,29 +10550,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2066076867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066076865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWalking: 0
-  actionPlaying: 0
-  isCoolingDown: 0
-  Player: {fileID: 1169994950}
-  Health: 3
-  Range: 3
-  Cooldown: 2
-  Speed: 0.03
-  direction: 1
-  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
-  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!4 &2066076868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 79f4c88ca3a49874691aa860f64e5d2d, type: 3}
@@ -10607,6 +10592,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2066076872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066076865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d52141944228fa4f9a06a6d4ca33edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWalking: 0
+  actionPlaying: 0
+  isCoolingDown: 0
+  Player: {fileID: 1169994950}
+  Health: 3
+  Range: 3
+  Cooldown: 2
+  Speed: 0.05
+  direction: 1
+  Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
+  Dead: {fileID: 1252291791044205984, guid: 4022ed1d24ab4834ab73428f3e3a3e7b, type: 3}
 --- !u!1 &2076895751
 GameObject:
   m_ObjectHideFlags: 0

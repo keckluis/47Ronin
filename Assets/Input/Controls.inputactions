@@ -224,7 +224,7 @@
             ]
         },
         {
-            "name": "Level 7",
+            "name": "Level 07",
             "id": "66cf8bc6-7a09-4af7-8d8e-687936976d85",
             "actions": [
                 {
@@ -369,7 +369,7 @@
             ]
         },
         {
-            "name": "Level 10",
+            "name": "Level 09",
             "id": "5a41e674-df8c-4bba-977a-c5ce0e56eb2c",
             "actions": [
                 {
@@ -411,6 +411,54 @@
                     "processors": "",
                     "groups": "",
                     "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Story",
+            "id": "bb5bc2af-5e74-4f4f-a978-24199ed0d4ce",
+            "actions": [
+                {
+                    "name": "Next",
+                    "type": "Button",
+                    "id": "65c64d39-5bf0-40af-881e-82ec6e79ad4e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Previous",
+                    "type": "Button",
+                    "id": "c66b24b9-cc00-440e-8d13-039f6e04f1a8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "58becf82-21e4-4fe4-82c2-e25cab52e8ea",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "56c9de12-26aa-47e6-9039-6c4d6e55e1f6",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Previous",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

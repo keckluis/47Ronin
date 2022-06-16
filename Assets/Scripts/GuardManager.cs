@@ -6,7 +6,7 @@ public class GuardManager : MonoBehaviour
 {
     public Transform Player;
     public float VisibleDistance = 0;
-    public List<EnemyBehaviour_Level7> Guards = new List<EnemyBehaviour_Level7>();
+    public List<EnemyBehaviour_Level07> Guards = new List<EnemyBehaviour_Level07>();
 
     void Update()
     {
@@ -33,10 +33,10 @@ public class GuardManager : MonoBehaviour
         }
     }
 
-    public void RemoveGuard(EnemyBehaviour_Level7 Guard)
+    public void RemoveGuard(EnemyBehaviour_Level07 Guard)
     {
-        EnemyBehaviour_Level7 g;
-        foreach(EnemyBehaviour_Level7 guard in Guards)
+        EnemyBehaviour_Level07 g;
+        foreach(EnemyBehaviour_Level07 guard in Guards)
         {
             if(guard == Guard)
             {

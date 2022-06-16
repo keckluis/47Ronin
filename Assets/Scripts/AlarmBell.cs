@@ -9,7 +9,7 @@ public class AlarmBell : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(collision.GetComponent<Enemy_Behaviour_Level10>());
+            Destroy(collision.GetComponent<EnemyBehaviour_Level09>());
             Destroy(collision.GetComponent<Animator>());
             AudioManager.PlayClip(1);
             StartCoroutine(GameOver());

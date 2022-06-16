@@ -190,6 +190,8 @@ MonoBehaviour:
   - -26250
   - -27400
   - -29429
+  TextFileName: 02_Intro
+  Text: {fileID: 1588506830}
 --- !u!114 &330697404
 MonoBehaviour:
   m_ObjectHideFlags: 0

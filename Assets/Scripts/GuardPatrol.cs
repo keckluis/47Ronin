@@ -77,7 +77,7 @@ public class GuardPatrol : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.layer == 11)
+        if (other.gameObject.layer == 11 && other.gameObject.Equals(PatrolTargets[index].gameObject))
         {
             Debug.Log("s");
             if (other.GetComponent<ColliderStatus>().active)

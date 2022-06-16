@@ -16,8 +16,7 @@ public class PlayerActions_Level07 : MonoBehaviour
     private bool walkState;
     public bool isBlocking = false;
    
-    private float speedHori;
-    private float speedVert;
+    private float speed;
     public Facing direction = Facing.LEFT;
 
     public float Speed = 0.03f;
@@ -39,7 +38,7 @@ public class PlayerActions_Level07 : MonoBehaviour
         Animator.SetBool("isWalking", isWalking);
         if (isWalking)
         {
-            transform.Translate(-speedHori, 0, speedVert);
+            transform.Translate(-speed, 0, 0);
             WeaponColliderOff();
         }
             
@@ -56,17 +55,17 @@ public class PlayerActions_Level07 : MonoBehaviour
             if (input.x < 0)
             {
                 direction = Facing.LEFT;
-                speedHori = Speed;
+                speed = Speed;
                 isWalking = true;
             }
             else if (input.x > 0)
             {
                 direction = Facing.RIGHT;
-                speedHori = Speed;
+                speed = Speed;
                 isWalking = true;
             }
             else
-                speedHori = 0;
+                speed = 0;
 
             float dir;
             if (direction == Facing.LEFT)

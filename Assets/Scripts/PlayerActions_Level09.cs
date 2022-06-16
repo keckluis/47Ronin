@@ -9,10 +9,11 @@ public class PlayerActions_Level09 : MonoBehaviour
     private Animator Animator;
     public Animator Bow;
     private bool isShooting = false;
-    private bool isAiming = false;
+    [SerializeField] private bool isAiming = false;
     public Transform Arrow;
     public GameObject ArrowPrefab;
     public AudioManager AudioManager;
+    public PlayerInput PlayerInput;
 
     private float x = 0;
     private float y = 0;
@@ -20,6 +21,38 @@ public class PlayerActions_Level09 : MonoBehaviour
     private void Start()
     {
         Animator = GetComponent<Animator>();
+        PlayerInput = GetComponent<PlayerInput>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && isAiming)
+        {
+            Shoot();
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            isAiming = true;
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            isAiming = false;
+        }
+        if (Input.GetMouseButton(1))
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
+
+            Vector2 mp = new Vector2(mousePos.x, mousePos.y);
+            mp.Normalize();
+            float angle = Mathf.Atan2(mp.y, mp.x) * Mathf.Rad2Deg;
+            x = mp.x;
+            y = mp.y;
+
+            if (x > 0)
+                return;
+
+            Spine.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        } 
     }
 
     public void Aim(InputAction.CallbackContext context)

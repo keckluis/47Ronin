@@ -10,8 +10,11 @@ public class GuardPatrol : MonoBehaviour
     bool suspicios = false;
     bool patroling = true;
     Vector3 PointOfInterest;
-
+    public GameObject detectionStatusIcon;
     public GameObject TriggerPrefab;
+    
+
+    public bool detected { get; set; } = false;
 
     private Animator Animator;
 
@@ -35,9 +38,6 @@ public class GuardPatrol : MonoBehaviour
         }
             else if (patroling)
             Patrol();
-
-
-           
     }
 
     private void Patrol()
@@ -104,11 +104,15 @@ public class GuardPatrol : MonoBehaviour
 
     public void addPointofIntrest(Vector3 PoI)
     {
-        suspicios = true;
-        PointOfInterest = PoI;
-        GameObject trigger = 
-            Instantiate(TriggerPrefab.gameObject, PointOfInterest, Quaternion.identity);
-       
+        if (!detected)
+        {
+            suspicios = true;
+            PointOfInterest = PoI;
+            GameObject trigger =
+                Instantiate(TriggerPrefab.gameObject, PointOfInterest, Quaternion.identity);
+            detectionStatusIcon.SetActive(true);
+
+        }
     }
 
     IEnumerator Wait(int waitTime)
@@ -116,8 +120,8 @@ public class GuardPatrol : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         findTarget();
         patroling = true;
-        
-    }
+        detectionStatusIcon.SetActive(false);
+}
 
     private void LookAtDirection(Transform Target)
     {

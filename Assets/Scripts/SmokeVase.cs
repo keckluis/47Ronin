@@ -10,7 +10,8 @@ public class SmokeVase : MonoBehaviour
     {
         if(collision.gameObject.layer == 8)
         {
-            GameObject SmokeCloadInst = GameObject.Instantiate(SmokeCload, transform.position, transform.rotation);
+            Vector3 SmokeOffset = new Vector3(transform.position.x - 0.15f, transform.position.y + 1.239f, transform.position.z);
+            GameObject SmokeCloadInst = GameObject.Instantiate(SmokeCload, SmokeOffset, transform.rotation);
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }

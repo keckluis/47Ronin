@@ -26,7 +26,8 @@ public class GuardPatrol : MonoBehaviour
         {
             Animator = GetComponent<Animator>();
             Animator.SetBool("isWalking", true);
-        }         
+        }
+        PatrolTargets[0].GetComponent<ColliderStatus>().active = true;
     }
     void FixedUpdate()
     {
@@ -75,10 +76,13 @@ public class GuardPatrol : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.gameObject.layer == 11)
         {
+            Debug.Log("s");
             if (other.GetComponent<ColliderStatus>().active)
             {
+                Debug.Log("s1");
                 PatrolTargets[index].GetComponent<ColliderStatus>().active = false;
                 //lookAtDirection(transform.position, PatrolTargets[index].position);
                 index++;

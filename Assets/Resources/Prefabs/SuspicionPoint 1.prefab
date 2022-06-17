@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8293855945201519277}
   - component: {fileID: 8293855945201519278}
   m_Layer: 12
-  m_Name: SuspicionPoint
+  m_Name: SuspicionPoint 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

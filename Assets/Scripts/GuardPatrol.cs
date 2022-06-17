@@ -12,6 +12,16 @@ public class GuardPatrol : MonoBehaviour
     Vector3 PointOfInterest;
     public GameObject detectionStatusIcon;
     public GameObject TriggerPrefab;
+    public GameObject SpawnPoint;
+
+
+    public bool patrolGuard = true;
+    private bool returning = false;
+
+    private GameObject SpawnpointInst;
+
+    public Vector2 GuardingPos;
+    public Vector3 GuardingDirection;
     
 
     public bool detected { get; set; } = false;
@@ -20,25 +30,42 @@ public class GuardPatrol : MonoBehaviour
 
     private void Start()
     {
-        lookAtDirection(transform.position, PatrolTargets[index].position);
-
+        if (patrolGuard) 
+        {
+            lookAtDirection(transform.position, PatrolTargets[index].position);
+            PatrolTargets[0].GetComponent<ColliderStatus>().active = true;
+        }
+        else
+        {
+            SpawnpointInst = Instantiate(SpawnPoint, transform.position, Quaternion.identity);
+        }
         if (GetComponent<Animator>() != null)
         {
             Animator = GetComponent<Animator>();
             Animator.SetBool("isWalking", true);
         }
-        PatrolTargets[0].GetComponent<ColliderStatus>().active = true;
+       
+            
+        GuardingPos = transform.position;
+        GuardingDirection = transform.eulerAngles;
     }
     void FixedUpdate()
     {
-        if (suspicios)
-        { 
-            transform.position = Vector2.MoveTowards(transform.position, PointOfInterest, 0.051f);
-            lookAtDirection(transform.position, PointOfInterest);
-            transform.Rotate(new Vector3(0, 180, 0));
-        }
-            else if (patroling)
+        if (suspicios && !returning)
+            moveToSuspicion();
+        else if (patroling && patrolGuard)
             Patrol();
+        else if (!patrolGuard && returning)
+            returnToGuardPost();
+        Debug.Log(returning);
+    }
+
+    private void moveToSuspicion()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, PointOfInterest, 0.051f);
+        lookAtDirection(transform.position, PointOfInterest);
+        transform.Rotate(new Vector3(0, 180, 0));
+        Debug.Log("ssss");
     }
 
     private void Patrol()
@@ -48,18 +75,29 @@ public class GuardPatrol : MonoBehaviour
         lookAtDirection(transform.position, PatrolTargets[index].position);
         transform.Rotate(new Vector3(0, 180, 0));
     }
+    private void returnToGuardPost()
+    {
+    
+        transform.position = Vector2.MoveTowards(transform.position, SpawnpointInst.transform.position, 0.05f);
+        lookAtDirection(transform.position, GuardingPos);
+        transform.Rotate(new Vector3(0, 180, 0));
+   
+    }
 
     private void findTarget()
     {
-        if (Vector3.Distance(transform.position, PatrolTargets[0].position) > Vector3.Distance(transform.position, PatrolTargets[1].position))
+        if (patrolGuard)
         {
-            index = 0;
-            PatrolTargets[0].GetComponent<ColliderStatus>().active = true;
-        }
-        else
-        {
-            index = 1;
-            PatrolTargets[1].GetComponent<ColliderStatus>().active = true;
+            if (Vector3.Distance(transform.position, PatrolTargets[0].position) > Vector3.Distance(transform.position, PatrolTargets[1].position))
+            {
+                index = 0;
+                PatrolTargets[0].GetComponent<ColliderStatus>().active = true;
+            }
+            else
+            {
+                index = 1;
+                PatrolTargets[1].GetComponent<ColliderStatus>().active = true;
+            }
         }
     }
          
@@ -76,7 +114,7 @@ public class GuardPatrol : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-
+        Debug.Log(other.gameObject);
         if (other.gameObject.layer == 11 && other.gameObject.Equals(PatrolTargets[index].gameObject))
         {
             Debug.Log("s");
@@ -96,12 +134,19 @@ public class GuardPatrol : MonoBehaviour
         {
             StartCoroutine(Wait(2));
             suspicios = false;
+            
             index = 0;
             patroling = false;
+            Debug.Log("sre");
             Destroy(other.gameObject);
-
+            
             //lookAtDirection(transform.position, PointOfInterest.position);
 
+        }
+        if(other.gameObject.layer == 15 && returning)
+        {
+            returning = false;
+            
         }
 
     }
@@ -115,6 +160,7 @@ public class GuardPatrol : MonoBehaviour
             GameObject trigger =
                 Instantiate(TriggerPrefab.gameObject, PointOfInterest, Quaternion.identity);
             detectionStatusIcon.SetActive(true);
+          
 
         }
     }
@@ -125,11 +171,6 @@ public class GuardPatrol : MonoBehaviour
         findTarget();
         patroling = true;
         detectionStatusIcon.SetActive(false);
-}
-
-    private void LookAtDirection(Transform Target)
-    {
-       
+        returning = true;
     }
-
 }

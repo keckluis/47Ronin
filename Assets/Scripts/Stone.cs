@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Stone : MonoBehaviour
 {
-    public PathCreation.PathCreator pathCreator;
     AudioSource audioSource;
     public GuardPatrol guardPatrol;
+    public StandingGuard standingGuard;
     private bool hearedSomething;
     // Start is called before the first frame update
     void Start()
@@ -20,9 +20,14 @@ public class Stone : MonoBehaviour
     {
         Debug.Log(collision.gameObject);
         if (collision.gameObject.layer == 9)
-        { 
-            if(hearedSomething)
-            guardPatrol.addPointofIntrest(gameObject.transform.position);
+        {
+            if (hearedSomething)
+            {
+                //if (collision.gameObject.transform.parent.GetComponent<GuardPatrol>() != null)
+                    guardPatrol.addPointofIntrest(gameObject.transform.position);
+               // else if (collision.gameObject.transform.parent.GetComponent<StandingGuard>() != null)
+                  //  standingGuard = collision.gameObject.transform.parent.GetComponent<StandingGuard>();
+            }
             audioSource.Play();
             hearedSomething = false;
       
@@ -38,13 +43,16 @@ public class Stone : MonoBehaviour
         if (collision.gameObject.layer == 10)
         {
             hearedSomething = true;
-
-            guardPatrol = collision.gameObject.transform.parent.GetComponent<GuardPatrol>();
+           // if(collision.gameObject.transform.parent.GetComponent<GuardPatrol>() != null)
+                guardPatrol = collision.gameObject.transform.parent.GetComponent<GuardPatrol>();
+           // else if (collision.gameObject.transform.parent.GetComponent<StandingGuard>() != null)
+             //   standingGuard = collision.gameObject.transform.parent.GetComponent<StandingGuard>();
+                
         }
 
     }
     
-
+    /*
     void addSuspiciousPos(Vector3 SuspiciosPoint)
     {
         int length = (int)(pathCreator.path.length - 1);
@@ -62,4 +70,5 @@ public class Stone : MonoBehaviour
             //pathCreator.bezierPath.SetPoint(0, SuspiciosPoint);
         }
     }
+    */
 }

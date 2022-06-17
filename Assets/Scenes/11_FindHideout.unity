@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d26e9a1051d154e80b97f14375b130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Outline: 0.05
+  Outline: 2
   OutlineVisible: 0
   Player: {fileID: 1181421063}
   Radius: 2
@@ -761,7 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d26e9a1051d154e80b97f14375b130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Outline: 0.05
+  Outline: 2
   OutlineVisible: 0
   Player: {fileID: 1181421063}
   Radius: 1.7
@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d26e9a1051d154e80b97f14375b130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Outline: 0.05
+  Outline: 2
   OutlineVisible: 0
   Player: {fileID: 1181421063}
   Radius: 2.5
@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d26e9a1051d154e80b97f14375b130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Outline: 0.05
+  Outline: 2
   OutlineVisible: 0
   Player: {fileID: 1181421063}
   Radius: 3.2
@@ -1596,7 +1596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d26e9a1051d154e80b97f14375b130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Outline: 0.05
+  Outline: 2
   OutlineVisible: 0
   Player: {fileID: 1181421063}
   Radius: 2.5
@@ -1865,7 +1865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d26e9a1051d154e80b97f14375b130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Outline: 0.05
+  Outline: 2
   OutlineVisible: 0
   Player: {fileID: 1181421063}
   Radius: 3.5

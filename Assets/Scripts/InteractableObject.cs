@@ -25,13 +25,15 @@ public class InteractableObject : MonoBehaviour
         sr.sortingLayerName = "2";
 
         float a = transform.localScale.x / transform.localScale.y;
-
+        
         if (a > 1)
-            copy.transform.localScale = new Vector3(1 + Outline, 1 + (Outline * a), 1);
-        else
         {
             a = transform.localScale.y / transform.localScale.x;
             copy.transform.localScale = new Vector3(1 + (Outline * a), 1 + Outline, 1);
+        }   
+        else
+        {  
+            copy.transform.localScale = new Vector3(1 + Outline, 1 + (Outline * a), 1);
         }
         copy.SetActive(false);  
     }

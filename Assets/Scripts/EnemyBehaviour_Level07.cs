@@ -59,13 +59,11 @@ public class EnemyBehaviour_Level07 : MonoBehaviour
     {
         if (!actionPlaying || action == "hit" || action == "die")
         {
-            isCoolingDown = true;
+            isCoolingDown = true; 
+            StartCoroutine(WaitForCooldown());
             actionPlaying = true;
             isWalking = false;
             Animator.SetTrigger(action);
-            if(action == "strike")
-                StartCoroutine(WaitForCooldown());
-            isGettingHit = false;
         }
     }
 
@@ -73,6 +71,7 @@ public class EnemyBehaviour_Level07 : MonoBehaviour
     {
         actionPlaying = false;
         isWalking = false;
+        isGettingHit = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

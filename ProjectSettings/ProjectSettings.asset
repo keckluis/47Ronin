@@ -571,7 +571,7 @@ PlayerSettings:
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  webGLDecompressionFallback: 0
+  webGLDecompressionFallback: 1
   scriptingDefineSymbols:
     Android: PROBUILDER_EXPERIMENTAL_FEATURES
     CloudRendering: PROBUILDER_EXPERIMENTAL_FEATURES

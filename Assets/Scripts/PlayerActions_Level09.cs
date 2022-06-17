@@ -33,10 +33,12 @@ public class PlayerActions_Level09 : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             isAiming = true;
+            Cursor.visible = false;
         }
         if (Input.GetMouseButtonUp(1))
         {
             isAiming = false;
+            Cursor.visible = true;
         }
         if (Input.GetMouseButton(1))
         {

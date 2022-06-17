@@ -13,7 +13,7 @@ public class PlayerActions_Level07 : MonoBehaviour
     private Animator Animator;
     private bool isWalking = false;
     private bool actionPlaying = false;
-    private bool walkState;
+    //private bool walkState;
     public bool isBlocking = false;
    
     private float speed;
@@ -89,7 +89,7 @@ public class PlayerActions_Level07 : MonoBehaviour
                 WeaponColliderOff();
 
             actionPlaying = true;
-            walkState = isWalking;
+            //walkState = isWalking;
             isWalking = false;
             Animator.SetTrigger(action);
         }   
@@ -98,7 +98,7 @@ public class PlayerActions_Level07 : MonoBehaviour
     public void ActionFinished()
     {
        actionPlaying = false;
-       isWalking = walkState;
+       //isWalking = walkState;
     }
 
     public void WeaponColliderOn()

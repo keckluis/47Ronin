@@ -1,4 +1,4 @@
-# Emakimono
+# 47 Rōnin
 ## Coding da Vinci 2022 project  
   
 [GAME](https://keckluis.github.io/Emakimono/WebGLBuilds/01/index.html)  

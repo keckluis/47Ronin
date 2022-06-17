@@ -7,10 +7,11 @@ public class GuardManager : MonoBehaviour
     public Transform Player;
     public float VisibleDistance = 0;
     public List<EnemyBehaviour_Level07> Guards = new List<EnemyBehaviour_Level07>();
+    private bool allKilled = false;
 
     void Update()
     {
-        if(Guards.Count > 0)
+        if(Guards.Count > 0 && !allKilled)
         {
             if (Player.position.x - Guards[0].transform.position.x < VisibleDistance)
             {
@@ -27,9 +28,11 @@ public class GuardManager : MonoBehaviour
             else
                 Guards[0].isWalking = false;
         }
-        else
+        else if(!allKilled)
         {
             Debug.Log("SUCCESS");
+            allKilled = true;
+            StartCoroutine(LevelEnd());
         }
     }
 
@@ -45,5 +48,14 @@ public class GuardManager : MonoBehaviour
                 return;
             }
         }            
+    }
+
+    IEnumerator LevelEnd()
+    {
+        yield return new WaitForSeconds(3);
+        if (GameObject.Find("SceneLoader"))
+        {
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
+        }
     }
 }

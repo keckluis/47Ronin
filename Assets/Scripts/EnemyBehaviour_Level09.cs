@@ -31,6 +31,7 @@ public class EnemyBehaviour_Level09 : MonoBehaviour
         ArrowTransform.localPosition = new Vector3(0, 0.5f, 0);
         Destroy(ArrowTransform.gameObject.GetComponent<Rigidbody2D>());
         Destroy(ArrowTransform.gameObject.GetComponent<Collider2D>());
+        ArrowTransform.GetComponent<SpriteRenderer>().enabled = true;
 
         for (int i = 0; i < rends.Length; i++)
         {
@@ -45,6 +46,8 @@ public class EnemyBehaviour_Level09 : MonoBehaviour
         {
             AudioManager.PlayClip(2);
             ArrowTransform = collision.transform;
+            Destroy(collision.GetComponent<Collider2D>());
+            collision.GetComponent<SpriteRenderer>().enabled = false;
             Animator.SetTrigger("die");
         }
     }

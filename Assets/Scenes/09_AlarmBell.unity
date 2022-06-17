@@ -1225,6 +1225,8 @@ GameObject:
   m_Component:
   - component: {fileID: 781668594}
   - component: {fileID: 781668593}
+  - component: {fileID: 781668596}
+  - component: {fileID: 781668595}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -1292,13 +1294,51 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781668592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.56, y: -3.174, z: 0}
+  m_LocalPosition: {x: 9.46, y: -3.174, z: 0}
   m_LocalScale: {x: 3, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &781668595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781668592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8673a04654cdc0d4f8056e2191cdbe39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &781668596
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781668592}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &785097065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,7 +1434,7 @@ MonoBehaviour:
   - {fileID: 1853832657}
   - {fileID: 1374956140}
   m_Bounds:
-    m_Center: {x: -0.007780552, y: -0.004879236, z: 0}
+    m_Center: {x: -0.007780552, y: -0.004877329, z: 0}
     m_Extent: {x: 1.1274629, y: 0.93704903, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -2438,7 +2478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: 8b1847d5843633243b973558775b4a23, type: 3}
       propertyPath: m_Name
-      value: "Ronin_Sch\xFCtze_stehend"
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: -7612134745388893277, guid: 8b1847d5843633243b973558775b4a23, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2474,7 +2514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 8b1847d5843633243b973558775b4a23, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.398
+      value: 9.03
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 8b1847d5843633243b973558775b4a23, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2965,6 +3005,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 38d6c9fd-3848-43cf-a943-dd613300ab8a
     m_ActionName: Level 11/Interact[/XInputControllerWindows/buttonSouth,/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f27d72c7-ebd2-4964-80f3-b6e7deff3ec6
+    m_ActionName: Story/Skip[/XInputControllerWindows/buttonWest,/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Level 09
@@ -2984,6 +3028,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spine: {fileID: 2121221289}
   Bow: {fileID: 824333664}
+  isAiming: 0
   Arrow: {fileID: 1807711629}
   ArrowPrefab: {fileID: 8262177630945020084, guid: 866b35d8d76efd148b07b472b2c5ac06, type: 3}
   AudioManager: {fileID: 774350194}
+  PlayerInput: {fileID: 0}

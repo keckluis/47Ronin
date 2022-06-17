@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
 
     private int SpawnedGuards = 0;
 
+    private bool allKilled = false;
+
     void Start()
     {
         SpawnGuard(0, 5);
@@ -18,24 +20,24 @@ public class EnemySpawner : MonoBehaviour
     {
         if (transform.childCount == 0)
         {
-            if (SpawnedGuards >= GuardTotal)
+            if (SpawnedGuards >= GuardTotal && !allKilled)
             {
                 Debug.Log("SUCCESS");
-                if (GameObject.Find("SceneLoader"))
-                {
-                    GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
-                }
-                Destroy(gameObject);
+                allKilled = true;
+                StartCoroutine(LevelEnd());
             }
 
-            int groupSize = Random.Range(1, 4);
-            int speed = Random.Range(3, 7);
-            SpawnedGuards += groupSize;
-
-            for (int i = 0; i < groupSize; i++)
+            if (!allKilled)
             {
-                SpawnGuard(i * 1, speed);
-            }     
+                int groupSize = Random.Range(1, 4);
+                int speed = Random.Range(3, 10);
+                SpawnedGuards += groupSize;
+
+                for (int i = 0; i < groupSize; i++)
+                {
+                    SpawnGuard(i * 1, speed);
+                }
+            }        
         }
     }
 
@@ -44,5 +46,14 @@ public class EnemySpawner : MonoBehaviour
         GameObject guard = Instantiate(GuardPrefab, this.transform);
         guard.transform.Translate(new Vector3(dist, 0, 0));
         guard.GetComponent<EnemyBehaviour_Level09>().Speed = speed;
+    }
+
+    IEnumerator LevelEnd()
+    {
+        yield return new WaitForSeconds(3);
+        if (GameObject.Find("SceneLoader"))
+        {
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
+        }
     }
 }

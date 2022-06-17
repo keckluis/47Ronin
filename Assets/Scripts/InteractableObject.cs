@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InteractableObject : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class InteractableObject : MonoBehaviour
     public float Outline = 0.05f;
     public bool OutlineVisible = false;
     public Transform Player;
+    public float Radius = 10;
+    public bool Interacted = false;
+
     void Start()
     {
         copy = Instantiate(gameObject, transform);
@@ -34,8 +38,28 @@ public class InteractableObject : MonoBehaviour
 
     void Update()
     {
-        copy.SetActive(OutlineVisible); 
+        if((Player.position - transform.position).magnitude < Radius)
+        {
+            OutlineVisible = true;
+        }
+        else
+        {
+            OutlineVisible = false;
+        }
 
-        //Set active when player is near
+        copy.SetActive(OutlineVisible); 
+    }
+
+    public void Interaction(string text)
+    {
+        Interacted = true;
+        Player.GetComponent<PlayerActions_Level11>().Text.GetComponent<TextMeshProUGUI>().text = text;
+        StartCoroutine(RemoveText());
+    }
+
+    IEnumerator RemoveText()
+    {
+        yield return new WaitForSeconds(5);
+        Player.GetComponent<PlayerActions_Level11>().Text.GetComponent<TextMeshProUGUI>().text = "";
     }
 }

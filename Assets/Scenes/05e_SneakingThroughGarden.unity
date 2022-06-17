@@ -1603,7 +1603,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8653719598885068355, guid: c0d0d8c22e57ad44d88fabe52ff81e14, type: 3}
       propertyPath: m_Name
-      value: Ronin_Kiras_Garten
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: c0d0d8c22e57ad44d88fabe52ff81e14, type: 3}
       propertyPath: m_Layer

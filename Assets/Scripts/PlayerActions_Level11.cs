@@ -13,6 +13,8 @@ public class PlayerActions_Level11 : MonoBehaviour
     private float speedHori;
     private float speedVert;
 
+    public GameObject Text;
+
     void Start()
     {
         Animator = GetComponent<Animator>();
@@ -25,11 +27,6 @@ public class PlayerActions_Level11 : MonoBehaviour
         {
             transform.Translate(-speedHori, speedVert, 0);
         }
-    }
-
-    public void Interact()
-    {
-
     }
 
     public void Walk(InputAction.CallbackContext context)
@@ -66,6 +63,7 @@ public class PlayerActions_Level11 : MonoBehaviour
             else
                 dir = 180;
             transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
+            Text.transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
         }
     }
 }

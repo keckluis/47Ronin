@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -22,9 +21,10 @@ public class SceneLoader : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-#if (UNITY_EDITOR)
+
     private void Update()
     {
+#if (UNITY_EDITOR)
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             LoadNextScene();
@@ -34,21 +34,22 @@ public class SceneLoader : MonoBehaviour
         {
             LoadGameOver();
         }
-    }
 #endif
 
-    public void LoadNextScene()
-    {
-        if (loadScene == false)
-        {
-            loadScene = true;
-            StartCoroutine(LoadNewScene());
-        }
-
-        if (loadScene == true)
+        if (loadScene)
         {
             Canvas.SetActive(true);
             LoadingText.color = new Color(LoadingText.color.r, LoadingText.color.g, LoadingText.color.b, Mathf.PingPong(Time.time, 1));
+        }
+    }
+
+
+    public void LoadNextScene()
+    {
+        if (!loadScene)
+        {
+            loadScene = true;
+            StartCoroutine(LoadNewScene());
         }
     }
 

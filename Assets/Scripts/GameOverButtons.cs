@@ -17,6 +17,10 @@ public class GameOverButtons : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();
+        if (GameObject.Find("SceneLoader"))
+        {
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().NextScene = 0;        
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();      
+        }
     }
 }

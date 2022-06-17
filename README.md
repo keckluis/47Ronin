@@ -1,7 +1,8 @@
 # Emakimono
-## Coding da Vinci 2022 project
-
-[GAME](https://keckluis.github.io/Emakimono/WebGLBuilds/01/index.html)
+## Coding da Vinci 2022 project  
+  
+[GAME](https://keckluis.github.io/Emakimono/WebGLBuilds/01/index.html)  
+  
 The storie of the 47 Rōnin on Japanese scrolls are to be brought to life in a game. This will be implemented in a sidescroller that allows players to control the characters themselves and experience key scenes in minigames. The graphics will be taken directly from the scrolls to keep the original style of the images.
 
 The project is supported by the Stadtmuseum Hornmoldhaus in Bietigheim-Bissingen. The dataset for this project consists of 10 high-resolution photographs of Japanese picture scrolls.

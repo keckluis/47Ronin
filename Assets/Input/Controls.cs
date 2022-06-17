@@ -459,6 +459,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""f27d72c7-ebd2-4964-80f3-b6e7deff3ec6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -503,6 +512,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Previous"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7888aa6c-5b98-48eb-a7e3-cdfd6aed35fd"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a22c919c-1210-4870-aeec-6f768349ba16"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -666,6 +697,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Story = asset.FindActionMap("Story", throwIfNotFound: true);
         m_Story_Next = m_Story.FindAction("Next", throwIfNotFound: true);
         m_Story_Previous = m_Story.FindAction("Previous", throwIfNotFound: true);
+        m_Story_Skip = m_Story.FindAction("Skip", throwIfNotFound: true);
         // Level 11
         m_Level11 = asset.FindActionMap("Level 11", throwIfNotFound: true);
         m_Level11_Walk = m_Level11.FindAction("Walk", throwIfNotFound: true);
@@ -870,12 +902,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private IStoryActions m_StoryActionsCallbackInterface;
     private readonly InputAction m_Story_Next;
     private readonly InputAction m_Story_Previous;
+    private readonly InputAction m_Story_Skip;
     public struct StoryActions
     {
         private @Controls m_Wrapper;
         public StoryActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Next => m_Wrapper.m_Story_Next;
         public InputAction @Previous => m_Wrapper.m_Story_Previous;
+        public InputAction @Skip => m_Wrapper.m_Story_Skip;
         public InputActionMap Get() { return m_Wrapper.m_Story; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -891,6 +925,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Previous.started -= m_Wrapper.m_StoryActionsCallbackInterface.OnPrevious;
                 @Previous.performed -= m_Wrapper.m_StoryActionsCallbackInterface.OnPrevious;
                 @Previous.canceled -= m_Wrapper.m_StoryActionsCallbackInterface.OnPrevious;
+                @Skip.started -= m_Wrapper.m_StoryActionsCallbackInterface.OnSkip;
+                @Skip.performed -= m_Wrapper.m_StoryActionsCallbackInterface.OnSkip;
+                @Skip.canceled -= m_Wrapper.m_StoryActionsCallbackInterface.OnSkip;
             }
             m_Wrapper.m_StoryActionsCallbackInterface = instance;
             if (instance != null)
@@ -901,6 +938,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Previous.started += instance.OnPrevious;
                 @Previous.performed += instance.OnPrevious;
                 @Previous.canceled += instance.OnPrevious;
+                @Skip.started += instance.OnSkip;
+                @Skip.performed += instance.OnSkip;
+                @Skip.canceled += instance.OnSkip;
             }
         }
     }
@@ -985,6 +1025,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     {
         void OnNext(InputAction.CallbackContext context);
         void OnPrevious(InputAction.CallbackContext context);
+        void OnSkip(InputAction.CallbackContext context);
     }
     public interface ILevel11Actions
     {

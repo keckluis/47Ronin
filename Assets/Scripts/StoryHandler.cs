@@ -15,11 +15,13 @@ public class StoryHandler : MonoBehaviour
     public string TextFileName;
     public TextMeshProUGUI Text;
 
-    private int currentPos = 0;
+    [SerializeField]private int currentPos = 0;
     private bool isMoving = false;
     static float t = 0.0f;
 
     private List<string> Texts;
+
+    public GameObject ControlsRight;
 
     private void Start()
     {
@@ -39,17 +41,30 @@ public class StoryHandler : MonoBehaviour
                 isMoving = false;
             }
         }
+
+        if (currentPos == 0)
+            ControlsRight.SetActive(false);
+        else
+            ControlsRight.SetActive(true);
     }
 
     public void Next()
     {
-        if (currentPos + 1 < Positions.Count && !isMoving)
+        if (!isMoving)
         {
-            isMoving = true;
-            currentPos += 1;
+            if (currentPos + 1 < Positions.Count)
+            {
+                isMoving = true;
+                currentPos += 1;
 
-            Text.text = Texts[currentPos];
-        }    
+                Text.text = Texts[currentPos];
+            }
+            else if (GameObject.Find("SceneLoader"))
+            {
+                GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
+            }
+        }
+               
     }
 
     public void Previous()
@@ -61,6 +76,17 @@ public class StoryHandler : MonoBehaviour
 
             Text.text = Texts[currentPos];
         }      
+    }
+
+    public void Skip()
+    {
+        if (currentPos < Positions.Count && !isMoving)
+        {
+            isMoving = true;
+            currentPos = Positions.Count - 1;
+
+            Text.text = Texts[currentPos];
+        }
     }
 }
 

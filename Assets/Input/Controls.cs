@@ -246,7 +246,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Level 07"",
+            ""name"": ""Level 07 + 13"",
             ""id"": ""66cf8bc6-7a09-4af7-8d8e-687936976d85"",
             ""actions"": [
                 {
@@ -684,11 +684,11 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_PlayerControls_Movement = m_PlayerControls.FindAction("Movement", throwIfNotFound: true);
         m_PlayerControls_StoneTrowing = m_PlayerControls.FindAction("StoneTrowing", throwIfNotFound: true);
         m_PlayerControls_ActivateThrowMode = m_PlayerControls.FindAction("ActivateThrowMode", throwIfNotFound: true);
-        // Level 07
-        m_Level07 = asset.FindActionMap("Level 07", throwIfNotFound: true);
-        m_Level07_Strike = m_Level07.FindAction("Strike", throwIfNotFound: true);
-        m_Level07_Walk = m_Level07.FindAction("Walk", throwIfNotFound: true);
-        m_Level07_Block = m_Level07.FindAction("Block", throwIfNotFound: true);
+        // Level 07 + 13
+        m_Level0713 = asset.FindActionMap("Level 07 + 13", throwIfNotFound: true);
+        m_Level0713_Strike = m_Level0713.FindAction("Strike", throwIfNotFound: true);
+        m_Level0713_Walk = m_Level0713.FindAction("Walk", throwIfNotFound: true);
+        m_Level0713_Block = m_Level0713.FindAction("Block", throwIfNotFound: true);
         // Level 09
         m_Level09 = asset.FindActionMap("Level 09", throwIfNotFound: true);
         m_Level09_Shoot = m_Level09.FindAction("Shoot", throwIfNotFound: true);
@@ -807,39 +807,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     }
     public PlayerControlsActions @PlayerControls => new PlayerControlsActions(this);
 
-    // Level 07
-    private readonly InputActionMap m_Level07;
-    private ILevel07Actions m_Level07ActionsCallbackInterface;
-    private readonly InputAction m_Level07_Strike;
-    private readonly InputAction m_Level07_Walk;
-    private readonly InputAction m_Level07_Block;
-    public struct Level07Actions
+    // Level 07 + 13
+    private readonly InputActionMap m_Level0713;
+    private ILevel0713Actions m_Level0713ActionsCallbackInterface;
+    private readonly InputAction m_Level0713_Strike;
+    private readonly InputAction m_Level0713_Walk;
+    private readonly InputAction m_Level0713_Block;
+    public struct Level0713Actions
     {
         private @Controls m_Wrapper;
-        public Level07Actions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Strike => m_Wrapper.m_Level07_Strike;
-        public InputAction @Walk => m_Wrapper.m_Level07_Walk;
-        public InputAction @Block => m_Wrapper.m_Level07_Block;
-        public InputActionMap Get() { return m_Wrapper.m_Level07; }
+        public Level0713Actions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Strike => m_Wrapper.m_Level0713_Strike;
+        public InputAction @Walk => m_Wrapper.m_Level0713_Walk;
+        public InputAction @Block => m_Wrapper.m_Level0713_Block;
+        public InputActionMap Get() { return m_Wrapper.m_Level0713; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(Level07Actions set) { return set.Get(); }
-        public void SetCallbacks(ILevel07Actions instance)
+        public static implicit operator InputActionMap(Level0713Actions set) { return set.Get(); }
+        public void SetCallbacks(ILevel0713Actions instance)
         {
-            if (m_Wrapper.m_Level07ActionsCallbackInterface != null)
+            if (m_Wrapper.m_Level0713ActionsCallbackInterface != null)
             {
-                @Strike.started -= m_Wrapper.m_Level07ActionsCallbackInterface.OnStrike;
-                @Strike.performed -= m_Wrapper.m_Level07ActionsCallbackInterface.OnStrike;
-                @Strike.canceled -= m_Wrapper.m_Level07ActionsCallbackInterface.OnStrike;
-                @Walk.started -= m_Wrapper.m_Level07ActionsCallbackInterface.OnWalk;
-                @Walk.performed -= m_Wrapper.m_Level07ActionsCallbackInterface.OnWalk;
-                @Walk.canceled -= m_Wrapper.m_Level07ActionsCallbackInterface.OnWalk;
-                @Block.started -= m_Wrapper.m_Level07ActionsCallbackInterface.OnBlock;
-                @Block.performed -= m_Wrapper.m_Level07ActionsCallbackInterface.OnBlock;
-                @Block.canceled -= m_Wrapper.m_Level07ActionsCallbackInterface.OnBlock;
+                @Strike.started -= m_Wrapper.m_Level0713ActionsCallbackInterface.OnStrike;
+                @Strike.performed -= m_Wrapper.m_Level0713ActionsCallbackInterface.OnStrike;
+                @Strike.canceled -= m_Wrapper.m_Level0713ActionsCallbackInterface.OnStrike;
+                @Walk.started -= m_Wrapper.m_Level0713ActionsCallbackInterface.OnWalk;
+                @Walk.performed -= m_Wrapper.m_Level0713ActionsCallbackInterface.OnWalk;
+                @Walk.canceled -= m_Wrapper.m_Level0713ActionsCallbackInterface.OnWalk;
+                @Block.started -= m_Wrapper.m_Level0713ActionsCallbackInterface.OnBlock;
+                @Block.performed -= m_Wrapper.m_Level0713ActionsCallbackInterface.OnBlock;
+                @Block.canceled -= m_Wrapper.m_Level0713ActionsCallbackInterface.OnBlock;
             }
-            m_Wrapper.m_Level07ActionsCallbackInterface = instance;
+            m_Wrapper.m_Level0713ActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Strike.started += instance.OnStrike;
@@ -854,7 +854,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             }
         }
     }
-    public Level07Actions @Level07 => new Level07Actions(this);
+    public Level0713Actions @Level0713 => new Level0713Actions(this);
 
     // Level 09
     private readonly InputActionMap m_Level09;
@@ -1010,7 +1010,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnStoneTrowing(InputAction.CallbackContext context);
         void OnActivateThrowMode(InputAction.CallbackContext context);
     }
-    public interface ILevel07Actions
+    public interface ILevel0713Actions
     {
         void OnStrike(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);

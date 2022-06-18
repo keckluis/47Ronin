@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuardManager : MonoBehaviour
+public class GuardManager_Level07 : MonoBehaviour
 {
     public Transform Player;
     public float VisibleDistance = 0;

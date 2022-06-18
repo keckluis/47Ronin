@@ -8538,9 +8538,29 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e489458b-929f-4f5a-a9db-b93516af5683
     m_ActionName: Level 09/Aim[/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 65c64d39-5bf0-40af-881e-82ec6e79ad4e
+    m_ActionName: Story/Next[/XInputControllerWindows/leftTrigger,/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c66b24b9-cc00-440e-8d13-039f6e04f1a8
+    m_ActionName: Story/Previous[/XInputControllerWindows/rightTrigger,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f27d72c7-ebd2-4964-80f3-b6e7deff3ec6
+    m_ActionName: Story/Skip[/XInputControllerWindows/buttonWest,/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d7b28675-a7e4-4448-807d-c2a032904c4c
+    m_ActionName: Level 11/Walk[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 38d6c9fd-3848-43cf-a943-dd613300ab8a
+    m_ActionName: Level 11/Interact[/XInputControllerWindows/buttonSouth,/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Xbox Gamepad
-  m_DefaultActionMap: Level 07
+  m_DefaultActionMap: Level 07 + 13
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!70 &1169994955

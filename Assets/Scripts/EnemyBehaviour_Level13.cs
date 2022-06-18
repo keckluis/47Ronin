@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour_Level07 : MonoBehaviour
+public class EnemyBehaviour_Level13 : MonoBehaviour
 {
     private Animator Animator;
     public bool isWalking = false;
@@ -59,7 +59,7 @@ public class EnemyBehaviour_Level07 : MonoBehaviour
     {
         if (!actionPlaying || action == "hit" || action == "die")
         {
-            isCoolingDown = true; 
+            isCoolingDown = true;
             StartCoroutine(WaitForCooldown());
             actionPlaying = true;
             isWalking = false;
@@ -77,7 +77,7 @@ public class EnemyBehaviour_Level07 : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player_Weapon")
-        {          
+        {
             if (BloodHolder != null)
             {
                 Destroy(BloodHolder);
@@ -89,17 +89,17 @@ public class EnemyBehaviour_Level07 : MonoBehaviour
                 Action("hit");
                 Health -= 1;
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(-20000, 0));
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(-40000, 0));
                 isGettingHit = true;
-                Player.GetComponent<PlayerActions_Level07>().Weapon.enabled = false;
+                Player.GetComponent<PlayerActions_Level13>().Weapon.enabled = false;
             }
-                
+
             if (Health <= 0)
             {
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 Action("die");
                 return;
-            }               
+            }
         }
     }
 
@@ -110,9 +110,9 @@ public class EnemyBehaviour_Level07 : MonoBehaviour
 
         for (int i = 0; i < rends.Length; i++)
         {
-            rends[i].sortingLayerName = "5";
+            rends[i].sortingLayerName = "3";
         }
-        GameObject.Find("GuardManager").GetComponent<GuardManager_Level07>().RemoveGuard(this);
+        GameObject.Find("GuardManager").GetComponent<GuardManager_Level13>().RemoveGuard(this);
         Destroy(BloodHolder);
         Destroy(gameObject);
     }

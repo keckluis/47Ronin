@@ -3,19 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum Facing
-{
-    LEFT,
-    RIGHT
-}
-public class PlayerActions_Level07 : MonoBehaviour
+public class PlayerActions_Level13 : MonoBehaviour
 {
     private Animator Animator;
     private bool isWalking = false;
     private bool actionPlaying = false;
-    //private bool walkState;
-    public bool isBlocking = false;
-   
+
     private float speed;
     public Facing direction = Facing.LEFT;
 
@@ -26,6 +19,8 @@ public class PlayerActions_Level07 : MonoBehaviour
     private GameObject BloodHolder;
 
     public int Health = 100;
+
+    public List<Transform> Ronins;
 
     void Start()
     {
@@ -40,6 +35,28 @@ public class PlayerActions_Level07 : MonoBehaviour
         {
             transform.Translate(-speed, 0, 0);
             WeaponColliderOff();
+
+            if (Ronins[0].position.x > transform.position.x + 4)
+            {
+                foreach (Transform ronin in Ronins)
+                {
+                    ronin.Translate(-speed, 0, 0);
+                    ronin.GetComponent<Animator>().SetBool("isWalking", true);
+                    float dir;
+                    if (direction == Facing.LEFT)
+                        dir = 0;
+                    else
+                        dir = 180;
+                    ronin.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
+                }
+            } 
+        }
+        else
+        {
+            foreach (Transform ronin in Ronins)
+            {
+                ronin.GetComponent<Animator>().SetBool("isWalking", false);
+            }
         }
     }
 
@@ -82,20 +99,16 @@ public class PlayerActions_Level07 : MonoBehaviour
     {
         if (!actionPlaying || action == "hit")
         {
-            if (action == "block")
-                WeaponColliderOff();
-
             actionPlaying = true;
-            //walkState = isWalking;
             isWalking = false;
             Animator.SetTrigger(action);
-        }   
+        }
     }
 
     public void ActionFinished()
     {
-       actionPlaying = false;
-       //isWalking = walkState;
+        actionPlaying = false;
+        WeaponColliderOff();
     }
 
     public void WeaponColliderOn()
@@ -108,52 +121,31 @@ public class PlayerActions_Level07 : MonoBehaviour
         Weapon.enabled = false;
     }
 
-    public void StartBlock()
+    public void Dodge()
     {
-        isBlocking = true;
-    }
-    public void EndBlock()
-    {
-        isBlocking = false;
+        WeaponColliderOff();
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(300, 0));
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Enemy_Weapon")
         {
-            if (isBlocking)
+            if (BloodHolder != null)
             {
-                Transform t = collider.transform;
-
-                while (t.parent != null)
-                {
-                    if (t.parent.tag == "Enemy")
-                    {
-                        t.parent.GetComponent<EnemyBehaviour_Level07>().Action("hit");
-                        t.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                        t.parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(-20000, 0));
-                        return;
-                    }
-                    t = t.parent;
-                }
+                Destroy(BloodHolder);
+                BloodHolder = null;
             }
-            else
-            {
-                if (BloodHolder != null)
-                {
-                    Destroy(BloodHolder);
-                    BloodHolder = null;
-                }
-                BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
-                Action("hit");
-                Health -= 1;
-                WeaponColliderOff();
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 0));
+            BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
+            Action("hit");
+            Health -= 1;
+            WeaponColliderOff();
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 0));
 
-                if (Health <= 0)
-                    GameOver();
-            }
+            if (Health <= 0)
+                GameOver();
         }
     }
 

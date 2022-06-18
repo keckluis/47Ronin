@@ -266,6 +266,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1516334804278928175, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: patrolGuard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516334804278928175, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
       propertyPath: PatrolTargets.Array.data[0]
       value: 
       objectReference: {fileID: 8926208878187257790}

@@ -17,27 +17,34 @@ public class EnemyBehaviour_Level13 : MonoBehaviour
     public float Speed = 0.03f;
     public Facing direction = Facing.RIGHT;
 
+    public Collider2D Weapon;
+
     public GameObject Blood;
     private GameObject BloodHolder;
 
     public GameObject Dead;
 
+    public AudioManager AudioManager;
+
     void Start()
     {
         Animator = GetComponent<Animator>();
+        WeaponColliderOff();
     }
 
     void Update()
     {
         float distance = transform.position.x - Player.transform.position.x;
 
-        if (direction == Facing.RIGHT && distance > -Range && distance <= 0 && !isCoolingDown)
+        if (direction == Facing.RIGHT && distance > -Range && distance <= 0 && !isCoolingDown && !actionPlaying)
         {
             Action("strike");
+            WeaponColliderOn();
         }
-        else if (direction == Facing.LEFT && distance < Range && distance >= 0 && !isCoolingDown)
+        else if (direction == Facing.LEFT && distance < Range && distance >= 0 && !isCoolingDown && !actionPlaying)
         {
             Action("strike");
+            WeaponColliderOn();
         }
 
         float dir;
@@ -50,6 +57,7 @@ public class EnemyBehaviour_Level13 : MonoBehaviour
         Animator.SetBool("isWalking", isWalking);
         if (isWalking)
         {
+            WeaponColliderOff();
             transform.Translate(-Speed, 0, 0);
             Animator.SetBool("isWalking", true);
         }
@@ -74,6 +82,17 @@ public class EnemyBehaviour_Level13 : MonoBehaviour
         isGettingHit = false;
     }
 
+    public void WeaponColliderOn()
+    {
+        Weapon.enabled = true;
+        AudioManager.PlayClip(0);
+    }
+
+    public void WeaponColliderOff()
+    {
+        Weapon.enabled = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player_Weapon")
@@ -87,6 +106,7 @@ public class EnemyBehaviour_Level13 : MonoBehaviour
             {
                 BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
                 Action("hit");
+                AudioManager.PlayClip(1);
                 Health -= 1;
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(-40000, 0));

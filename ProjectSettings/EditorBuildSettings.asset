@@ -51,7 +51,7 @@ EditorBuildSettings:
     path: Assets/Scenes/13_BossFight.unity
     guid: fd4f6f05ffc2a12409d2bc04233770ef
   - enabled: 1
-    path: Assets/Scenes/14_KiraExecution.unity
+    path: Assets/Scenes/14_KiraExecutionText.unity
     guid: 5bb5e12de06b8e64ebdb4f4efef4e61a
   - enabled: 1
     path: Assets/Scenes/15_Outro.unity

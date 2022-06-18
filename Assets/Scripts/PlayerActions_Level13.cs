@@ -21,6 +21,7 @@ public class PlayerActions_Level13 : MonoBehaviour
     public int Health = 100;
 
     public List<Transform> Ronins;
+    public AudioManager AudioManager;
 
     void Start()
     {
@@ -123,9 +124,10 @@ public class PlayerActions_Level13 : MonoBehaviour
 
     public void Dodge()
     {
+        AudioManager.PlayClip(2);
         WeaponColliderOff();
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(300, 0));
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(300, 50));
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -139,6 +141,8 @@ public class PlayerActions_Level13 : MonoBehaviour
             }
             BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
             Action("hit");
+            AudioManager.PlayClip(1);
+            
             Health -= 1;
             WeaponColliderOff();
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;

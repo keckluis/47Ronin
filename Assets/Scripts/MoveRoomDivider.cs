@@ -6,6 +6,7 @@ public class MoveRoomDivider : MonoBehaviour
 {
     Animator Animator;
     InteractableObject RoomDivider;
+    
     void Start()
     {
         Animator = GetComponent<Animator>();
@@ -19,22 +20,11 @@ public class MoveRoomDivider : MonoBehaviour
             if (RoomDivider.Interacted)
             {
                 Animator.enabled = true;
-                Debug.Log("SUCCESS");
-                StartCoroutine(LevelEnd());
             }
         }
         else
         {
             RoomDivider = GetComponent<InteractableObject>();
-        }
-    }
-
-    IEnumerator LevelEnd()
-    {
-        yield return new WaitForSeconds(5);
-        if (GameObject.Find("SceneLoader"))
-        {
-            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
         }
     }
 }

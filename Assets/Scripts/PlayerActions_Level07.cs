@@ -26,6 +26,7 @@ public class PlayerActions_Level07 : MonoBehaviour
     private GameObject BloodHolder;
 
     public int Health = 100;
+    public AudioManager AudioManager;
 
     void Start()
     {
@@ -101,6 +102,7 @@ public class PlayerActions_Level07 : MonoBehaviour
     public void WeaponColliderOn()
     {
         Weapon.enabled = true;
+        AudioManager.PlayClip(0);
     }
 
     public void WeaponColliderOff()
@@ -130,6 +132,7 @@ public class PlayerActions_Level07 : MonoBehaviour
                     if (t.parent.tag == "Enemy")
                     {
                         t.parent.GetComponent<EnemyBehaviour_Level07>().Action("hit");
+                        AudioManager.PlayClip(2);
                         t.parent.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                         t.parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(-20000, 0));
                         return;
@@ -146,6 +149,8 @@ public class PlayerActions_Level07 : MonoBehaviour
                 }
                 BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
                 Action("hit");
+                
+                AudioManager.PlayClip(1);
                 Health -= 1;
                 WeaponColliderOff();
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;

@@ -24,17 +24,7 @@ public class InteractableObject : MonoBehaviour
         copy.transform.localEulerAngles = new Vector3(0, 0, 0);
         sr.sortingLayerName = "2";
 
-        float a = transform.localScale.x / transform.localScale.y;
-        
-        if (a > 1)
-        {
-            a = transform.localScale.y / transform.localScale.x;
-            copy.transform.localScale = new Vector3(1 + (Outline * a), 1 + Outline, 1);
-        }   
-        else
-        {  
-            copy.transform.localScale = new Vector3(1 + Outline, 1 + (Outline * a), 1);
-        }
+        copy.transform.localScale = new Vector3(1 + Outline, 1 + Outline, 1);
         copy.SetActive(false);  
     }
 
@@ -64,4 +54,14 @@ public class InteractableObject : MonoBehaviour
         yield return new WaitForSeconds(5);
         Player.GetComponent<PlayerActions_Level11>().Text.GetComponent<TextMeshProUGUI>().text = "";
     }
+
+#if UNITY_EDITOR
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, Radius);
+    }
+#endif
+
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class VisionRaycast : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class VisionRaycast : MonoBehaviour
     int detectionCounter = 0;
     public TextMeshPro debugtext;
     GuardPatrol guardPatrol;
+    private int AlarmTrigger = 80;
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -35,12 +37,13 @@ public class VisionRaycast : MonoBehaviour
             if (!hit.collider.IsTouchingLayers(LayerMask.GetMask("Obstruction")))
             {
 
-                if (hit.collider.gameObject.layer == 3)
+                if (hit.collider.gameObject.layer == 3 &&!hit.collider.IsTouchingLayers(LayerMask.GetMask("Obstruction")))
                 { 
                     
                     detectionCounter++;
                     guardPatrol.detected = true;
                     detectionStatusIcon.SetActive(true);
+                    Debug.Log(hit.collider.IsTouchingLayers(LayerMask.GetMask("Obstruction")));
 
                 }
                 
@@ -63,10 +66,10 @@ public class VisionRaycast : MonoBehaviour
             guardPatrol.detected = false;
         }
 
-        if (detectionCounter > 200)
+        if (detectionCounter > AlarmTrigger)
         {
-            detectionCounter = 200;
-            
+            detectionCounter = AlarmTrigger;
+            AlarmTriggered();
            
         }
         debugtext.text = detectionCounter.ToString();
@@ -80,8 +83,12 @@ public class VisionRaycast : MonoBehaviour
         {
 
         }
+    }
 
-
+    public void AlarmTriggered()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }
 

@@ -73,10 +73,10 @@ public class PlayerInputManager : MonoBehaviour
     private void throwStone()
     {
         GameObject stoneInst = Instantiate(stone, ThrowPos.position, ThrowPos.rotation);
-        stoneInst.GetComponent<Rigidbody2D>().AddForce(ThrowDirection * 500);
+        stoneInst.GetComponent<Rigidbody2D>().AddForce(ThrowDirection * 750);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         PlayerRb.AddForce(movmentDirection * 50);
         if (PlayerRb.velocity.magnitude > maxSpeed)

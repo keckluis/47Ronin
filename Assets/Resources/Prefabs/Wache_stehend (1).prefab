@@ -295,7 +295,11 @@ MonoBehaviour:
   - {fileID: 0}
   index: 0
   detectionStatusIcon: {fileID: 1516334804300886990}
-  TriggerPrefab: {fileID: 8293855945201519279, guid: 92a2454606d06c6489f6b23932aa2b0c, type: 3}
+  TriggerPrefab: {fileID: 8293855945201519279, guid: 4859dad1eda00764f8cb9a7deb94c120, type: 3}
+  SpawnPoint: {fileID: 8293855945201519279, guid: 92a2454606d06c6489f6b23932aa2b0c, type: 3}
+  patrolGuard: 0
+  GuardingPos: {x: 0, y: 0}
+  GuardingDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1477806313463846206
 GameObject:
   m_ObjectHideFlags: 0

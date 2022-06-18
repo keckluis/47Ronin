@@ -57,7 +57,6 @@ public class GuardPatrol : MonoBehaviour
             Patrol();
         else if (!patrolGuard && returning)
             returnToGuardPost();
-        Debug.Log(returning);
     }
 
     private void moveToSuspicion()
@@ -146,14 +145,15 @@ public class GuardPatrol : MonoBehaviour
         if(other.gameObject.layer == 15 && returning)
         {
             returning = false;
-            
+            lookAtDirection(transform.position, PointOfInterest);
+            transform.Rotate(new Vector3(0, 180, 0));
         }
 
     }
 
     public void addPointofIntrest(Vector3 PoI)
     {
-        if (!detected)
+        if (!detected && Vector3.Distance(transform.position, PoI) > 2)
         {
             suspicios = true;
             PointOfInterest = PoI;

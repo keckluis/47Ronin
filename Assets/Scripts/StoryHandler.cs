@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using TMPro;
+using UnityEngine.Networking;
 
 public class StoryHandler : MonoBehaviour
 {
@@ -23,13 +24,21 @@ public class StoryHandler : MonoBehaviour
 
     public GameObject ControlsRight;
 
+    private string json;
+    private bool gettingTexts = false;
+
     private void Start()
     {
-        Texts = StoryText.GetTexts(TextFileName).Texts;
-        Text.text = Texts[currentPos];
+        GetTexts(TextFileName);
     }
+
     private void Update()
     {
+        if (Texts == null && !gettingTexts)
+        {
+            GetTexts(TextFileName);
+        }
+
         if (isMoving)
         {
             Camera.localPosition = new Vector3(Mathf.Lerp(Camera.localPosition.x, Positions[currentPos], t), Y, Z);
@@ -57,7 +66,8 @@ public class StoryHandler : MonoBehaviour
                 isMoving = true;
                 currentPos += 1;
 
-                Text.text = Texts[currentPos];
+                if (Texts != null)
+                    Text.text = Texts[currentPos];
             }
             else if (GameObject.Find("SceneLoader"))
             {
@@ -74,7 +84,8 @@ public class StoryHandler : MonoBehaviour
             isMoving = true;
             currentPos -= 1;
 
-            Text.text = Texts[currentPos];
+            if (Texts != null)
+                Text.text = Texts[currentPos];
         }      
     }
 
@@ -85,18 +96,45 @@ public class StoryHandler : MonoBehaviour
             isMoving = true;
             currentPos = Positions.Count - 1;
 
-            Text.text = Texts[currentPos];
+            if (Texts != null)
+                Text.text = Texts[currentPos];
         }
+    }
+
+    public void GetTexts(string fileName)
+    {
+#if UNITY_WEBGL
+        StartCoroutine(GetFile(fileName));
+#else
+        StreamReader reader = new StreamReader(Application.streamingAssetsPath + "/" + fileName + ".json");
+        json = reader.ReadToEnd();
+        Texts = JsonUtility.FromJson<StoryText>(json).Texts;
+        Text.text = Texts[currentPos];
+#endif
+    }
+
+    private IEnumerator GetFile(string fileName)
+    {
+        gettingTexts = true;
+        using (UnityWebRequest req = UnityWebRequest.Get("https://raw.githubusercontent.com/keckluis/47Ronin/main/Assets/StreamingAssets/" + fileName + ".json"))
+        {
+            yield return req.SendWebRequest();
+            if (req.result == UnityWebRequest.Result.ProtocolError || req.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log(req.error);
+            }
+            else
+            {
+                json = req.downloadHandler.text;
+                Texts = JsonUtility.FromJson<StoryText>(json).Texts;
+                Text.text = Texts[currentPos];
+            }
+        }
+        gettingTexts = false;
     }
 }
 
-class StoryText
+public class StoryText
 {
     public List<string> Texts;
-    public static StoryText GetTexts(string fileName)
-    {
-        StreamReader reader = new StreamReader(Application.streamingAssetsPath + "/" + fileName + ".json");
-        string json = reader.ReadToEnd();
-        return JsonUtility.FromJson<StoryText>(json);
-    }
 }

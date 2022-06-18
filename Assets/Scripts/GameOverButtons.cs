@@ -7,8 +7,8 @@ public class GameOverButtons : MonoBehaviour
     private SceneLoader SceneLoader;
     private void Start()
     {
-        SceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
-
+        if (GameObject.Find("SceneLoader"))
+            SceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
     }
     public void RestartLevel()
     {

@@ -57,7 +57,6 @@ public class GuardPatrol : MonoBehaviour
             Patrol();
         else if (!patrolGuard && returning)
             returnToGuardPost();
-        Debug.Log(returning);
     }
 
     private void moveToSuspicion()

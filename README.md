@@ -1,7 +1,7 @@
 # 47 Rōnin
 ## Coding da Vinci 2022 project  
   
-[GAME](https://keckluis.github.io/47Ronin/build.html)  
+[GAME](https://play.unity.com/mg/other/47ronin-s)
   
 The storie of the 47 Rōnin on Japanese scrolls are to be brought to life in a game. This will be implemented in a sidescroller that allows players to control the characters themselves and experience key scenes in minigames. The graphics will be taken directly from the scrolls to keep the original style of the images.
 

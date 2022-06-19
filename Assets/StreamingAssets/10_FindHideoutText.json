@@ -1,5 +1,10 @@
 {
-    "Texts" : 
+    "TextsDE" : 
+    [
+        "Text 01",
+        "Text 02"
+    ],
+    "TextsEN" : 
     [
         "Text 01",
         "Text 02"

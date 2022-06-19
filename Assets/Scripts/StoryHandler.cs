@@ -27,9 +27,16 @@ public class StoryHandler : MonoBehaviour
     private string json;
     private bool gettingTexts = false;
 
+    private Languages lang = Languages.German;
+
     private void Start()
     {
         GetTexts(TextFileName);
+
+        if (GameObject.Find("Language"))
+        {
+            lang = GameObject.Find("Language").GetComponent<Language>().currentLanguage;
+        }
     }
 
     private void Update()
@@ -108,7 +115,10 @@ public class StoryHandler : MonoBehaviour
 #else
         StreamReader reader = new StreamReader(Application.streamingAssetsPath + "/" + fileName + ".json");
         json = reader.ReadToEnd();
-        Texts = JsonUtility.FromJson<StoryText>(json).Texts;
+        if (lang == Languages.German)
+            Texts = JsonUtility.FromJson<StoryText>(json).TextsDE;
+        else if (lang == Languages.English)
+            Texts = JsonUtility.FromJson<StoryText>(json).TextsEN;
         Text.text = Texts[currentPos];
 #endif
     }
@@ -126,7 +136,10 @@ public class StoryHandler : MonoBehaviour
             else
             {
                 json = req.downloadHandler.text;
-                Texts = JsonUtility.FromJson<StoryText>(json).Texts;
+                if (lang == Languages.German)
+                    Texts = JsonUtility.FromJson<StoryText>(json).TextsDE;
+                else if (lang == Languages.English)
+                    Texts = JsonUtility.FromJson<StoryText>(json).TextsEN;
                 Text.text = Texts[currentPos];
             }
         }
@@ -136,5 +149,6 @@ public class StoryHandler : MonoBehaviour
 
 public class StoryText
 {
-    public List<string> Texts;
+    public List<string> TextsDE;
+    public List<string> TextsEN;
 }

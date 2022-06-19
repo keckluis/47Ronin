@@ -16,9 +16,16 @@ public class InteractionHandler : MonoBehaviour
     private string json;
     private bool gettingTexts = false;
 
+    private Languages lang = Languages.German;
+
     private void Start()
     {
         GetTexts("11_FindHideout");
+
+        if (GameObject.Find("Language"))
+        {
+            lang = GameObject.Find("Language").GetComponent<Language>().currentLanguage;
+        }
     }
 
     private void Update()
@@ -56,7 +63,10 @@ public class InteractionHandler : MonoBehaviour
 #else
         StreamReader reader = new StreamReader(Application.streamingAssetsPath + "/" + fileName + ".json");
         json = reader.ReadToEnd();
-        Texts = JsonUtility.FromJson<StoryText>(json).Texts;
+        if (lang == Languages.German)
+            Texts = JsonUtility.FromJson<StoryText>(json).TextsDE;
+        else if (lang == Languages.English)
+            Texts = JsonUtility.FromJson<StoryText>(json).TextsEN;
 #endif
     }
 
@@ -79,8 +89,15 @@ public class InteractionHandler : MonoBehaviour
             else
             {
                 json = req.downloadHandler.text;
+
+                StoryText st = JsonUtility.FromJson<StoryText>(json);
                 print(json);
-                Texts = JsonUtility.FromJson<StoryText>(json).Texts;
+                if (lang == Languages.German)
+                    Texts = JsonUtility.FromJson<StoryText>(json).TextsDE;
+                else if (lang == Languages.English)
+                    Texts = JsonUtility.FromJson<StoryText>(json).TextsEN;
+
+                print(Texts.Count);
             }
         }
         gettingTexts = false;

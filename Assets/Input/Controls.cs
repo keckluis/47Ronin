@@ -631,7 +631,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ef7ebb1b-a681-43b5-9c51-ef63ad63e4b4"",
+                    ""id"": ""2708a4bd-f763-43ea-8f7d-4f117c020ebe"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -642,7 +642,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a36d45b2-958f-4ce1-b974-86ac1243abce"",
+                    ""id"": ""f38207d3-5738-4223-9e13-4d4a77cfc691"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",

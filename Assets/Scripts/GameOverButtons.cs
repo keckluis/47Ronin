@@ -13,18 +13,19 @@ public class GameOverButtons : MonoBehaviour
         if (GameObject.Find("SceneLoader"))
             SceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
 
-        LookForLanguage();
+        if (RestartButtonText != null)
+            LookForLanguage();
     }
     public void RestartLevel()
     {
         SceneLoader.LoadPreviousScene();
     }
 
-    public void Quit()
+    public void BackToMenu()
     {
         if (GameObject.Find("SceneLoader"))
         {
-            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().NextScene = 0;        
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().NextScene = 1;        
             GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();      
         }
     }

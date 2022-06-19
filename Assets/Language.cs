@@ -12,6 +12,7 @@ public class Language : MonoBehaviour
 
     public void SetLanguage(string lang)
     {
+        print("Set language to " + lang);
         if (lang == "DE")
             currentLanguage = Languages.German;
         else if (lang == "EN")

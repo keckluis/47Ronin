@@ -14,7 +14,9 @@ public class SceneLoader : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI LoadingText;
     [SerializeField]
-    private GameObject Canvas;
+    private GameObject LoadingCanvas;
+    [SerializeField]
+    private GameObject MenuCanvas;
 
     private Language Language;
 
@@ -24,6 +26,8 @@ public class SceneLoader : MonoBehaviour
 
         if (GameObject.Find("Language"))
             Language = GameObject.Find("Language").GetComponent<Language>();
+
+        LoadNextScene();
     }
 
 
@@ -39,8 +43,20 @@ public class SceneLoader : MonoBehaviour
 
         if (loadScene)
         {
-            Canvas.SetActive(true);
+            LoadingCanvas.SetActive(true);
             LoadingText.color = new Color(LoadingText.color.r, LoadingText.color.g, LoadingText.color.b, Mathf.PingPong(Time.time, 1));
+        }
+
+        if (Input.GetKeyDown(KeyCode.M) && !loadScene && NextScene != 2 && NextScene != 19)
+        {
+            if (MenuCanvas.activeSelf)
+            {
+                MenuCanvas.SetActive(false);
+            }
+            else
+            {
+                MenuCanvas.SetActive(true);
+            }
         }
     }
 
@@ -68,7 +84,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadGameOver()
     {
         PreviousScene = NextScene - 1;
-        NextScene = 17;
+        NextScene = 18;
         LoadNextScene();
     }
 
@@ -82,7 +98,7 @@ public class SceneLoader : MonoBehaviour
         {
             yield return null;
         }
-        Canvas.SetActive(false);
+        LoadingCanvas.SetActive(false);
         loadScene = false;
     }
 }

@@ -16,9 +16,14 @@ public class SceneLoader : MonoBehaviour
     [SerializeField]
     private GameObject Canvas;
 
+    private Language Language;
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+
+        if (GameObject.Find("Language"))
+            Language = GameObject.Find("Language").GetComponent<Language>();
     }
 
 
@@ -35,6 +40,13 @@ public class SceneLoader : MonoBehaviour
             LoadGameOver();
         }
 #endif
+        if (Language != null)
+        {
+            if (Language.currentLanguage == Languages.German)
+                LoadingText.text = "LÄDT...";
+            else if (Language.currentLanguage == Languages.English)
+                LoadingText.text = "LOADING...";
+        }
 
         if (loadScene)
         {

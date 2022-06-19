@@ -2460,7 +2460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  Speed: 0.02
+  Speed: 0.04
   Text: {fileID: 384182530}
 --- !u!4 &1181421063 stripped
 Transform:

@@ -378,11 +378,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2292943446054842560, guid: 9cc5ca6485028a4478f4917573cefa17, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2292943446054842560, guid: 9cc5ca6485028a4478f4917573cefa17, type: 3}
       propertyPath: m_SortingLayerID
-      value: -1456536725
+      value: -1315826709
       objectReference: {fileID: 0}
     - target: {fileID: 8981865514062773117, guid: 9cc5ca6485028a4478f4917573cefa17, type: 3}
       propertyPath: m_RootOrder
@@ -448,8 +448,6 @@ GameObject:
   m_Component:
   - component: {fileID: 422965157}
   - component: {fileID: 422965156}
-  - component: {fileID: 422965155}
-  - component: {fileID: 422965154}
   m_Layer: 0
   m_Name: Rasen (1)
   m_TagString: Untagged
@@ -457,44 +455,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &422965154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422965153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8673a04654cdc0d4f8056e2191cdbe39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &422965155
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422965153}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -756.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 1}
-    oldSize: {x: 2849, y: 1513}
-    newSize: {x: 2849, y: 1513}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2849, y: 1513}
-  m_EdgeRadius: 0
 --- !u!212 &422965156
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -741,11 +701,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2292943446054842560, guid: 9cc5ca6485028a4478f4917573cefa17, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2292943446054842560, guid: 9cc5ca6485028a4478f4917573cefa17, type: 3}
       propertyPath: m_SortingLayerID
-      value: -1456536725
+      value: -1315826709
       objectReference: {fileID: 0}
     - target: {fileID: 2527176698051227916, guid: 9cc5ca6485028a4478f4917573cefa17, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1272,8 +1232,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1652942953
-  m_SortingLayer: 3
+  m_SortingLayerID: -1456536725
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.8140599, b: 0.5896226, a: 1}
@@ -1600,11 +1560,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2292943446054842560, guid: 9cc5ca6485028a4478f4917573cefa17, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2292943446054842560, guid: 9cc5ca6485028a4478f4917573cefa17, type: 3}
       propertyPath: m_SortingLayerID
-      value: -1456536725
+      value: -1315826709
       objectReference: {fileID: 0}
     - target: {fileID: 8981865514062773117, guid: 9cc5ca6485028a4478f4917573cefa17, type: 3}
       propertyPath: m_RootOrder
@@ -2003,8 +1963,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1764010409}
   - component: {fileID: 1764010408}
-  - component: {fileID: 1764010407}
-  - component: {fileID: 1764010406}
   m_Layer: 0
   m_Name: Rasen (2)
   m_TagString: Untagged
@@ -2012,44 +1970,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1764010406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764010405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8673a04654cdc0d4f8056e2191cdbe39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1764010407
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764010405}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -756.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 1}
-    oldSize: {x: 2849, y: 1513}
-    newSize: {x: 2849, y: 1513}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2849, y: 1513}
-  m_EdgeRadius: 0
 --- !u!212 &1764010408
 SpriteRenderer:
   m_ObjectHideFlags: 0

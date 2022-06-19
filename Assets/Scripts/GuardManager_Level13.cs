@@ -8,6 +8,7 @@ public class GuardManager_Level13 : MonoBehaviour
     public float VisibleDistance = 0;
     public List<EnemyBehaviour_Level13> Guards = new List<EnemyBehaviour_Level13>();
     private bool allKilled = false;
+    public AudioManager AudioManager;
 
     void Update()
     {
@@ -57,5 +58,6 @@ public class GuardManager_Level13 : MonoBehaviour
         {
             GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
         }
+        AudioManager.gameObject.SetActive(false);
     }
 }

@@ -1539,7 +1539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GuardPrefab: {fileID: 1444440020058472299, guid: 4a893f8e307c8d84994e5c6af3d30f35, type: 3}
-  GuardTotal: 30
+  GuardTotal: 20
 --- !u!4 &925211549
 Transform:
   m_ObjectHideFlags: 0

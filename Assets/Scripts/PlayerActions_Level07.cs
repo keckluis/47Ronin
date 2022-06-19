@@ -13,7 +13,6 @@ public class PlayerActions_Level07 : MonoBehaviour
     private Animator Animator;
     private bool isWalking = false;
     private bool actionPlaying = false;
-    //private bool walkState;
     public bool isBlocking = false;
    
     private float speed;
@@ -27,6 +26,8 @@ public class PlayerActions_Level07 : MonoBehaviour
 
     public int Health = 100;
     public AudioManager AudioManager;
+
+    bool dead = false;
 
     void Start()
     {
@@ -86,8 +87,10 @@ public class PlayerActions_Level07 : MonoBehaviour
             if (action == "block")
                 WeaponColliderOff();
 
+            if (action == "strike")
+                AudioManager.PlayClip(0);
+
             actionPlaying = true;
-            //walkState = isWalking;
             isWalking = false;
             Animator.SetTrigger(action);
         }   
@@ -96,13 +99,11 @@ public class PlayerActions_Level07 : MonoBehaviour
     public void ActionFinished()
     {
        actionPlaying = false;
-       //isWalking = walkState;
     }
 
     public void WeaponColliderOn()
     {
         Weapon.enabled = true;
-        AudioManager.PlayClip(0);
     }
 
     public void WeaponColliderOff()
@@ -156,7 +157,7 @@ public class PlayerActions_Level07 : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 0));
 
-                if (Health <= 0)
+                if (Health <= 0 && !dead)
                     GameOver();
             }
         }
@@ -169,5 +170,7 @@ public class PlayerActions_Level07 : MonoBehaviour
         {
             GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadGameOver();
         }
+        dead = true;
+        AudioManager.gameObject.SetActive(false);
     }
 }

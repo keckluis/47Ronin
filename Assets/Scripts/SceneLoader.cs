@@ -8,8 +8,8 @@ public class SceneLoader : MonoBehaviour
 
     private bool loadScene = false;
 
-    public int NextScene;
-    public int PreviousScene;
+    public int NextScene  = 1;
+    public int PreviousScene = -1;
 
     [SerializeField]
     private TextMeshProUGUI LoadingText;
@@ -29,17 +29,6 @@ public class SceneLoader : MonoBehaviour
 
     private void Update()
     {
-#if (UNITY_EDITOR)
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            LoadNextScene();
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            LoadGameOver();
-        }
-#endif
         if (Language != null)
         {
             if (Language.currentLanguage == Languages.German)
@@ -61,14 +50,19 @@ public class SceneLoader : MonoBehaviour
         if (!loadScene)
         {
             loadScene = true;
-            StartCoroutine(LoadNewScene());
+            StartCoroutine(LoadNewScene(NextScene));
+            NextScene += 1;
         }
     }
 
     public void LoadPreviousScene()
     {
-        NextScene = PreviousScene;
-        LoadNextScene();
+        if (!loadScene)
+        {
+            loadScene = true;
+            StartCoroutine(LoadNewScene(PreviousScene));
+            NextScene = PreviousScene + 1;
+        }
     }
 
     public void LoadGameOver()
@@ -78,11 +72,11 @@ public class SceneLoader : MonoBehaviour
         LoadNextScene();
     }
 
-    IEnumerator LoadNewScene()
+    IEnumerator LoadNewScene(int SceneIndex)
     {
         yield return new WaitForSeconds(3);
         
-        AsyncOperation async = SceneManager.LoadSceneAsync(NextScene);
+        AsyncOperation async = SceneManager.LoadSceneAsync(SceneIndex);
 
         while (!async.isDone)
         {
@@ -90,6 +84,5 @@ public class SceneLoader : MonoBehaviour
         }
         Canvas.SetActive(false);
         loadScene = false;
-        NextScene += 1;
     }
 }

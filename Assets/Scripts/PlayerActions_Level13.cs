@@ -22,6 +22,7 @@ public class PlayerActions_Level13 : MonoBehaviour
 
     public List<Transform> Ronins;
     public AudioManager AudioManager;
+    bool dead = false;
 
     void Start()
     {
@@ -148,7 +149,7 @@ public class PlayerActions_Level13 : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 0));
 
-            if (Health <= 0)
+            if (Health <= 0 && !dead)
                 GameOver();
         }
     }
@@ -160,5 +161,7 @@ public class PlayerActions_Level13 : MonoBehaviour
         {
             GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadGameOver();
         }
+        dead = true;
+        AudioManager.gameObject.SetActive(false);
     }
 }

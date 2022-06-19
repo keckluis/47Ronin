@@ -5,9 +5,11 @@ using UnityEngine;
 public class AlarmBell : MonoBehaviour
 {
     public AudioManager AudioManager;
+    bool bellReached = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && !bellReached)
         {
             Destroy(collision.GetComponent<EnemyBehaviour_Level09>());
             Destroy(collision.GetComponent<Animator>());
@@ -24,5 +26,7 @@ public class AlarmBell : MonoBehaviour
         {
             GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadGameOver();
         }
+        bellReached = true;
+        AudioManager.gameObject.SetActive(false);
     }
 }

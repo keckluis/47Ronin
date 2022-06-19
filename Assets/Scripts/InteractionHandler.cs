@@ -89,15 +89,10 @@ public class InteractionHandler : MonoBehaviour
             else
             {
                 json = req.downloadHandler.text;
-
-                StoryText st = JsonUtility.FromJson<StoryText>(json);
-                print(json);
                 if (lang == Languages.German)
                     Texts = JsonUtility.FromJson<StoryText>(json).TextsDE;
                 else if (lang == Languages.English)
                     Texts = JsonUtility.FromJson<StoryText>(json).TextsEN;
-
-                print(Texts.Count);
             }
         }
         gettingTexts = false;

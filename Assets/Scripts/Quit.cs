@@ -13,13 +13,13 @@ public class Quit : MonoBehaviour
     {
     #if UNITY_WEBGL
         gameObject.SetActive(false);
-#endif
+    #endif
 
-        if (GameObject.Find("Laguage"))
-            Language = GameObject.Find("Laguage").GetComponent<Language>();
+        if (GameObject.Find("Language"))
+            Language = GameObject.Find("Language").GetComponent<Language>();
     }
 
-    private void Update()
+    void Update()
     {
         if (Language != null)
         {
@@ -27,7 +27,7 @@ public class Quit : MonoBehaviour
                 transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = German;
             else if (Language.currentLanguage == Languages.English)
                 transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = English;
-        }    
+        }
     }
 
     public void QuitApplication()

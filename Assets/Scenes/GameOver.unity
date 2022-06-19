@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd01bb6e223a0ee46a3e39c809030167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RestartButtonText: {fileID: 711723718}
 --- !u!1 &711723716
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +729,7 @@ GameObject:
   - component: {fileID: 1488277504}
   - component: {fileID: 1488277503}
   m_Layer: 5
-  m_Name: QuitButton
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1082,7 +1083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "MEN\xDC"
+  m_text: MENU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bdd3eb10fa048b04ba19dbd58992b6ec, type: 2}
   m_sharedMaterial: {fileID: 2109076290422358272, guid: bdd3eb10fa048b04ba19dbd58992b6ec, type: 2}

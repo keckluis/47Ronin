@@ -652,6 +652,45 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""c1c05e6f-b393-4f50-901e-27a162d995d7"",
+            ""actions"": [
+                {
+                    ""name"": ""menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea88c2a2-9fca-48d8-bb45-8fecb89920ec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d1209814-e871-470b-93c1-1204cf7a1093"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f17bae9-cac0-4644-ab9a-364be5b4043b"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox Gamepad"",
+                    ""action"": ""menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -702,6 +741,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Level11 = asset.FindActionMap("Level 11", throwIfNotFound: true);
         m_Level11_Walk = m_Level11.FindAction("Walk", throwIfNotFound: true);
         m_Level11_Interact = m_Level11.FindAction("Interact", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_menu = m_Menu.FindAction("menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -986,6 +1028,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         }
     }
     public Level11Actions @Level11 => new Level11Actions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_menu;
+    public struct MenuActions
+    {
+        private @Controls m_Wrapper;
+        public MenuActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @menu => m_Wrapper.m_Menu_menu;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @menu.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnMenu;
+                @menu.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnMenu;
+                @menu.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnMenu;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @menu.started += instance.OnMenu;
+                @menu.performed += instance.OnMenu;
+                @menu.canceled += instance.OnMenu;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -1031,5 +1106,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     {
         void OnWalk(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

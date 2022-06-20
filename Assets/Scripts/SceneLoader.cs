@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -19,6 +20,16 @@ public class SceneLoader : MonoBehaviour
     private GameObject MenuCanvas;
 
     private Language Language;
+
+    public Controls ActionMap;
+
+    private void Awake()
+    {
+        ActionMap = new Controls();
+
+        ActionMap.Enable();
+        ActionMap.Menu.menu.performed += Menu;
+    }
 
     private void Start()
     {
@@ -46,8 +57,11 @@ public class SceneLoader : MonoBehaviour
             LoadingCanvas.SetActive(true);
             LoadingText.color = new Color(LoadingText.color.r, LoadingText.color.g, LoadingText.color.b, Mathf.PingPong(Time.time, 1));
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.M) && !loadScene && NextScene != 2 && NextScene != 19)
+    public void Menu(InputAction.CallbackContext context)
+    {
+        if (!loadScene && NextScene != 2 && NextScene != 19)
         {
             if (MenuCanvas.activeSelf)
             {
@@ -59,7 +73,6 @@ public class SceneLoader : MonoBehaviour
             }
         }
     }
-
 
     public void LoadNextScene()
     {

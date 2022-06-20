@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnGuard(0, 5);
+        SpawnGuard(0, 20);
     }
 
     void Update()
@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
             if (!allKilled)
             {
                 int groupSize = Random.Range(1, 4);
-                int speed = Random.Range(5, 15);
+                int speed = Random.Range(15, 25);
                 SpawnedGuards += groupSize;
 
                 for (int i = 0; i < groupSize; i++)

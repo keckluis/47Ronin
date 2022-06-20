@@ -32,7 +32,7 @@ public class EnemyBehaviour_Level13 : MonoBehaviour
         WeaponColliderOff();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float distance = transform.position.x - Player.transform.position.x;
 

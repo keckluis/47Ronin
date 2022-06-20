@@ -17,7 +17,7 @@ public class EnemyBehaviour_Level09 : MonoBehaviour
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(new Vector3(-0.001f * Speed, 0, 0));
     }

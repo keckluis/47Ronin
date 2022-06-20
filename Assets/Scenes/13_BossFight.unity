@@ -2716,7 +2716,7 @@ MonoBehaviour:
   Health: 7
   Range: 3
   Cooldown: 1
-  Speed: 0.02
+  Speed: 0.04
   direction: 1
   Weapon: {fileID: 373272226}
   Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
@@ -3949,7 +3949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  Speed: 0.05
+  Speed: 0.1
   Weapon: {fileID: 457668847}
   Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
   Health: 10
@@ -5235,7 +5235,7 @@ MonoBehaviour:
   Health: 7
   Range: 3
   Cooldown: 1
-  Speed: 0.02
+  Speed: 0.04
   direction: 1
   Weapon: {fileID: 805948695}
   Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
@@ -6066,7 +6066,7 @@ MonoBehaviour:
   Health: 7
   Range: 3
   Cooldown: 1
-  Speed: 0.02
+  Speed: 0.04
   direction: 1
   Weapon: {fileID: 1168421339}
   Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}

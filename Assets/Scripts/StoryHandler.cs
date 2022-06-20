@@ -39,7 +39,7 @@ public class StoryHandler : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (Texts == null && !gettingTexts)
         {

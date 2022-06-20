@@ -24,7 +24,7 @@ public class PlayerActions_Level09 : MonoBehaviour
         PlayerInput = GetComponent<PlayerInput>();
     }
 
-    private void Update()
+    void Update()
     {
         if (Input.GetMouseButtonDown(0) && isAiming)
         {

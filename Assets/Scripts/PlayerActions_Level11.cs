@@ -20,7 +20,7 @@ public class PlayerActions_Level11 : MonoBehaviour
         Animator = GetComponent<Animator>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Animator.SetBool("isWalking", isWalking);
         if (isWalking)

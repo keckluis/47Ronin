@@ -35,7 +35,7 @@ public class PlayerActions_Level07 : MonoBehaviour
         Weapon.enabled = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Animator.SetBool("isWalking", isWalking);
         if (isWalking)

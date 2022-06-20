@@ -18,6 +18,18 @@ public class PlayerActions_Level09 : MonoBehaviour
     private float x = 0;
     private float y = 0;
 
+    public Controls ActionMap;
+
+    private void Awake()
+    {
+        ActionMap = new Controls();
+
+        ActionMap.Enable();
+        ActionMap.Level09.Shoot.performed += Shoot;
+        ActionMap.Level09.Aim.performed += Aim;
+        ActionMap.Level09.Aim.canceled += StopAim;
+    }
+
     private void Start()
     {
         Animator = GetComponent<Animator>();
@@ -28,7 +40,7 @@ public class PlayerActions_Level09 : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && isAiming)
         {
-            Shoot();
+            ShootWithMouse();
         }
         if (Input.GetMouseButtonDown(1))
         {
@@ -87,7 +99,12 @@ public class PlayerActions_Level09 : MonoBehaviour
         Spine.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }  
 
-    public void Shoot()
+    private void StopAim(InputAction.CallbackContext context)
+    {
+        Spine.localEulerAngles = new Vector3(0, 0, 0);
+    }
+
+    public void Shoot(InputAction.CallbackContext context)
     {
         if (!isShooting && isAiming)
         {
@@ -96,6 +113,17 @@ public class PlayerActions_Level09 : MonoBehaviour
             Bow.SetTrigger("shoot");
             AudioManager.PlayClip(0);
         }  
+    }
+
+    private void ShootWithMouse()
+    {
+        if (!isShooting && isAiming)
+        {
+            isShooting = true;
+            Animator.SetTrigger("shoot");
+            Bow.SetTrigger("shoot");
+            AudioManager.PlayClip(0);
+        }
     }
 
     public void ArrowFlight()

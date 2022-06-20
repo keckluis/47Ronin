@@ -24,6 +24,19 @@ public class PlayerActions_Level13 : MonoBehaviour
     public AudioManager AudioManager;
     bool dead = false;
 
+    public Controls ActionMap;
+
+    private void Awake()
+    {
+        ActionMap = new Controls();
+
+        ActionMap.Enable();
+        ActionMap.Level0713.Walk.started += Walk;
+        ActionMap.Level0713.Walk.canceled += StopWalking;
+        ActionMap.Level0713.Strike.performed += Strike;
+        ActionMap.Level0713.Block.performed += Dodge;
+    }
+
     void Start()
     {
         Animator = GetComponent<Animator>();
@@ -97,14 +110,44 @@ public class PlayerActions_Level13 : MonoBehaviour
         isWalking = false;
     }
 
-    public void Action(string action)
+    public void StopWalking(InputAction.CallbackContext ctx)
     {
-        if (!actionPlaying || action == "hit")
+        isWalking = false;
+    }
+
+    public void Strike(InputAction.CallbackContext ctx)
+    {
+        if (!actionPlaying)
         {
+            WeaponColliderOn();
             actionPlaying = true;
             isWalking = false;
-            Animator.SetTrigger(action);
+            Animator.SetTrigger("strike");
         }
+    }
+
+    public void Dodge(InputAction.CallbackContext ctx)
+    {
+        if (!actionPlaying)
+        {
+            AudioManager.PlayClip(2);
+            WeaponColliderOff();
+
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(400, 100));
+
+            actionPlaying = true;
+            isWalking = false;
+            Animator.SetTrigger("dodge");
+        }
+    }
+
+    public void Hit()
+    {
+        WeaponColliderOff();
+        actionPlaying = true;
+        isWalking = false;
+        Animator.SetTrigger("hit");
     }
 
     public void ActionFinished()
@@ -123,14 +166,6 @@ public class PlayerActions_Level13 : MonoBehaviour
         Weapon.enabled = false;
     }
 
-    public void Dodge()
-    {
-        AudioManager.PlayClip(2);
-        WeaponColliderOff();
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(300, 50));
-    }
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Enemy_Weapon")
@@ -141,7 +176,7 @@ public class PlayerActions_Level13 : MonoBehaviour
                 BloodHolder = null;
             }
             BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
-            Action("hit");
+            Hit();
             AudioManager.PlayClip(1);
             
             Health -= 1;

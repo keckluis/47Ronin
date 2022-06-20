@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using TMPro;
 using UnityEngine.Networking;
+using UnityEngine.InputSystem;
 
 public class StoryHandler : MonoBehaviour
 {
@@ -28,6 +29,18 @@ public class StoryHandler : MonoBehaviour
     private bool gettingTexts = false;
 
     private Languages lang = Languages.German;
+
+    public Controls ActionMap;
+
+    private void Awake()
+    {
+        ActionMap = new Controls();
+
+        ActionMap.Enable();
+        ActionMap.Story.Next.performed += Next;
+        ActionMap.Story.Previous.performed += Previous;
+        ActionMap.Story.Skip.performed += Skip;
+    }
 
     private void Start()
     {
@@ -64,7 +77,7 @@ public class StoryHandler : MonoBehaviour
             ControlsRight.SetActive(true);
     }
 
-    public void Next()
+    public void Next(InputAction.CallbackContext ctx)
     {
         if (!isMoving)
         {
@@ -84,7 +97,7 @@ public class StoryHandler : MonoBehaviour
                
     }
 
-    public void Previous()
+    public void Previous(InputAction.CallbackContext ctx)
     {
         if (currentPos > 0 && !isMoving)
         {
@@ -96,7 +109,7 @@ public class StoryHandler : MonoBehaviour
         }      
     }
 
-    public void Skip()
+    public void Skip(InputAction.CallbackContext ctx)
     {
         if (currentPos < Positions.Count && !isMoving)
         {

@@ -15,6 +15,20 @@ public class PlayerActions_Level11 : MonoBehaviour
 
     public GameObject Text;
 
+    public InteractionHandler InteractionHandler;
+
+    public Controls ActionMap;
+
+    private void Awake()
+    {
+        ActionMap = new Controls();
+
+        ActionMap.Enable();
+        ActionMap.Level11.Walk.performed += Walk;
+        ActionMap.Level11.Walk.canceled += StopWalking;
+        ActionMap.Level11.Interact.performed += InteractionHandler.Interact;
+    }
+
     void Start()
     {
         Animator = GetComponent<Animator>();
@@ -23,6 +37,7 @@ public class PlayerActions_Level11 : MonoBehaviour
     void FixedUpdate()
     {
         Animator.SetBool("isWalking", isWalking);
+
         if (isWalking)
         {
             transform.Translate(-speedHori, speedVert, 0);
@@ -65,5 +80,10 @@ public class PlayerActions_Level11 : MonoBehaviour
             transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
             Text.transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
         }
+    }
+
+    public void StopWalking(InputAction.CallbackContext context)
+    {
+        isWalking = false;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.IO;
+using UnityEngine.InputSystem;
 
 public class InteractionHandler : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class InteractionHandler : MonoBehaviour
         }
     }
 
-    public void Interact()
+    public void Interact(InputAction.CallbackContext context)
     {
         if (!Cooldown)
         {

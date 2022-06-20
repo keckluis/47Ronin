@@ -29,6 +29,19 @@ public class PlayerActions_Level07 : MonoBehaviour
 
     bool dead = false;
 
+    public Controls ActionMap;
+
+    private void Awake()
+    {
+        ActionMap = new Controls();
+
+        ActionMap.Enable();
+        ActionMap.Level0713.Walk.started += Walk;
+        ActionMap.Level0713.Walk.canceled += StopWalking;
+        ActionMap.Level0713.Strike.performed += Strike;
+        ActionMap.Level0713.Block.performed += Block;
+    }
+
     void Start()
     {
         Animator = GetComponent<Animator>();
@@ -80,20 +93,41 @@ public class PlayerActions_Level07 : MonoBehaviour
         isWalking = false;
     }
 
-    public void Action(string action)
+    public void StopWalking(InputAction.CallbackContext ctx)
     {
-        if (!actionPlaying || action == "hit")
+        isWalking = false;
+    }
+
+    public void Strike(InputAction.CallbackContext ctx)
+    {
+        if (!actionPlaying)
         {
-            if (action == "block")
-                WeaponColliderOff();
-
-            if (action == "strike")
-                AudioManager.PlayClip(0);
-
+            WeaponColliderOn();
+            AudioManager.PlayClip(0);
             actionPlaying = true;
             isWalking = false;
-            Animator.SetTrigger(action);
+            Animator.SetTrigger("strike");
         }   
+    }
+
+    public void Block(InputAction.CallbackContext ctx)
+    {
+        if (!actionPlaying)
+        {
+            StartBlock();
+            WeaponColliderOff();
+            actionPlaying = true;
+            isWalking = false;
+            Animator.SetTrigger("block");
+        }
+    }
+
+    public void Hit()
+    {
+        WeaponColliderOff();
+        actionPlaying = true;
+        isWalking = false;
+        Animator.SetTrigger("hit");
     }
 
     public void ActionFinished()
@@ -149,7 +183,7 @@ public class PlayerActions_Level07 : MonoBehaviour
                     BloodHolder = null;
                 }
                 BloodHolder = Instantiate(Blood, transform.position, Quaternion.identity);
-                Action("hit");
+                Hit();
                 
                 AudioManager.PlayClip(1);
                 Health -= 1;

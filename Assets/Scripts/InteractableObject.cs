@@ -45,14 +45,16 @@ public class InteractableObject : MonoBehaviour
     public void Interaction(string text)
     {
         Interacted = true;
-        Player.GetComponent<PlayerActions_Level11>().Text.GetComponent<TextMeshProUGUI>().text = text;
+        Player.GetComponent<PlayerActions_Level11>().TextBlack.GetComponent<TextMeshProUGUI>().text = text;
+        Player.GetComponent<PlayerActions_Level11>().TextWhite.GetComponent<TextMeshProUGUI>().text = text;
         StartCoroutine(RemoveText());
     }
 
     IEnumerator RemoveText()
     {
         yield return new WaitForSeconds(5);
-        Player.GetComponent<PlayerActions_Level11>().Text.GetComponent<TextMeshProUGUI>().text = "";
+        Player.GetComponent<PlayerActions_Level11>().TextBlack.GetComponent<TextMeshProUGUI>().text = "";
+        Player.GetComponent<PlayerActions_Level11>().TextWhite.GetComponent<TextMeshProUGUI>().text = "";
     }
 
 #if UNITY_EDITOR

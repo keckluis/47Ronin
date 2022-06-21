@@ -18,6 +18,13 @@ public class SceneLoader : MonoBehaviour
     private GameObject LoadingCanvas;
     [SerializeField]
     private GameObject MenuCanvas;
+    [SerializeField]
+    private bool isMenuMoving = false;
+    [SerializeField]
+    private bool moveIn = true;
+    public int MenuOut;
+    public int MenuIn;
+    static float t = 0.0f;
 
     private Language Language;
 
@@ -54,22 +61,57 @@ public class SceneLoader : MonoBehaviour
 
         if (loadScene)
         {
+            isMenuMoving = false;
+            moveIn = true;
+            MenuCanvas.transform.localPosition = new Vector3(MenuOut, MenuCanvas.transform.localPosition.y, MenuCanvas.transform.localPosition.z);
             LoadingCanvas.SetActive(true);
             LoadingText.color = new Color(LoadingText.color.r, LoadingText.color.g, LoadingText.color.b, Mathf.PingPong(Time.time, 1));
+        }
+
+        if (isMenuMoving && moveIn)
+        {
+            MenuCanvas.SetActive(true);
+            MenuCanvas.transform.localPosition = new Vector3(Mathf.Lerp(MenuCanvas.transform.localPosition.x, MenuIn, t), -539.938f, 0);
+            t += 0.5f * Time.deltaTime;
+
+            if (t > 1.0f || MenuCanvas.transform.localPosition.x == MenuIn)
+            {
+                t = 0.0f;
+                isMenuMoving = false;
+            }
+        }
+        else if (isMenuMoving && !moveIn)
+        {
+            MenuCanvas.SetActive(true);
+            MenuCanvas.transform.localPosition = new Vector3(Mathf.Lerp(MenuCanvas.transform.localPosition.x, MenuOut, t), -539.938f, 0);
+            t += 0.5f * Time.deltaTime;
+
+            if (t > 1.0f || MenuCanvas.transform.localPosition.x == MenuOut)
+            {
+                t = 0.0f;
+                isMenuMoving = false;
+            }
+        }
+        if (!isMenuMoving && !moveIn)
+        {
+            MenuCanvas.SetActive(false);
+            moveIn = true;
         }
     }
 
     public void Menu(InputAction.CallbackContext context)
     {
-        if (!loadScene && NextScene != 2 && NextScene != 19)
+        if (!loadScene && NextScene != 2 && NextScene != 19 && !isMenuMoving)
         {
-            if (MenuCanvas.activeSelf)
+            if (!MenuCanvas.activeSelf)
             {
-                MenuCanvas.SetActive(false);
+                isMenuMoving = true;
+                moveIn = true;
             }
             else
             {
-                MenuCanvas.SetActive(true);
+                isMenuMoving = true;
+                moveIn = false;
             }
         }
     }

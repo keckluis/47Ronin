@@ -1,0 +1,451 @@
+fileFormatVersion: 2
+guid: 7065cb3c534d0df4ebd87cace57f79be
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Kopf
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 223
+      y: 426
+      width: 108
+      height: 115
+    spriteID: 882de37c5ab64cf49ba9514c78ebfd54
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -194, y: 293}
+  - name: Hand vorne
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 443
+      y: 263
+      width: 48
+      height: 53
+    spriteID: be1a430cdb483004eab2613bdd67a096
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 170, y: 254}
+  - name: Arm vorne
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 223
+      y: 263
+      width: 212
+      height: 155
+    spriteID: 9d17390550e5e9f46b22d10e458448b0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -24, y: 231}
+  - name: Bein hinten
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 956
+      width: 209
+      height: 61
+    spriteID: d45fb7a254b91fc43b5275ae00d3cc26
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -57, y: 733}
+  - name: Bein Vorne
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 464
+      width: 134
+      height: 219
+    spriteID: 482a010f4be646240b2381a5639da739
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -64, y: 298}
+  - name: Schwert
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 691
+      width: 165
+      height: 169
+    spriteID: 5cae09ab72a99364b9df8f8989a03bfb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -88, y: 691}
+  - name: "K\xF6rper"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 459
+      height: 251
+    spriteID: bb549ba014dcac74ca65af1969aec319
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: -82}
+  - name: Arm hinten
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 868
+      width: 184
+      height: 80
+    spriteID: 32abf6d1209cd9d4192227dbbc5cb510
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -315, y: 665}
+  - name: Hand Schwert
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 263
+      width: 211
+      height: 193
+    spriteID: 99a2f2f6759f63b41886e528fe1da1dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -511, y: 234}
+  - name: Hals
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 443
+      y: 324
+      width: 42
+      height: 34
+    spriteID: 772f62954b217ee41bab523d2ec58fb8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 56, y: 129}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Kopf
+    spriteName: Kopf
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 882de37c5ab64cf49ba9514c78ebfd54
+    layerID: 11
+    mosaicPosition: {x: 223, y: 426}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Hand vorne
+    spriteName: Hand vorne
+    isGroup: 0
+    parentIndex: -1
+    spriteID: be1a430cdb483004eab2613bdd67a096
+    layerID: 10
+    mosaicPosition: {x: 443, y: 263}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Arm vorne
+    spriteName: Arm vorne
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9d17390550e5e9f46b22d10e458448b0
+    layerID: 9
+    mosaicPosition: {x: 223, y: 263}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Bein hinten
+    spriteName: Bein hinten
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d45fb7a254b91fc43b5275ae00d3cc26
+    layerID: 8
+    mosaicPosition: {x: 4, y: 956}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Bein Vorne
+    spriteName: Bein Vorne
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 482a010f4be646240b2381a5639da739
+    layerID: 7
+    mosaicPosition: {x: 4, y: 464}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Schwert
+    spriteName: Schwert
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5cae09ab72a99364b9df8f8989a03bfb
+    layerID: 6
+    mosaicPosition: {x: 4, y: 691}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: "K\xF6rper"
+    spriteName: "K\xF6rper"
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bb549ba014dcac74ca65af1969aec319
+    layerID: 5
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Arm hinten
+    spriteName: Arm hinten
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 32abf6d1209cd9d4192227dbbc5cb510
+    layerID: 4
+    mosaicPosition: {x: 4, y: 868}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Hand Schwert
+    spriteName: Hand Schwert
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 99a2f2f6759f63b41886e528fe1da1dc
+    layerID: 3
+    mosaicPosition: {x: 4, y: 263}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Hals
+    spriteName: Hals
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 772f62954b217ee41bab523d2ec58fb8
+    layerID: 2
+    mosaicPosition: {x: 443, y: 324}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Hintergrund
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4aa53e11854660f4485273b8e641a884
+    layerID: 1
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

@@ -22,7 +22,7 @@ public class InteractableObject : MonoBehaviour
         Destroy(copy.GetComponent<Collider2D>());
         copy.transform.localPosition = new Vector3(0, 0, 0);
         copy.transform.localEulerAngles = new Vector3(0, 0, 0);
-        sr.sortingLayerName = "2";
+        sr.sortingLayerName = "3";
 
         copy.transform.localScale = new Vector3(1 + Outline, 1 + Outline, 1);
         copy.SetActive(false);  

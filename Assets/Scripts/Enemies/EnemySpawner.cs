@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject GuardPrefab;
+    public List<GameObject> GuardPrefabs;
     public int GuardTotal = 30;
 
     private int SpawnedGuards = 0;
@@ -43,7 +43,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnGuard(float dist, float speed)
     {
-        GameObject guard = Instantiate(GuardPrefab, this.transform);
+        int guardColor = Random.Range(0, GuardPrefabs.Count);
+        GameObject guard = Instantiate(GuardPrefabs[guardColor], this.transform);
         guard.transform.Translate(new Vector3(dist, 0, 0));
         guard.GetComponent<EnemyBehaviour_Level09>().Speed = speed;
     }

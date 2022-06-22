@@ -101,7 +101,7 @@ public class SceneLoader : MonoBehaviour
 
     public void Menu(InputAction.CallbackContext context)
     {
-        if (!loadScene && NextScene != 2 && NextScene != 19 && !isMenuMoving)
+        if (!loadScene && NextScene != 2 && NextScene != 19 && NextScene != 20 && !isMenuMoving)
         {
             if (!MenuCanvas.activeSelf)
             {
@@ -139,7 +139,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadGameOver()
     {
         PreviousScene = NextScene - 1;
-        NextScene = 18;
+        NextScene = 19;
         LoadNextScene();
     }
 

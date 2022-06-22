@@ -32,7 +32,7 @@ public class GameOverButtons : MonoBehaviour
 
     public void LookForLanguage()
     {
-        if (GameObject.Find("Language"))
+        if (GameObject.Find("Language") && RestartButtonText != null)
         {
             Languages lang = GameObject.Find("Language").GetComponent<Language>().currentLanguage;
 

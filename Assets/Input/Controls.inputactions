@@ -669,6 +669,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Outro",
+            "id": "f9c646a4-ab75-476e-b3c2-4a3307389c91",
+            "actions": [
+                {
+                    "name": "Ride",
+                    "type": "Button",
+                    "id": "98fd214f-7e2e-45db-97c9-544db546c05c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "72ff8ae7-19f8-427e-bd47-fa84b5c48fef",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Ride",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48818027-9c76-4935-8bea-98cd1767c7f7",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Gamepad",
+                    "action": "Ride",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

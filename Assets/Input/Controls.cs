@@ -691,6 +691,45 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Outro"",
+            ""id"": ""f9c646a4-ab75-476e-b3c2-4a3307389c91"",
+            ""actions"": [
+                {
+                    ""name"": ""Ride"",
+                    ""type"": ""Button"",
+                    ""id"": ""98fd214f-7e2e-45db-97c9-544db546c05c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""72ff8ae7-19f8-427e-bd47-fa84b5c48fef"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Ride"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48818027-9c76-4935-8bea-98cd1767c7f7"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox Gamepad"",
+                    ""action"": ""Ride"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -744,6 +783,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_menu = m_Menu.FindAction("menu", throwIfNotFound: true);
+        // Outro
+        m_Outro = asset.FindActionMap("Outro", throwIfNotFound: true);
+        m_Outro_Ride = m_Outro.FindAction("Ride", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1061,6 +1103,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
+
+    // Outro
+    private readonly InputActionMap m_Outro;
+    private IOutroActions m_OutroActionsCallbackInterface;
+    private readonly InputAction m_Outro_Ride;
+    public struct OutroActions
+    {
+        private @Controls m_Wrapper;
+        public OutroActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Ride => m_Wrapper.m_Outro_Ride;
+        public InputActionMap Get() { return m_Wrapper.m_Outro; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OutroActions set) { return set.Get(); }
+        public void SetCallbacks(IOutroActions instance)
+        {
+            if (m_Wrapper.m_OutroActionsCallbackInterface != null)
+            {
+                @Ride.started -= m_Wrapper.m_OutroActionsCallbackInterface.OnRide;
+                @Ride.performed -= m_Wrapper.m_OutroActionsCallbackInterface.OnRide;
+                @Ride.canceled -= m_Wrapper.m_OutroActionsCallbackInterface.OnRide;
+            }
+            m_Wrapper.m_OutroActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Ride.started += instance.OnRide;
+                @Ride.performed += instance.OnRide;
+                @Ride.canceled += instance.OnRide;
+            }
+        }
+    }
+    public OutroActions @Outro => new OutroActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -1110,5 +1185,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     public interface IMenuActions
     {
         void OnMenu(InputAction.CallbackContext context);
+    }
+    public interface IOutroActions
+    {
+        void OnRide(InputAction.CallbackContext context);
     }
 }

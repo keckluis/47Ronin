@@ -16,8 +16,11 @@ public class VisionRaycast : MonoBehaviour
     public TextMeshPro debugtext;
     GuardPatrol guardPatrol;
     private int AlarmTrigger = 80;
+    public SceneChanger sceneChanger;
+
     void Start()
     {
+        sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneChanger>();
         rb2D = GetComponent<Rigidbody2D>();
         guardPatrol = GetComponent<GuardPatrol>();
         //VisionLayer += LayerMask.GetMask("Player");
@@ -87,8 +90,10 @@ public class VisionRaycast : MonoBehaviour
 
     public void AlarmTriggered()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        if(sceneChanger.SceneLoader != null)
+        sceneChanger.GameOver = true;
+        //Scene scene = SceneManager.GetActiveScene();
+        //SceneManager.LoadScene(scene.name);
     }
 }
 

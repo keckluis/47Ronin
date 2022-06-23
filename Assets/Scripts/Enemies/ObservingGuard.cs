@@ -9,6 +9,13 @@ public class ObservingGuard : MonoBehaviour
     bool detected;
     public GameObject detectionStatusIcon;
     private int AlarmTrigger = 80;
+    public SceneChanger sceneChanger;
+
+    public void Start()
+    {
+        sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneChanger>();
+    }
+
 
     public void FixedUpdate()
     {
@@ -20,6 +27,7 @@ public class ObservingGuard : MonoBehaviour
             detectionCounter--;
         else if (detectionCounter == AlarmTrigger)
             AlarmTriggered();
+
        // }
     }
     public void raiseDetection()
@@ -34,7 +42,9 @@ public class ObservingGuard : MonoBehaviour
     }
     public void AlarmTriggered()
     {
-        Scene scene = SceneManager.GetActiveScene(); 
-        SceneManager.LoadScene(scene.name);
+        if (sceneChanger.SceneLoader != null)
+            sceneChanger.GameOver = true;
+        //Scene scene = SceneManager.GetActiveScene(); 
+        //SceneManager.LoadScene(scene.name);
     }
 }

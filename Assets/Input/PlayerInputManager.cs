@@ -13,6 +13,7 @@ public class PlayerInputManager : MonoBehaviour
     public float maxSpeed;
     public Controls ActionMap;
     public Transform ThrowPos;
+    public SceneChanger sceneChanger;
 
     public GameObject stone;
 
@@ -43,6 +44,7 @@ public class PlayerInputManager : MonoBehaviour
         ActionMap.PlayerControls.Disable();
     }
 
+    
     void Movement(InputAction.CallbackContext ctx)
     {
         PlayerRb.velocity = ctx.ReadValue<Vector2>();
@@ -73,12 +75,14 @@ public class PlayerInputManager : MonoBehaviour
     private void throwStone()
     {
         GameObject stoneInst = Instantiate(stone, ThrowPos.position, ThrowPos.rotation);
-        stoneInst.GetComponent<Rigidbody2D>().AddForce(ThrowDirection * 600);
+        stoneInst.GetComponent<Rigidbody2D>().AddForce(ThrowDirection * 650);
+        stoneInst.GetComponent<Rigidbody2D>().AddTorque(5);
     }
 
     void FixedUpdate()
     {
         PlayerRb.AddForce(movmentDirection * 50);
+
         if (PlayerRb.velocity.magnitude > maxSpeed)
         {
             PlayerRb.velocity = Vector3.ClampMagnitude(PlayerRb.velocity, maxSpeed);
@@ -101,6 +105,26 @@ public class PlayerInputManager : MonoBehaviour
                     transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
             }
         }
+
+        if (sceneChanger.NextScene || sceneChanger.GameOver)
+        {
+            ActionMap.PlayerControls.ActivateThrowMode.started -= activateThrowMode;
+            ActionMap.PlayerControls.ActivateThrowMode.canceled -= deactivateThrowMode;
+            ActionMap.PlayerControls.StoneTrowing.performed -= getThrowDirection;
+            ActionMap.PlayerControls.StoneTrowing.canceled -= StoneThrow;
+            ActionMap.PlayerControls.Movement.performed -= ctx => movmentDirection = ctx.ReadValue<Vector2>();
+            ActionMap.Disable();
+
+            if (sceneChanger.GameOver && sceneChanger.SceneLoader != null)
+            {
+                sceneChanger.SceneLoader.LoadGameOver();
+            }
+            else if (sceneChanger.NextScene && sceneChanger.SceneLoader != null)
+            {
+                sceneChanger.SceneLoader.LoadNextScene();
+            }
+        }
+        
     }
 
-}
+   }

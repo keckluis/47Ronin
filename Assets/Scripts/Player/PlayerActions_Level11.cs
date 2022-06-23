@@ -19,6 +19,7 @@ public class PlayerActions_Level11 : MonoBehaviour
     public InteractionHandler InteractionHandler;
 
     public Controls ActionMap;
+    public SceneChanger SceneChanger;
 
     private void Awake()
     {
@@ -42,6 +43,28 @@ public class PlayerActions_Level11 : MonoBehaviour
         if (isWalking)
         {
             transform.Translate(-speedHori, speedVert, 0);
+        }
+    }
+
+    private void Update()
+    {
+        if (SceneChanger.NextScene || SceneChanger.GameOver)
+        {
+            ActionMap.Level11.Walk.performed -= Walk;
+            ActionMap.Level11.Walk.canceled -= StopWalking;
+            ActionMap.Level11.Interact.performed -= InteractionHandler.Interact;
+            ActionMap.Disable();
+
+            if (SceneChanger.GameOver)
+            {
+                SceneChanger.SceneLoader.LoadGameOver();
+            }
+            else if (SceneChanger.NextScene)
+            {
+                SceneChanger.SceneLoader.LoadNextScene();
+            }
+
+            Destroy(this);
         }
     }
 

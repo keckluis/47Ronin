@@ -6,6 +6,7 @@ public class HiddenEntrance : MonoBehaviour
 {
     InteractableObject obj;
     bool success = false;
+    public SceneChanger SceneChanger;
 
     private void Start()
     {
@@ -32,9 +33,6 @@ public class HiddenEntrance : MonoBehaviour
     IEnumerator LevelEnd()
     {
         yield return new WaitForSeconds(5);
-        if (GameObject.Find("SceneLoader"))
-        {
-            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
-        }
+        SceneChanger.NextScene = true;
     }
 }

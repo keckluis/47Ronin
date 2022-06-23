@@ -8,6 +8,8 @@ public class GuardManager_Level07 : MonoBehaviour
     public float VisibleDistance = 0;
     public List<EnemyBehaviour_Level07> Guards = new List<EnemyBehaviour_Level07>();
     private bool allKilled = false;
+    public SceneChanger SceneChanger;
+
 
     void Update()
     {
@@ -53,9 +55,6 @@ public class GuardManager_Level07 : MonoBehaviour
     IEnumerator LevelEnd()
     {
         yield return new WaitForSeconds(3);
-        if (GameObject.Find("SceneLoader"))
-        {
-            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
-        }
+        SceneChanger.NextScene = true;
     }
 }

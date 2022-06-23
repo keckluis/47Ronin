@@ -19,6 +19,7 @@ public class PlayerActions_Level09 : MonoBehaviour
     private float y = 0;
 
     public Controls ActionMap;
+    public SceneChanger SceneChanger;
 
     private void Awake()
     {
@@ -66,7 +67,26 @@ public class PlayerActions_Level09 : MonoBehaviour
                 return;
 
             Spine.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        } 
+        }
+
+        if (SceneChanger.NextScene || SceneChanger.GameOver)
+        {
+            ActionMap.Level09.Shoot.performed -= Shoot;
+            ActionMap.Level09.Aim.performed -= Aim;
+            ActionMap.Level09.Aim.canceled -= StopAim;
+            ActionMap.Disable();
+
+            if (SceneChanger.GameOver)
+            {
+                SceneChanger.SceneLoader.LoadGameOver();
+            }
+            else if (SceneChanger.NextScene)
+            {
+                SceneChanger.SceneLoader.LoadNextScene();
+            }
+
+            Destroy(this);
+        }
     }
 
     public void Aim(InputAction.CallbackContext context)

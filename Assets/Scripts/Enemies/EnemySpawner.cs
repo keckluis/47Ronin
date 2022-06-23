@@ -11,14 +11,19 @@ public class EnemySpawner : MonoBehaviour
 
     private bool allKilled = false;
 
+    public SceneChanger SceneChanger;
+
+    bool justSpawned = true;
+
     void Start()
-    {
+    { 
         SpawnGuard(0, 20);
+        StartCoroutine(SpawnCooldown());
     }
 
     void Update()
     {
-        if (transform.childCount == 0)
+        if (transform.childCount < 6 && !justSpawned)
         {
             if (SpawnedGuards >= GuardTotal && !allKilled)
             {
@@ -37,6 +42,8 @@ public class EnemySpawner : MonoBehaviour
                 {
                     SpawnGuard(i * 1, speed);
                 }
+                justSpawned = true;
+                StartCoroutine(SpawnCooldown());
             }        
         }
     }
@@ -52,9 +59,11 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator LevelEnd()
     {
         yield return new WaitForSeconds(3);
-        if (GameObject.Find("SceneLoader"))
-        {
-            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
-        }
+        SceneChanger.NextScene = true;
+    }
+    IEnumerator SpawnCooldown()
+    {
+        yield return new WaitForSeconds(5);
+        justSpawned = false;
     }
 }

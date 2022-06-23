@@ -7,7 +7,7 @@ public class AlarmBell : MonoBehaviour
     public AudioManager AudioManager;
     public GameObject Bell;
     bool bellReached = false;
-
+    public SceneChanger SceneChanger;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy" && !bellReached)
@@ -26,10 +26,7 @@ public class AlarmBell : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         Debug.Log("GAME OVER");
-        if (GameObject.Find("SceneLoader"))
-        {
-            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadGameOver();
-        }
+        SceneChanger.GameOver = true;
         bellReached = true;
         AudioManager.gameObject.SetActive(false);
     }

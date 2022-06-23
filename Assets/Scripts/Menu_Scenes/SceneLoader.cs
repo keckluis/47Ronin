@@ -139,7 +139,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadGameOver()
     {
         PreviousScene = NextScene - 1;
-        NextScene = 19;
+        NextScene = SceneManager.sceneCountInBuildSettings - 1;
         LoadNextScene();
     }
 

@@ -128,6 +128,74 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8319588767216874148, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
   m_PrefabInstance: {fileID: 1441515466}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &12670243
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1289270886648504252, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289270886648504252, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289270886648504252, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289270886648504252, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289270886648504252, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289270886648504252, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289270886648504252, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289270886648504252, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289270886648504252, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289270886648504252, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289270886648504252, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874984467592941907, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+      propertyPath: m_Name
+      value: SceneChanger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+--- !u!114 &12670244 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8209667831931589634, guid: 3d53feaadcec27e4bafa2d6b8448385c, type: 3}
+  m_PrefabInstance: {fileID: 12670243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8244dade250a12f43ae5faffdbdfd2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &13255820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2279,11 +2347,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1144126837
+      value: 1478377855
       objectReference: {fileID: 0}
     - target: {fileID: 8319588767216874148, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_RootOrder
@@ -4063,6 +4131,7 @@ MonoBehaviour:
   - {fileID: 689842558}
   - {fileID: 834741671}
   - {fileID: 829266014}
+  SceneChanger: {fileID: 12670244}
 --- !u!4 &625101058
 Transform:
   m_ObjectHideFlags: 0
@@ -4547,7 +4616,7 @@ MonoBehaviour:
   Player: {fileID: 1169994950}
   Health: 3
   Range: 3
-  Cooldown: 2
+  Cooldown: 1
   Speed: 0.05
   direction: 1
   Weapon: {fileID: 456113640}
@@ -6569,7 +6638,7 @@ MonoBehaviour:
   Player: {fileID: 1169994950}
   Health: 3
   Range: 3
-  Cooldown: 2
+  Cooldown: 1
   Speed: 0.05
   direction: 1
   Weapon: {fileID: 1377715757}
@@ -6646,8 +6715,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1144126837
-  m_SortingLayer: 6
+  m_SortingLayerID: 1478377855
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 31d1f916e4c0acb4c9f8f4fcb52bc72a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6967,7 +7036,7 @@ MonoBehaviour:
   Player: {fileID: 1169994950}
   Health: 3
   Range: 3
-  Cooldown: 2
+  Cooldown: 1
   Speed: 0.05
   direction: 1
   Weapon: {fileID: 546544260}
@@ -9902,7 +9971,7 @@ MonoBehaviour:
   Player: {fileID: 1169994950}
   Health: 3
   Range: 3
-  Cooldown: 2
+  Cooldown: 1
   Speed: 0.05
   direction: 1
   Weapon: {fileID: 1771244493}
@@ -10068,8 +10137,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1144126837
-  m_SortingLayer: 6
+  m_SortingLayerID: 6241289
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9f4d1024b34479743a6667e7b0a19eb2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10847,11 +10916,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBlocking: 0
   direction: 0
-  Speed: 0.1
+  Speed: 0.15
   Weapon: {fileID: 1691408662}
   Blood: {fileID: 6428839827694703369, guid: 9ca9172765b6f8642a0d92434880ad38, type: 3}
   Health: 10
   AudioManager: {fileID: 452522063}
+  SceneChanger: {fileID: 12670244}
 --- !u!4 &1169994953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: f56d6c283f151404c840c3ed65ad8354, type: 3}
@@ -11414,11 +11484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1144126837
+      value: 1478377855
       objectReference: {fileID: 0}
     - target: {fileID: 8319588767216874148, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_RootOrder
@@ -12409,7 +12479,7 @@ MonoBehaviour:
   Player: {fileID: 1169994950}
   Health: 3
   Range: 3
-  Cooldown: 2
+  Cooldown: 1
   Speed: 0.05
   direction: 1
   Weapon: {fileID: 1405201615}
@@ -12441,11 +12511,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1144126837
+      value: 1478377855
       objectReference: {fileID: 0}
     - target: {fileID: 8319588767216874148, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_RootOrder
@@ -12559,11 +12629,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1144126837
+      value: 1478377855
       objectReference: {fileID: 0}
     - target: {fileID: 8319588767216874148, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_RootOrder
@@ -12799,11 +12869,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1144126837
+      value: 1478377855
       objectReference: {fileID: 0}
     - target: {fileID: 8319588767216874148, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_RootOrder
@@ -13099,8 +13169,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1144126837
-  m_SortingLayer: 6
+  m_SortingLayerID: 1478377855
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 31d1f916e4c0acb4c9f8f4fcb52bc72a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13281,7 +13351,7 @@ MonoBehaviour:
   Player: {fileID: 1169994950}
   Health: 3
   Range: 3
-  Cooldown: 2
+  Cooldown: 1
   Speed: 0.05
   direction: 1
   Weapon: {fileID: 1951871615}
@@ -14685,11 +14755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1144126837
+      value: 1478377855
       objectReference: {fileID: 0}
     - target: {fileID: 8319588767216874148, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_RootOrder
@@ -15126,11 +15196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1144126837
+      value: 1478377855
       objectReference: {fileID: 0}
     - target: {fileID: 8319588767216874148, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_RootOrder
@@ -17020,7 +17090,7 @@ MonoBehaviour:
   Player: {fileID: 1169994950}
   Health: 3
   Range: 3
-  Cooldown: 2
+  Cooldown: 1
   Speed: 0.05
   direction: 1
   Weapon: {fileID: 1879578473}
@@ -17458,11 +17528,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6358269916608781777, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1144126837
+      value: 1478377855
       objectReference: {fileID: 0}
     - target: {fileID: 8319588767216874148, guid: 028bae95d713b1048bdba765a9d4a5ee, type: 3}
       propertyPath: m_RootOrder

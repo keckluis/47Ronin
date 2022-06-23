@@ -26,6 +26,8 @@ public class PlayerActions_Level13 : MonoBehaviour
 
     public Controls ActionMap;
 
+    public SceneChanger SceneChanger;
+
     private void Awake()
     {
         ActionMap = new Controls();
@@ -71,6 +73,30 @@ public class PlayerActions_Level13 : MonoBehaviour
             foreach (Transform ronin in Ronins)
             {
                 ronin.GetComponent<Animator>().SetBool("isWalking", false);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (!dead)
+        {
+            if (SceneChanger.NextScene || SceneChanger.GameOver)
+            {
+                ActionMap.Level0713.Walk.started -= Walk;
+                ActionMap.Level0713.Walk.canceled -= StopWalking;
+                ActionMap.Level0713.Strike.performed -= Strike;
+                ActionMap.Level0713.Block.performed -= Dodge;
+                ActionMap.Disable();
+
+                if (SceneChanger.GameOver)
+                {
+                    SceneChanger.SceneLoader.LoadGameOver();
+                }
+                else if (SceneChanger.NextScene)
+                {
+                    SceneChanger.SceneLoader.LoadNextScene();
+                }
             }
         }
     }
@@ -192,10 +218,7 @@ public class PlayerActions_Level13 : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("GAME OVER");
-        if (GameObject.Find("SceneLoader"))
-        {
-            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadGameOver();
-        }
+        SceneChanger.GameOver = true;
         dead = true;
         AudioManager.gameObject.SetActive(false);
     }

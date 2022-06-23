@@ -9,6 +9,7 @@ public class GuardManager_Level13 : MonoBehaviour
     public List<EnemyBehaviour_Level13> Guards = new List<EnemyBehaviour_Level13>();
     private bool allKilled = false;
     public AudioManager AudioManager;
+    public SceneChanger SceneChanger;
 
     void Update()
     {
@@ -54,10 +55,7 @@ public class GuardManager_Level13 : MonoBehaviour
     IEnumerator LevelEnd()
     {
         yield return new WaitForSeconds(3);
-        if (GameObject.Find("SceneLoader"))
-        {
-            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
-        }
+        SceneChanger.NextScene = true;
         AudioManager.gameObject.SetActive(false);
     }
 }

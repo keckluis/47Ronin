@@ -9,6 +9,7 @@ public class PlayerActions_Outro : MonoBehaviour
     private Animator Animator;
     public Controls ActionMap;
     public float Speed = 1;
+    public SceneChanger SceneChanger;
 
     void Awake()
     {
@@ -34,6 +35,18 @@ public class PlayerActions_Outro : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (SceneChanger.NextScene)
+        {
+            SceneChanger.NextScene = false;
+            ActionMap.Outro.Ride.performed -= Ride;
+            ActionMap.Outro.Ride.canceled -= Stop;
+            ActionMap.Disable();
+            SceneChanger.SceneLoader.LoadNextScene();
+        }      
+    }
+
     private void Ride(InputAction.CallbackContext context)
     {
         isWalking = true;
@@ -54,9 +67,6 @@ public class PlayerActions_Outro : MonoBehaviour
     IEnumerator WaitForEnd()
     {
         yield return new WaitForSeconds(3);
-        if (GameObject.Find("SceneLoader"))
-        {
-            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
-        }
+        SceneChanger.NextScene = true;
     }
 }

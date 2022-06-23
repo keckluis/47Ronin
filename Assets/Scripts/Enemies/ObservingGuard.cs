@@ -11,6 +11,8 @@ public class ObservingGuard : MonoBehaviour
     private int AlarmTrigger = 80;
     public SceneChanger sceneChanger;
 
+    private bool alarm = false;
+
     public void Start()
     {
         sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneChanger>();
@@ -42,8 +44,12 @@ public class ObservingGuard : MonoBehaviour
     }
     public void AlarmTriggered()
     {
-        if (sceneChanger.SceneLoader != null)
-            sceneChanger.GameOver = true;
+        if (!alarm)
+        {
+            alarm = true;
+            if (sceneChanger.SceneLoader != null)
+                sceneChanger.GameOver = true;
+        }
         //Scene scene = SceneManager.GetActiveScene(); 
         //SceneManager.LoadScene(scene.name);
     }

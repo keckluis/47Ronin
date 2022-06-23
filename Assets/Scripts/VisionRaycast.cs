@@ -17,6 +17,7 @@ public class VisionRaycast : MonoBehaviour
     GuardPatrol guardPatrol;
     private int AlarmTrigger = 80;
     public SceneChanger sceneChanger;
+    private bool alarm = false;
 
     void Start()
     {
@@ -90,10 +91,14 @@ public class VisionRaycast : MonoBehaviour
 
     public void AlarmTriggered()
     {
-        if(sceneChanger.SceneLoader != null)
-        sceneChanger.GameOver = true;
-        //Scene scene = SceneManager.GetActiveScene();
-        //SceneManager.LoadScene(scene.name);
+        if (!alarm)
+        {
+            alarm = true;
+            if (sceneChanger.SceneLoader != null)
+                sceneChanger.GameOver = true;
+            //Scene scene = SceneManager.GetActiveScene();
+            //SceneManager.LoadScene(scene.name);
+        }
     }
 }
 

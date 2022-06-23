@@ -123,7 +123,6 @@ public class SceneLoader : MonoBehaviour
             loadScene = true;
             StartCoroutine(LoadNewScene(NextScene));
             NextScene += 1;
-            PreviousScene += 1;
         }
     }
 

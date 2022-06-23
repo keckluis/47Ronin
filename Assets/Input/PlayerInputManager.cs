@@ -73,7 +73,7 @@ public class PlayerInputManager : MonoBehaviour
     private void throwStone()
     {
         GameObject stoneInst = Instantiate(stone, ThrowPos.position, ThrowPos.rotation);
-        stoneInst.GetComponent<Rigidbody2D>().AddForce(ThrowDirection * 750);
+        stoneInst.GetComponent<Rigidbody2D>().AddForce(ThrowDirection * 600);
     }
 
     void FixedUpdate()

@@ -80,7 +80,7 @@ public class GuardPatrol : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, SpawnpointInst.transform.position, 0.05f);
         lookAtDirection(transform.position, GuardingPos);
         transform.Rotate(new Vector3(0, 180, 0));
-   
+        
     }
 
     private void findTarget()
@@ -132,6 +132,7 @@ public class GuardPatrol : MonoBehaviour
         if (other.gameObject.layer == 12)
         {
             StartCoroutine(Wait(2));
+            Animator.SetBool("isWalking", false);
             suspicios = false;
             
             index = 0;
@@ -172,5 +173,7 @@ public class GuardPatrol : MonoBehaviour
         patroling = true;
         detectionStatusIcon.SetActive(false);
         returning = true;
+        Animator.SetBool("isWalking", true);
+
     }
 }

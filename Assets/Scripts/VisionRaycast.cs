@@ -43,7 +43,7 @@ public class VisionRaycast : MonoBehaviour
                     detectionCounter++;
                     guardPatrol.detected = true;
                     detectionStatusIcon.SetActive(true);
-                    Debug.Log(hit.collider.IsTouchingLayers(LayerMask.GetMask("Obstruction")));
+                    //Debug.Log(hit.collider.IsTouchingLayers(LayerMask.GetMask("Obstruction")));
 
                 }
                 

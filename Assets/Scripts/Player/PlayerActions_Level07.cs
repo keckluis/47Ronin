@@ -65,6 +65,7 @@ public class PlayerActions_Level07 : MonoBehaviour
         {
             if (SceneChanger.NextScene || SceneChanger.GameOver)
             {
+                dead = true;
                 ActionMap.Level0713.Walk.started -= Walk;
                 ActionMap.Level0713.Walk.canceled -= StopWalking;
                 ActionMap.Level0713.Strike.performed -= Strike;
@@ -226,7 +227,6 @@ public class PlayerActions_Level07 : MonoBehaviour
     {
         Debug.Log("GAME OVER");
         SceneChanger.GameOver = true;
-        dead = true;
         AudioManager.gameObject.SetActive(false);
     }
 }

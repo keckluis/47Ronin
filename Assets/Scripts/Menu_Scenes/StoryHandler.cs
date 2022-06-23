@@ -34,12 +34,13 @@ public class StoryHandler : MonoBehaviour
 
     private void Awake()
     {
+        currentPos = 0;
         ActionMap = new Controls();
 
         ActionMap.Enable();
-        ActionMap.Story.Next.performed += Next;
-        ActionMap.Story.Previous.performed += Previous;
-        ActionMap.Story.Skip.performed += Skip;
+        ActionMap.Story.Next.started += Next;
+        ActionMap.Story.Previous.started += Previous;
+        ActionMap.Story.Skip.started += Skip;
     }
 
     private void Start()
@@ -92,6 +93,10 @@ public class StoryHandler : MonoBehaviour
             else if (GameObject.Find("SceneLoader"))
             {
                 GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
+                ActionMap.Story.Next.started -= Next;
+                ActionMap.Story.Previous.started -= Previous;
+                ActionMap.Story.Skip.started -= Skip;
+                ActionMap.Disable();
             }
         }       
     }
@@ -111,6 +116,10 @@ public class StoryHandler : MonoBehaviour
             else if (GameObject.Find("SceneLoader"))
             {
                 GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
+                ActionMap.Story.Next.started -= Next;
+                ActionMap.Story.Previous.started -= Previous;
+                ActionMap.Story.Skip.started -= Skip;
+                ActionMap.Disable();
             }
         }
     }

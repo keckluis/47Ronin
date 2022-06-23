@@ -11,6 +11,11 @@ public class ButtonColorChanger : MonoBehaviour
 
     private TextMeshProUGUI ButtonLabel;
 
+    private void OnEnable()
+    {
+        if (ButtonLabel != null)
+            ButtonLabel.color = Default;
+    }
     private void Start()
     {
         ButtonLabel = transform.GetChild(0).GetComponent<TextMeshProUGUI>();

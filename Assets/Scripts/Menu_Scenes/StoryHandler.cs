@@ -93,8 +93,26 @@ public class StoryHandler : MonoBehaviour
             {
                 GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
             }
+        }       
+    }
+
+    public void NextButton()
+    {
+        if (!isMoving)
+        {
+            if (currentPos + 1 < Positions.Count)
+            {
+                isMoving = true;
+                currentPos += 1;
+
+                if (Texts != null)
+                    Text.text = Texts[currentPos];
+            }
+            else if (GameObject.Find("SceneLoader"))
+            {
+                GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
+            }
         }
-               
     }
 
     public void Previous(InputAction.CallbackContext ctx)
@@ -107,6 +125,18 @@ public class StoryHandler : MonoBehaviour
             if (Texts != null)
                 Text.text = Texts[currentPos];
         }      
+    }
+
+    public void PreviousButton()
+    {
+        if (currentPos > 0 && !isMoving)
+        {
+            isMoving = true;
+            currentPos -= 1;
+
+            if (Texts != null)
+                Text.text = Texts[currentPos];
+        }
     }
 
     public void Skip(InputAction.CallbackContext ctx)

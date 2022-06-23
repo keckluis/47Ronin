@@ -5,6 +5,7 @@ using UnityEngine;
 public class AlarmBell : MonoBehaviour
 {
     public AudioManager AudioManager;
+    public GameObject Bell;
     bool bellReached = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,14 +14,17 @@ public class AlarmBell : MonoBehaviour
         {
             Destroy(collision.GetComponent<EnemyBehaviour_Level09>());
             Destroy(collision.GetComponent<Animator>());
-            AudioManager.PlayClip(1);
+            AudioManager.gameObject.GetComponent<AudioSource>().loop = true;
+            AudioManager.gameObject.GetComponent<AudioSource>().clip = AudioManager.AudioClips[1];
+            AudioManager.gameObject.GetComponent<AudioSource>().Play();
+            Bell.GetComponent<Animator>().enabled = true;
             StartCoroutine(GameOver());
         }   
     }
 
     IEnumerator GameOver()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         Debug.Log("GAME OVER");
         if (GameObject.Find("SceneLoader"))
         {

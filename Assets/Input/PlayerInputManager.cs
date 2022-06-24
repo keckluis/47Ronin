@@ -18,6 +18,7 @@ public class PlayerInputManager : MonoBehaviour
     public GameObject stone;
 
     private Animator Animator;
+    bool changingScene = false;
     
     void Awake()
     {
@@ -108,21 +109,25 @@ public class PlayerInputManager : MonoBehaviour
 
         if (sceneChanger.NextScene || sceneChanger.GameOver)
         {
-            ActionMap.PlayerControls.ActivateThrowMode.started -= activateThrowMode;
-            ActionMap.PlayerControls.ActivateThrowMode.canceled -= deactivateThrowMode;
-            ActionMap.PlayerControls.StoneTrowing.performed -= getThrowDirection;
-            ActionMap.PlayerControls.StoneTrowing.canceled -= StoneThrow;
-            ActionMap.PlayerControls.Movement.performed -= ctx => movmentDirection = ctx.ReadValue<Vector2>();
-            ActionMap.Disable();
+            if (!changingScene)
+            {
+                changingScene = true;
+                ActionMap.PlayerControls.ActivateThrowMode.started -= activateThrowMode;
+                ActionMap.PlayerControls.ActivateThrowMode.canceled -= deactivateThrowMode;
+                ActionMap.PlayerControls.StoneTrowing.performed -= getThrowDirection;
+                ActionMap.PlayerControls.StoneTrowing.canceled -= StoneThrow;
+                ActionMap.PlayerControls.Movement.performed -= ctx => movmentDirection = ctx.ReadValue<Vector2>();
+                ActionMap.Disable();
 
-            if (sceneChanger.GameOver && sceneChanger.SceneLoader != null)
-            {
-                sceneChanger.SceneLoader.LoadGameOver();
-            }
-            else if (sceneChanger.NextScene && sceneChanger.SceneLoader != null)
-            {
-                sceneChanger.SceneLoader.LoadNextScene();
-            }
+                if (sceneChanger.GameOver && sceneChanger.SceneLoader != null)
+                {
+                    sceneChanger.SceneLoader.LoadGameOver();
+                }
+                else if (sceneChanger.NextScene && sceneChanger.SceneLoader != null)
+                {
+                    sceneChanger.SceneLoader.LoadNextScene();
+                }
+            }   
         }
         
     }

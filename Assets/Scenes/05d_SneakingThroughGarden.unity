@@ -1242,7 +1242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &472288138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2457,6 +2457,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.73
       objectReference: {fileID: 0}
+    - target: {fileID: 1615250858673106722, guid: 734a453c954892748881341c6b04fef9, type: 3}
+      propertyPath: sceneChanger
+      value: 
+      objectReference: {fileID: 1900154366}
     - target: {fileID: 6789988565367177971, guid: 734a453c954892748881341c6b04fef9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2618,6 +2622,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -2.61
       objectReference: {fileID: 0}
+    - target: {fileID: 7472866028319584119, guid: a7761955792ba234d99c4a92335779fc, type: 3}
+      propertyPath: sceneChanger
+      value: 
+      objectReference: {fileID: 1900154366}
     - target: {fileID: 7472866028570466672, guid: a7761955792ba234d99c4a92335779fc, type: 3}
       propertyPath: m_SortingLayer
       value: 11
@@ -3008,6 +3016,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 7472866028319584119, guid: a7761955792ba234d99c4a92335779fc, type: 3}
+      propertyPath: sceneChanger
+      value: 
+      objectReference: {fileID: 1900154366}
     - target: {fileID: 8656341483936892886, guid: a7761955792ba234d99c4a92335779fc, type: 3}
       propertyPath: m_SortingLayer
       value: 5
@@ -3081,6 +3093,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wache_stehend (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1516334804278928172, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: sceneChanger
+      value: 
+      objectReference: {fileID: 1900154366}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
 --- !u!1 &1344400559 stripped
@@ -3820,6 +3836,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -2.59
       objectReference: {fileID: 0}
+    - target: {fileID: 7472866028319584119, guid: a7761955792ba234d99c4a92335779fc, type: 3}
+      propertyPath: sceneChanger
+      value: 
+      objectReference: {fileID: 1900154366}
     - target: {fileID: 8656341483936892886, guid: a7761955792ba234d99c4a92335779fc, type: 3}
       propertyPath: m_SortingLayer
       value: 5
@@ -4545,6 +4565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wache_stehend (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1516334804278928172, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: sceneChanger
+      value: 
+      objectReference: {fileID: 1900154366}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
 --- !u!1001 &1973481463

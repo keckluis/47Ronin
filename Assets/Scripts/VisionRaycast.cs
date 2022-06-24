@@ -21,7 +21,8 @@ public class VisionRaycast : MonoBehaviour
 
     void Start()
     {
-        sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneChanger>();
+        if (sceneChanger == null)
+            sceneChanger = GameObject.Find("SceneChanger").GetComponent<SceneChanger>();
         rb2D = GetComponent<Rigidbody2D>();
         guardPatrol = GetComponent<GuardPatrol>();
         //VisionLayer += LayerMask.GetMask("Player");

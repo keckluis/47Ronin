@@ -46,6 +46,7 @@ public class ObservingGuard : MonoBehaviour
     {
         if (!alarm)
         {
+            print("GAME OVER");
             alarm = true;
             if (sceneChanger.SceneLoader != null)
                 sceneChanger.GameOver = true;

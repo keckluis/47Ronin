@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (transform.childCount < 6 && !justSpawned)
         {
-            if (SpawnedGuards >= GuardTotal && !allKilled)
+            if (SpawnedGuards >= GuardTotal && !allKilled && transform.childCount == 0)
             {
                 Debug.Log("SUCCESS");
                 allKilled = true;
@@ -63,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator SpawnCooldown()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         justSpawned = false;
     }
 }

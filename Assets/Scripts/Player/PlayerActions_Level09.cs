@@ -39,36 +39,6 @@ public class PlayerActions_Level09 : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isAiming)
-        {
-            ShootWithMouse();
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            isAiming = true;
-            Cursor.visible = false;
-        }
-        if (Input.GetMouseButtonUp(1))
-        {
-            isAiming = false;
-            Cursor.visible = true;
-        }
-        if (Input.GetMouseButton(1))
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
-
-            Vector2 mp = new Vector2(mousePos.x, mousePos.y);
-            mp.Normalize();
-            float angle = Mathf.Atan2(mp.y, mp.x) * Mathf.Rad2Deg;
-            x = mp.x;
-            y = mp.y;
-
-            if (x > 0)
-                return;
-
-            Spine.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        }
-
         if (SceneChanger.NextScene || SceneChanger.GameOver)
         {
             ActionMap.Level09.Shoot.performed -= Shoot;

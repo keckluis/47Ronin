@@ -1152,7 +1152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8981865514062773117, guid: 9cc5ca6485028a4478f4917573cefa17, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.96
+      value: -4.024
       objectReference: {fileID: 0}
     - target: {fileID: 8981865514062773117, guid: 9cc5ca6485028a4478f4917573cefa17, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3850,7 +3850,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spine: {fileID: 2121221289}
   Bow: {fileID: 824333664}
-  isAiming: 0
   Arrow: {fileID: 1807711629}
   ArrowPrefab: {fileID: 8262177630945020084, guid: 866b35d8d76efd148b07b472b2c5ac06, type: 3}
   AudioManager: {fileID: 774350194}

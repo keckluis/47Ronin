@@ -411,6 +411,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""AimKeyboard"",
+                    ""type"": ""Value"",
+                    ""id"": ""d64f1dae-d45b-40c6-b3a6-60026d34d64a"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -427,6 +436,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""74c39d3d-f98a-472a-b3c1-37df0ce30b39"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""6800907e-6064-4cbb-9909-7187abe24cf7"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
@@ -435,6 +455,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""31be2a72-1cbe-4621-96ca-2aca6242801b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimKeyboard"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""cc8f07fe-3733-4bad-a0a3-8ab9830a2724"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimKeyboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""596b2884-5872-4987-a2bd-c9de0ce6d7a8"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimKeyboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -455,15 +508,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""name"": ""Previous"",
                     ""type"": ""Button"",
                     ""id"": ""c66b24b9-cc00-440e-8d13-039f6e04f1a8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Skip"",
-                    ""type"": ""Button"",
-                    ""id"": ""f27d72c7-ebd2-4964-80f3-b6e7deff3ec6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -512,28 +556,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Previous"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7888aa6c-5b98-48eb-a7e3-cdfd6aed35fd"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Skip"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a22c919c-1210-4870-aeec-6f768349ba16"",
-                    ""path"": ""<Keyboard>/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Skip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -632,7 +654,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2708a4bd-f763-43ea-8f7d-4f117c020ebe"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Gamepad"",
@@ -654,17 +676,53 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Menu"",
+            ""name"": ""UI"",
             ""id"": ""c1c05e6f-b393-4f50-901e-27a162d995d7"",
             ""actions"": [
                 {
-                    ""name"": ""menu"",
+                    ""name"": ""Menu"",
                     ""type"": ""Button"",
                     ""id"": ""ea88c2a2-9fca-48d8-bb45-8fecb89920ec"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""A"",
+                    ""type"": ""Button"",
+                    ""id"": ""a4c6241d-0da5-4391-9114-c1b075a5e6eb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""B"",
+                    ""type"": ""Button"",
+                    ""id"": ""672a501f-8c9e-4369-86f7-d1681328d0a0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""X"",
+                    ""type"": ""Button"",
+                    ""id"": ""a4b82f10-6db0-4d6d-a1e3-4cfcd0509b76"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Y"",
+                    ""type"": ""Button"",
+                    ""id"": ""a949888e-c114-4b12-abd8-ab251a597437"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -675,7 +733,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""menu"",
+                    ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -686,7 +744,51 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Gamepad"",
-                    ""action"": ""menu"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa9b0235-8c5c-4723-baa5-bd49742957b1"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox Gamepad"",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be472586-3fca-45a9-bc76-83fd66b890d6"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox Gamepad"",
+                    ""action"": ""B"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b55d5a7d-b2cb-4d5c-9ef9-e3e03ca8c7ea"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox Gamepad"",
+                    ""action"": ""X"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""422a6d60-7a63-44bd-9d8f-51d2b067fd19"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox Gamepad"",
+                    ""action"": ""Y"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -771,18 +873,22 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Level09 = asset.FindActionMap("Level 09", throwIfNotFound: true);
         m_Level09_Shoot = m_Level09.FindAction("Shoot", throwIfNotFound: true);
         m_Level09_Aim = m_Level09.FindAction("Aim", throwIfNotFound: true);
+        m_Level09_AimKeyboard = m_Level09.FindAction("AimKeyboard", throwIfNotFound: true);
         // Story
         m_Story = asset.FindActionMap("Story", throwIfNotFound: true);
         m_Story_Next = m_Story.FindAction("Next", throwIfNotFound: true);
         m_Story_Previous = m_Story.FindAction("Previous", throwIfNotFound: true);
-        m_Story_Skip = m_Story.FindAction("Skip", throwIfNotFound: true);
         // Level 11
         m_Level11 = asset.FindActionMap("Level 11", throwIfNotFound: true);
         m_Level11_Walk = m_Level11.FindAction("Walk", throwIfNotFound: true);
         m_Level11_Interact = m_Level11.FindAction("Interact", throwIfNotFound: true);
-        // Menu
-        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-        m_Menu_menu = m_Menu.FindAction("menu", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Menu = m_UI.FindAction("Menu", throwIfNotFound: true);
+        m_UI_A = m_UI.FindAction("A", throwIfNotFound: true);
+        m_UI_B = m_UI.FindAction("B", throwIfNotFound: true);
+        m_UI_X = m_UI.FindAction("X", throwIfNotFound: true);
+        m_UI_Y = m_UI.FindAction("Y", throwIfNotFound: true);
         // Outro
         m_Outro = asset.FindActionMap("Outro", throwIfNotFound: true);
         m_Outro_Ride = m_Outro.FindAction("Ride", throwIfNotFound: true);
@@ -945,12 +1051,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private ILevel09Actions m_Level09ActionsCallbackInterface;
     private readonly InputAction m_Level09_Shoot;
     private readonly InputAction m_Level09_Aim;
+    private readonly InputAction m_Level09_AimKeyboard;
     public struct Level09Actions
     {
         private @Controls m_Wrapper;
         public Level09Actions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_Level09_Shoot;
         public InputAction @Aim => m_Wrapper.m_Level09_Aim;
+        public InputAction @AimKeyboard => m_Wrapper.m_Level09_AimKeyboard;
         public InputActionMap Get() { return m_Wrapper.m_Level09; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -966,6 +1074,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Aim.started -= m_Wrapper.m_Level09ActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_Level09ActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_Level09ActionsCallbackInterface.OnAim;
+                @AimKeyboard.started -= m_Wrapper.m_Level09ActionsCallbackInterface.OnAimKeyboard;
+                @AimKeyboard.performed -= m_Wrapper.m_Level09ActionsCallbackInterface.OnAimKeyboard;
+                @AimKeyboard.canceled -= m_Wrapper.m_Level09ActionsCallbackInterface.OnAimKeyboard;
             }
             m_Wrapper.m_Level09ActionsCallbackInterface = instance;
             if (instance != null)
@@ -976,6 +1087,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
+                @AimKeyboard.started += instance.OnAimKeyboard;
+                @AimKeyboard.performed += instance.OnAimKeyboard;
+                @AimKeyboard.canceled += instance.OnAimKeyboard;
             }
         }
     }
@@ -986,14 +1100,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private IStoryActions m_StoryActionsCallbackInterface;
     private readonly InputAction m_Story_Next;
     private readonly InputAction m_Story_Previous;
-    private readonly InputAction m_Story_Skip;
     public struct StoryActions
     {
         private @Controls m_Wrapper;
         public StoryActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Next => m_Wrapper.m_Story_Next;
         public InputAction @Previous => m_Wrapper.m_Story_Previous;
-        public InputAction @Skip => m_Wrapper.m_Story_Skip;
         public InputActionMap Get() { return m_Wrapper.m_Story; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1009,9 +1121,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Previous.started -= m_Wrapper.m_StoryActionsCallbackInterface.OnPrevious;
                 @Previous.performed -= m_Wrapper.m_StoryActionsCallbackInterface.OnPrevious;
                 @Previous.canceled -= m_Wrapper.m_StoryActionsCallbackInterface.OnPrevious;
-                @Skip.started -= m_Wrapper.m_StoryActionsCallbackInterface.OnSkip;
-                @Skip.performed -= m_Wrapper.m_StoryActionsCallbackInterface.OnSkip;
-                @Skip.canceled -= m_Wrapper.m_StoryActionsCallbackInterface.OnSkip;
             }
             m_Wrapper.m_StoryActionsCallbackInterface = instance;
             if (instance != null)
@@ -1022,9 +1131,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Previous.started += instance.OnPrevious;
                 @Previous.performed += instance.OnPrevious;
                 @Previous.canceled += instance.OnPrevious;
-                @Skip.started += instance.OnSkip;
-                @Skip.performed += instance.OnSkip;
-                @Skip.canceled += instance.OnSkip;
             }
         }
     }
@@ -1071,38 +1177,70 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     }
     public Level11Actions @Level11 => new Level11Actions(this);
 
-    // Menu
-    private readonly InputActionMap m_Menu;
-    private IMenuActions m_MenuActionsCallbackInterface;
-    private readonly InputAction m_Menu_menu;
-    public struct MenuActions
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Menu;
+    private readonly InputAction m_UI_A;
+    private readonly InputAction m_UI_B;
+    private readonly InputAction m_UI_X;
+    private readonly InputAction m_UI_Y;
+    public struct UIActions
     {
         private @Controls m_Wrapper;
-        public MenuActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @menu => m_Wrapper.m_Menu_menu;
-        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Menu => m_Wrapper.m_UI_Menu;
+        public InputAction @A => m_Wrapper.m_UI_A;
+        public InputAction @B => m_Wrapper.m_UI_B;
+        public InputAction @X => m_Wrapper.m_UI_X;
+        public InputAction @Y => m_Wrapper.m_UI_Y;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
-        public void SetCallbacks(IMenuActions instance)
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
         {
-            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
             {
-                @menu.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnMenu;
-                @menu.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnMenu;
-                @menu.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnMenu;
+                @Menu.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMenu;
+                @A.started -= m_Wrapper.m_UIActionsCallbackInterface.OnA;
+                @A.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnA;
+                @A.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnA;
+                @B.started -= m_Wrapper.m_UIActionsCallbackInterface.OnB;
+                @B.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnB;
+                @B.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnB;
+                @X.started -= m_Wrapper.m_UIActionsCallbackInterface.OnX;
+                @X.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnX;
+                @X.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnX;
+                @Y.started -= m_Wrapper.m_UIActionsCallbackInterface.OnY;
+                @Y.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnY;
+                @Y.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnY;
             }
-            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @menu.started += instance.OnMenu;
-                @menu.performed += instance.OnMenu;
-                @menu.canceled += instance.OnMenu;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
+                @A.started += instance.OnA;
+                @A.performed += instance.OnA;
+                @A.canceled += instance.OnA;
+                @B.started += instance.OnB;
+                @B.performed += instance.OnB;
+                @B.canceled += instance.OnB;
+                @X.started += instance.OnX;
+                @X.performed += instance.OnX;
+                @X.canceled += instance.OnX;
+                @Y.started += instance.OnY;
+                @Y.performed += instance.OnY;
+                @Y.canceled += instance.OnY;
             }
         }
     }
-    public MenuActions @Menu => new MenuActions(this);
+    public UIActions @UI => new UIActions(this);
 
     // Outro
     private readonly InputActionMap m_Outro;
@@ -1170,21 +1308,25 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnAimKeyboard(InputAction.CallbackContext context);
     }
     public interface IStoryActions
     {
         void OnNext(InputAction.CallbackContext context);
         void OnPrevious(InputAction.CallbackContext context);
-        void OnSkip(InputAction.CallbackContext context);
     }
     public interface ILevel11Actions
     {
         void OnWalk(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
     }
-    public interface IMenuActions
+    public interface IUIActions
     {
         void OnMenu(InputAction.CallbackContext context);
+        void OnA(InputAction.CallbackContext context);
+        void OnB(InputAction.CallbackContext context);
+        void OnX(InputAction.CallbackContext context);
+        void OnY(InputAction.CallbackContext context);
     }
     public interface IOutroActions
     {

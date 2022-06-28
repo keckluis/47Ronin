@@ -9,7 +9,6 @@ public class PlayerActions_Level09 : MonoBehaviour
     private Animator Animator;
     public Animator Bow;
     private bool isShooting = false;
-    [SerializeField] private bool isAiming = false;
     public Transform Arrow;
     public GameObject ArrowPrefab;
     public AudioManager AudioManager;
@@ -21,6 +20,8 @@ public class PlayerActions_Level09 : MonoBehaviour
     public Controls ActionMap;
     public SceneChanger SceneChanger;
 
+    private float keyboardAim = 0;
+
     private void Awake()
     {
         ActionMap = new Controls();
@@ -28,6 +29,8 @@ public class PlayerActions_Level09 : MonoBehaviour
         ActionMap.Enable();
         ActionMap.Level09.Shoot.performed += Shoot;
         ActionMap.Level09.Aim.performed += Aim;
+        ActionMap.Level09.AimKeyboard.started += AimKeyboard;
+        ActionMap.Level09.AimKeyboard.canceled += StopAimKeyboard;
         ActionMap.Level09.Aim.canceled += StopAim;
     }
 
@@ -43,6 +46,8 @@ public class PlayerActions_Level09 : MonoBehaviour
         {
             ActionMap.Level09.Shoot.performed -= Shoot;
             ActionMap.Level09.Aim.performed -= Aim;
+            ActionMap.Level09.AimKeyboard.started -= AimKeyboard;
+            ActionMap.Level09.AimKeyboard.canceled -= StopAimKeyboard;
             ActionMap.Level09.Aim.canceled -= StopAim;
             ActionMap.Disable();
 
@@ -59,6 +64,32 @@ public class PlayerActions_Level09 : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        float z = Spine.localEulerAngles.z;
+        if (z > 91)
+            z = z - 360;
+
+        if (keyboardAim > 0 && z > -90)
+            z -= 1.5f;
+        else if (keyboardAim < 0 && z < 90)
+            z += 1.5f;
+
+        Spine.localEulerAngles = new Vector3(0, 0, z);
+        x = (Mathf.Abs(z) / 90) - 1;
+        y = -(z / 90);
+    }
+
+    public void AimKeyboard(InputAction.CallbackContext context)
+    {
+        keyboardAim = context.ReadValue<float>();
+    }
+
+    public void StopAimKeyboard(InputAction.CallbackContext context)
+    {
+        keyboardAim = 0;
+    }
+
     public void Aim(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
@@ -68,19 +99,9 @@ public class PlayerActions_Level09 : MonoBehaviour
         if (x > 0)
             return;
 
-        if (x <= 0)
-        {
-            isAiming = true;
-        }
-        else
-        {
-            isAiming = false;
-        }
-
         if (x == 0 && y == 0)
         {
             Spine.localRotation = Quaternion.Euler(0, 0, 0);
-            isAiming = false; 
             return;
         }
 
@@ -96,7 +117,7 @@ public class PlayerActions_Level09 : MonoBehaviour
 
     public void Shoot(InputAction.CallbackContext context)
     {
-        if (!isShooting && isAiming)
+        if (!isShooting)
         {
             isShooting = true;
             Animator.SetTrigger("shoot");
@@ -105,24 +126,13 @@ public class PlayerActions_Level09 : MonoBehaviour
         }  
     }
 
-    private void ShootWithMouse()
-    {
-        if (!isShooting && isAiming)
-        {
-            isShooting = true;
-            Animator.SetTrigger("shoot");
-            Bow.SetTrigger("shoot");
-            AudioManager.PlayClip(0);
-        }
-    }
-
     public void ArrowFlight()
     {
         Arrow.gameObject.SetActive(false);
         GameObject arrow = Instantiate(ArrowPrefab);
         arrow.transform.position = Arrow.position;
 
-        arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(x * 750 - 1, y * 750));
+        arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(x * 800 - 1, y * 750));
     }
 
     public void ShotDone()

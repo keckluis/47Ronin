@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class MainMenuButtons : MonoBehaviour
@@ -7,6 +8,15 @@ public class MainMenuButtons : MonoBehaviour
     private Language Language;
     public GameObject LangENButton;
     public GameObject LangDEButton;
+    public Controls ActionMap;
+
+    private void Awake()
+    {
+        ActionMap = new Controls();
+
+        ActionMap.Enable();
+        ActionMap.UI.A.started += StartGame;
+    }
 
     private void Start()
     {
@@ -28,6 +38,15 @@ public class MainMenuButtons : MonoBehaviour
     }
 
     public void StartGame()
+    {
+        if (GameObject.Find("SceneLoader"))
+        {
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().NextScene = 2;
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadNextScene();
+        }
+    }
+
+    public void StartGame(InputAction.CallbackContext ctx)
     {
         if (GameObject.Find("SceneLoader"))
         {

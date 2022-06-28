@@ -43,7 +43,8 @@ public class PlayerActions_Outro : MonoBehaviour
             ActionMap.Outro.Ride.performed -= Ride;
             ActionMap.Outro.Ride.canceled -= Stop;
             ActionMap.Disable();
-            SceneChanger.SceneLoader.LoadNextScene();
+            if (SceneChanger.SceneLoader != null)
+                SceneChanger.SceneLoader.LoadNextScene();
         }      
     }
 

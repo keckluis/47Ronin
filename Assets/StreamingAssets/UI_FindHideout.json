@@ -1,0 +1,11 @@
+{
+    "Name" : "UI_FindHideout",
+    "LS_DE" : "laufen",
+    "RS_DE" : "",
+    "LT_DE" : "",
+    "RT_DE" : "untersuchen",
+    "LS_EN" : "walk",
+    "RS_EN" : "",
+    "LT_EN" : "",
+    "RT_EN" : "inspect"
+}

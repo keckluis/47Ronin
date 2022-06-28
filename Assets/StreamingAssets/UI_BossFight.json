@@ -1,0 +1,11 @@
+{
+    "Name" : "UI_BossFight",
+    "LS_DE" : "laufen",
+    "RS_DE" : "",
+    "LT_DE" : "ausweichen",
+    "RT_DE" : "schlagen",
+    "LS_EN" : "walk",
+    "RS_EN" : "",
+    "LT_EN" : "evade",
+    "RT_EN" : "strike"
+}

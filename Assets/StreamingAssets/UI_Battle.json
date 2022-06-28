@@ -1,0 +1,11 @@
+{
+    "Name" : "UI_Battle",
+    "LS_DE" : "laufen",
+    "RS_DE" : "",
+    "LT_DE" : "blocken",
+    "RT_DE" : "schlagen",
+    "LS_EN" : "walk",
+    "RS_EN" : "",
+    "LT_EN" : "block",
+    "RT_EN" : "strike"
+}

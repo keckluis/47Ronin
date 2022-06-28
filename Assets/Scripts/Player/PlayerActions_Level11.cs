@@ -57,11 +57,13 @@ public class PlayerActions_Level11 : MonoBehaviour
 
             if (SceneChanger.GameOver)
             {
-                SceneChanger.SceneLoader.LoadGameOver();
+                if (SceneChanger.SceneLoader != null)
+                    SceneChanger.SceneLoader.LoadGameOver();
             }
             else if (SceneChanger.NextScene)
             {
-                SceneChanger.SceneLoader.LoadNextScene();
+                if (SceneChanger.SceneLoader != null)
+                    SceneChanger.SceneLoader.LoadNextScene();
             }
 
             Destroy(this);

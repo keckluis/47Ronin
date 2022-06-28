@@ -81,6 +81,11 @@ public class UIButtons : MonoBehaviour
 
     public void OpenCloseMenu(InputAction.CallbackContext context)
     {
+        OpenCloseMenu();
+    }
+
+    public void OpenCloseMenu()
+    {
         if (!SceneLoader.loadScene && SceneLoader.NextScene != 2 && SceneLoader.NextScene != 19 && SceneLoader.NextScene != 20 && !isMenuMoving)
         {
             if (!Menu.activeSelf)

@@ -1,0 +1,11 @@
+{
+    "Name" : "UI_SneakingThroughGarden",
+    "LS_DE" : "laufen",
+    "RS_DE" : "zielen",
+    "LT_DE" : "",
+    "RT_DE" : "werfen",
+    "LS_EN" : "walk",
+    "RS_EN" : "aim",
+    "LT_EN" : "",
+    "RT_EN" : "throw"
+}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIButtons : MonoBehaviour
@@ -29,6 +30,7 @@ public class UIButtons : MonoBehaviour
         ActionMap.UI.Menu.performed += OpenCloseMenu;
         ActionMap.UI.X.performed += SkipLevel;
         ActionMap.UI.B.performed += BackToMenu;
+        ActionMap.UI.Y.performed += RestartLevel;
     }
 
     private void Start()
@@ -77,6 +79,9 @@ public class UIButtons : MonoBehaviour
             Menu.SetActive(false);
             moveIn = true;
         }
+
+        if (RestartButtonText != null)
+            LookForLanguage();
     }
 
     public void OpenCloseMenu(InputAction.CallbackContext context)
@@ -103,12 +108,18 @@ public class UIButtons : MonoBehaviour
 
     public void RestartLevel()
     {
-        SceneLoader.LoadPreviousScene();
+        if (SceneManager.GetActiveScene().name == "GameOver")
+            SceneLoader.LoadPreviousScene();
+        RestartButtonText = null;
+    }
+    public void RestartLevel(InputAction.CallbackContext context)
+    {
+        RestartLevel();
     }
 
     public void BackToMenu()
     {
-        if (SceneLoader != null && Menu.activeSelf)
+        if (Menu.activeSelf || SceneManager.GetActiveScene().name == "GameOver" || SceneManager.GetActiveScene().name == "End")
         {
             SceneLoader.NextScene = 1;
             SceneLoader.LoadNextScene();
@@ -117,12 +128,7 @@ public class UIButtons : MonoBehaviour
     }
     public void BackToMenu(InputAction.CallbackContext context)
     {
-        if (SceneLoader != null && Menu.activeSelf)
-        {
-            SceneLoader.NextScene = 1;
-            SceneLoader.LoadNextScene();
-            Menu.SetActive(false);
-        }
+        BackToMenu();
     }
 
     public void SkipLevel()

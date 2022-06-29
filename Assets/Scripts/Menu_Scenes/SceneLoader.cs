@@ -75,6 +75,12 @@ public class SceneLoader : MonoBehaviour
         LoadNextScene();
     }
 
+    public void LoadSpecificScene(int index)
+    {
+        NextScene = index;
+        LoadNextScene();
+    }
+
     IEnumerator LoadNewScene(int SceneIndex)
     {
         yield return new WaitForSeconds(3);

@@ -34,6 +34,16 @@ public class PlayerActions_Level09 : MonoBehaviour
         ActionMap.Level09.Aim.canceled += StopAim;
     }
 
+    private void OnDestroy()
+    {
+        ActionMap.Level09.Shoot.performed -= Shoot;
+        ActionMap.Level09.Aim.performed -= Aim;
+        ActionMap.Level09.AimKeyboard.started -= AimKeyboard;
+        ActionMap.Level09.AimKeyboard.canceled -= StopAimKeyboard;
+        ActionMap.Level09.Aim.canceled -= StopAim;
+        ActionMap.Disable();
+    }
+
     private void Start()
     {
         Animator = GetComponent<Animator>();

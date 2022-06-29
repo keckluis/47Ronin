@@ -9,6 +9,8 @@ public class UIButtons : MonoBehaviour
 {
     private SceneLoader SceneLoader;
     public TextMeshProUGUI RestartButtonText;
+    public TextMeshProUGUI RestartButtonTextMenu;
+    public TextMeshProUGUI SkipLevelText;
     public GameObject Menu;
 
     public Controls ActionMap;
@@ -20,6 +22,8 @@ public class UIButtons : MonoBehaviour
     public int MenuOut;
     public int MenuIn;
     static float t = 0.0f;
+
+    private Language Lang;
 
 
     private void Awake()
@@ -40,6 +44,9 @@ public class UIButtons : MonoBehaviour
 
         if (RestartButtonText != null)
             LookForLanguage();
+
+        if (GameObject.Find("Language"))
+            Lang = GameObject.Find("Language").GetComponent<Language>();
     }
 
     private void Update()
@@ -80,8 +87,7 @@ public class UIButtons : MonoBehaviour
             moveIn = true;
         }
 
-        if (RestartButtonText != null)
-            LookForLanguage();
+        LookForLanguage();
     }
 
     public void OpenCloseMenu(InputAction.CallbackContext context)
@@ -110,6 +116,12 @@ public class UIButtons : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "GameOver")
             SceneLoader.LoadPreviousScene();
+        else if (Menu.activeSelf)
+        {
+            Menu.SetActive(false);
+            SceneLoader.NextScene -= 1;
+            SceneLoader.LoadNextScene();
+        }
         RestartButtonText = null;
     }
     public void RestartLevel(InputAction.CallbackContext context)
@@ -151,14 +163,25 @@ public class UIButtons : MonoBehaviour
 
     public void LookForLanguage()
     {
-        if (GameObject.Find("Language") && RestartButtonText != null)
+        if (Lang != null)
         {
-            Languages lang = GameObject.Find("Language").GetComponent<Language>().currentLanguage;
+            Languages lang = Lang.currentLanguage;
 
             if (lang == Languages.German)
-                RestartButtonText.text = "LEVEL NEU STARTEN";
+            {
+                if (RestartButtonText != null)
+                    RestartButtonText.text = "LEVEL NEU STARTEN";
+                RestartButtonTextMenu.text = "LEVEL NEU STARTEN";
+                SkipLevelText.text = "LEVEL ÜBERSPRINGEN";
+            }          
             else if (lang == Languages.English)
-                RestartButtonText.text = "RESTART LEVEL";
+            {
+                if (RestartButtonText != null)
+                    RestartButtonText.text = "RESTART LEVEL";
+                RestartButtonTextMenu.text = "RESTART LEVEL";
+                SkipLevelText.text = "SKIP LEVEL";
+                SkipLevelText.text = "SKIP LEVEL";
+            }               
         }
     }
 }

@@ -43,6 +43,14 @@ public class PlayerActions_Level07 : MonoBehaviour
         ActionMap.Level0713.Block.performed += Block;
     }
 
+    private void OnDestroy()
+    {
+        ActionMap.Level0713.Walk.started -= Walk;
+        ActionMap.Level0713.Walk.canceled -= StopWalking;
+        ActionMap.Level0713.Strike.performed -= Strike;
+        ActionMap.Level0713.Block.performed -= Block;
+        ActionMap.Disable();
+    }
     void Start()
     {
         Animator = GetComponent<Animator>();

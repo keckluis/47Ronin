@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlayerActions_Level11 : MonoBehaviour
 {
@@ -68,6 +69,14 @@ public class PlayerActions_Level11 : MonoBehaviour
 
             Destroy(this);
         }
+    }
+
+    private void OnDestroy()
+    {
+        ActionMap.Level11.Walk.performed -= Walk;
+        ActionMap.Level11.Walk.canceled -= StopWalking;
+        ActionMap.Level11.Interact.performed -= InteractionHandler.Interact;
+        ActionMap.Disable();
     }
 
     public void Walk(InputAction.CallbackContext context)

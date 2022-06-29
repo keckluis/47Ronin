@@ -56,16 +56,20 @@ public class MainMenuButtons : MonoBehaviour
     {
         if (!Credits.activeSelf && !LevelSelect.activeSelf)
         {
+            RemoveControls();
             SceneLoader.NextScene = 2;
             SceneLoader.LoadNextScene();
-
-            ActionMap.UI.A.started -= StartGame;
-            ActionMap.UI.B.canceled -= CloseScreens;
-            ActionMap.UI.B.canceled -= OpenCredits;
-            ActionMap.UI.X.canceled -= SwitchLanguage;
-            ActionMap.UI.Y.canceled -= OpenLevelSelect;
-            ActionMap.Disable();
         }  
+    }
+
+    public void RemoveControls()
+    {
+        ActionMap.UI.A.started -= StartGame;
+        ActionMap.UI.B.canceled -= CloseScreens;
+        ActionMap.UI.B.canceled -= OpenCredits;
+        ActionMap.UI.X.canceled -= SwitchLanguage;
+        ActionMap.UI.Y.canceled -= OpenLevelSelect;
+        ActionMap.Disable();
     }
 
     public void StartGame(InputAction.CallbackContext ctx)

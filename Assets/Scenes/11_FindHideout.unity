@@ -626,7 +626,7 @@ MonoBehaviour:
   - {fileID: 802695351}
   - {fileID: 199605931}
   - {fileID: 340212874}
-  TextFileName: 11_FindHideOut
+  TextFileName: 11_FindHideout
   AudioManager: {fileID: 1483167696}
   Cooldown: 0
 --- !u!1 &301831801

@@ -20,6 +20,13 @@ public class PlayerActions_Outro : MonoBehaviour
         ActionMap.Outro.Ride.canceled += Stop;
     }
 
+    private void OnDestroy()
+    {
+        ActionMap.Outro.Ride.performed -= Ride;
+        ActionMap.Outro.Ride.canceled -= Stop;
+        ActionMap.Disable();
+    }
+
     void Start()
     {
         Animator = GetComponent<Animator>();

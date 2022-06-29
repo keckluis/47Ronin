@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 65
+  controlID: 122
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 76
+  controlID: 44
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 77
+  controlID: 45
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -274,8 +274,8 @@ MonoBehaviour:
     y: 0
     width: 438
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -962,8 +962,8 @@ MonoBehaviour:
   m_MipLevel: 0
   m_Zoom: 0.48482686
   m_ScrollPosition: {x: 0, y: 0}
-  m_SelectedObject: {fileID: 102900000, guid: cf8792998dba8574fbfc8f6eb62dc945, type: 3}
-  m_SelectedSpriteRectGUID: 5e97eb03825dee720800000000000000
+  m_SelectedObject: {fileID: 0}
+  m_SelectedSpriteRectGUID: 00000000000000000000000000000000
   m_LastUsedModuleTypeName: UnityEditor.U2D.Animation.SkinningModule
 --- !u!114 &15
 MonoBehaviour:
@@ -1557,25 +1557,25 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 88730000
       m_LastClickedID: 0
-      m_ExpandedIDs: 88d2fcff12d3fcff6ed5fcff7ad5fcff92d6fcffa2d6fcffc8dbfcffd8dbfcff12ddfcff22ddfcff0adffcff1adffcffa0ebfcffb0ebfcff76f6fcff72fdfcff82fdfcff90fdfcffa4fdfcffc0fdfcffc8fdfcffdc02fdff2a04fdff7405fdffbc06fdff2008fdff6809fdfffa0afdffc40bfdffa019fdffb842fdffc242fdff844dfdff7c54fdff8654fdff9054fdffa054fdffb854fdffbc54fdff749afdff029bfdff789bfdff829dfdff10a1fdff34a5fdfff2a7fdff76a8fdff10a9fdff7aacfdffe6adfdff72aefdfffcb6fdff02b9fdffc0bafdff4ebbfdffaabdfdffb6bdfdffcebefdffdcbefdff02c4fdff10c4fdff4ac5fdff58c5fdff40c7fdff4ec7fdffd4d3fdffe2d3fdffa8defdffa4e5fdffb2e5fdffc0e5fdffd0e5fdffece5fdfff4e5fdff0ef0fdff98f0fdfff4f2fdff00f3fdff18f4fdff26f4fdff4cf9fdff5af9fdff94fafdffa2fafdff8afcfdff98fcfdff1e09feff2c09fefff213feffee1afefffc1afeff0a1bfeff1a1bfeff361bfeff3e1bfefffc24feff9225feff1830feff7067feff9868feffe66ffeff6a71fefff471feff4c74feff5474feff6875feff7275feff947afeff9e7afeffd47bfeffde7bfeffc27dfeffcc7dfeff4e8afeff588afeff1a95feff129cfeff1c9cfeff269cfeff329cfeff489cfeff4c9cfeff3ea6feffd4abfeffcab3feff30b5feff56f5feff9610ffff9814ffffd414ffff0a15ffff9217ffff501affffac26ffffd03cffff863effff3642ffffc042ffff8243ffff3845ffff2c47ffff1c4dfffffc56ffff90f9ffff26fbfffff4ffffff147300002a9c01005e9d0100489f0100509f01005e9f0100689f010058eb01008cec01003e0c0200720d02007c0e02002e590200c25a0200ae5b0200165c0200ea5c0200925d02004cb802003a0203007e0b0300c40b0300760c0300e40c0300641b0300881b0300ee1b0300261d0300762403009a240300a6240300ba240300325703003a5703004e57030074570300805703008c570300b4570300be9103003c92030046930300d4930300e4940300c495030060960300
+      m_ExpandedIDs: bce2feffc8e6feff52e7fefface9feffb6e9fefff6eafeff02ebfeff50f0feff5cf0feffbef1feffcaf1feffdaf3feffe6f3feff9400ffffa000ffff8e0bffffb212ffffbe12fffff412ffff0413ffff1413ffff2413ffff7c15ffff661fffff2c20ffffae22ffff042bffff9a3afffffa3cffff5a40ffff8a43ffff5e5bfffff25effff8e5fffff4060ffff7a67ffff966bffff086cffff2670ffffae70ffff3c71ffffbe71ffffda92ffffc09affff509bffff869cffff24a0ffffd4a1ffffb8a3ffff38a4ffffbca5ffff78abfffff8abffffecb1ffffeeb3ffffa2b6ffffbcc3ffff6ecfffff50d7ffff00d8ffffaed8ffff78d9ffff5adafffff6eaffffd6ebffffccecffffd8f9ffff26fbfffff4ffffffce8600008a87000080b200008eb20000aab30000b8b3000076b4000090b40000b4b40000c2b4000072e60000c2e7000058e9000030ea000066ec00001aed0000aced0000e6ed00006aee00005c02010096020100d4020100e80201000e030100c2070100840801008c2a0100c2700100387101007a72010094720100b0720100f27201007473010056740100ba750100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Canvas
-        m_OriginalName: Canvas
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 234044
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 4
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 9}
+        m_ClientGUIView: {fileID: 8}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1637,9 +1637,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 008a0000
-    m_LastClickedID: 35328
-    m_ExpandedIDs: 000000008c7900008a920000ea93000054a4000010a6000000ca9a3bffffff7f
+    m_SelectedIDs: 90740000
+    m_LastClickedID: 29840
+    m_ExpandedIDs: 00000000707400008e7400009274000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1667,7 +1667,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008c790000
+    m_ExpandedIDs: 0000000070740000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1698,18 +1698,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000d6720000f2d90000507c0000147a0000947c0000840c0100ac760000bc780000fe76000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 10_FindHideoutText
-      m_OriginalName: 10_FindHideoutText
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 38738
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
@@ -1781,7 +1781,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 218990
+  m_LastSelectedObjectID: 83144
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52

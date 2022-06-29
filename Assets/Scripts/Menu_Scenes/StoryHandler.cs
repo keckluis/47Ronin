@@ -40,6 +40,13 @@ public class StoryHandler : MonoBehaviour
         ActionMap.Story.Previous.started += Previous;
     }
 
+    private void OnDestroy()
+    {      
+        ActionMap.Story.Next.started -= Next;
+        ActionMap.Story.Previous.started -= Previous;
+        ActionMap.Disable();
+    }
+
     private void Start()
     {
         if (GameObject.Find("Language"))

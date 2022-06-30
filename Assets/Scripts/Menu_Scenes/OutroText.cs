@@ -34,18 +34,13 @@ public class OutroText : MonoBehaviour
                     break;
                 }
             }
-        }
-    }
 
-    void Update()
-    {
-        if (lang.currentLanguage == Languages.German)
-        {
-            Texts = TextsSource.TextsDE;
+            int i = 0;
+            foreach(string txt in Texts)
+            {
+                OutroTexts[i].text = txt;
+                i++;
+            }
         }
-        else if (lang.currentLanguage == Languages.English)
-        {
-            Texts = TextsSource.TextsEN;
-        }
-    }
+    }   
 }

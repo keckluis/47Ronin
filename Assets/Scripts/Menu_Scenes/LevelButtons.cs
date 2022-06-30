@@ -37,23 +37,32 @@ public class LevelButtons : MonoBehaviour
             ActionMap.UI.LevelSelect.started += SelectLevel;
             ActionMap.UI.LevelSelect.canceled += MoveDone;
             ActionMap.UI.A.performed += LoadScene;
+            ActionMap.UI.B.performed += RemoveControls;
         }
         else if (!gameObject.activeInHierarchy && activated)
         {
-            ActionMap.UI.LevelSelect.started -= SelectLevel;
-            ActionMap.UI.LevelSelect.canceled -= MoveDone;
-            ActionMap.UI.A.performed -= LoadScene;
-            ActionMap.Disable();
+            RemoveControls();
             activated = false;
         }
     }
 
-    private void OnDestroy()
-    {     
+    private void RemoveControls(InputAction.CallbackContext context)
+    {
+        RemoveControls();
+    }
+
+    private void RemoveControls()
+    {
         ActionMap.UI.LevelSelect.started -= SelectLevel;
         ActionMap.UI.LevelSelect.canceled -= MoveDone;
         ActionMap.UI.A.performed -= LoadScene;
+        ActionMap.UI.B.performed -= RemoveControls;
         ActionMap.Disable();
+    }
+
+    private void OnDestroy()
+    {
+        RemoveControls();
     }
 
     private void SelectLevel(InputAction.CallbackContext context)

@@ -723,6 +723,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LevelSelect"",
+                    ""type"": ""Value"",
+                    ""id"": ""d7de84c3-8020-4838-bdc9-d8c299b8869e"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -791,6 +800,72 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Y"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Left Stick"",
+                    ""id"": ""9baf4bf7-a331-4789-9fd7-8236acb9c09f"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LevelSelect"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""f9e4484e-dde2-4d5c-a317-a2c2c3805b9f"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox Gamepad"",
+                    ""action"": ""LevelSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""3d49f85d-98bb-4340-90bc-5c778e5924ff"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox Gamepad"",
+                    ""action"": ""LevelSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AD"",
+                    ""id"": ""dc2b7ebd-5cbd-47d8-9523-d468f148cee5"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LevelSelect"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""52315e9a-ec43-42e6-8d9a-c63c574cd546"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""LevelSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""13d63314-c4bb-448e-bffa-17be125e6c44"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""LevelSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -889,6 +964,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_UI_B = m_UI.FindAction("B", throwIfNotFound: true);
         m_UI_X = m_UI.FindAction("X", throwIfNotFound: true);
         m_UI_Y = m_UI.FindAction("Y", throwIfNotFound: true);
+        m_UI_LevelSelect = m_UI.FindAction("LevelSelect", throwIfNotFound: true);
         // Outro
         m_Outro = asset.FindActionMap("Outro", throwIfNotFound: true);
         m_Outro_Ride = m_Outro.FindAction("Ride", throwIfNotFound: true);
@@ -1185,6 +1261,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_B;
     private readonly InputAction m_UI_X;
     private readonly InputAction m_UI_Y;
+    private readonly InputAction m_UI_LevelSelect;
     public struct UIActions
     {
         private @Controls m_Wrapper;
@@ -1194,6 +1271,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @B => m_Wrapper.m_UI_B;
         public InputAction @X => m_Wrapper.m_UI_X;
         public InputAction @Y => m_Wrapper.m_UI_Y;
+        public InputAction @LevelSelect => m_Wrapper.m_UI_LevelSelect;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1218,6 +1296,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Y.started -= m_Wrapper.m_UIActionsCallbackInterface.OnY;
                 @Y.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnY;
                 @Y.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnY;
+                @LevelSelect.started -= m_Wrapper.m_UIActionsCallbackInterface.OnLevelSelect;
+                @LevelSelect.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnLevelSelect;
+                @LevelSelect.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnLevelSelect;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1237,6 +1318,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Y.started += instance.OnY;
                 @Y.performed += instance.OnY;
                 @Y.canceled += instance.OnY;
+                @LevelSelect.started += instance.OnLevelSelect;
+                @LevelSelect.performed += instance.OnLevelSelect;
+                @LevelSelect.canceled += instance.OnLevelSelect;
             }
         }
     }
@@ -1327,6 +1411,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnB(InputAction.CallbackContext context);
         void OnX(InputAction.CallbackContext context);
         void OnY(InputAction.CallbackContext context);
+        void OnLevelSelect(InputAction.CallbackContext context);
     }
     public interface IOutroActions
     {

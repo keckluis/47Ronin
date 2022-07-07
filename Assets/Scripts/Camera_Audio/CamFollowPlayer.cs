@@ -5,9 +5,9 @@ using UnityEngine;
 public class CamFollowPlayer : MonoBehaviour
 {
     public Transform Player;
-    public int OffsetX = -10;
-    public int OffsetY = 5;
-    public int OffsetZ = -15;
+    public float OffsetX = -10;
+    public float OffsetY = 5;
+    public float OffsetZ = -15;
 
     void Update()
     {

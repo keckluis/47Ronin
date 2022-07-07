@@ -3108,6 +3108,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Observing Guard (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4671543371634629263, guid: 8fac58cf7624fb3498a0c8448a671165, type: 3}
+      propertyPath: m_SortingLayer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671543371634629263, guid: 8fac58cf7624fb3498a0c8448a671165, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -126747133
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fac58cf7624fb3498a0c8448a671165, type: 3}
 --- !u!4 &1383678483 stripped
@@ -5057,6 +5065,7 @@ MonoBehaviour:
   - {fileID: 0}
   index: 0
   detectionStatusIcon: {fileID: 0}
+  suspicionStatusIcon: {fileID: 0}
   TriggerPrefab: {fileID: 8293855945201519279, guid: 92a2454606d06c6489f6b23932aa2b0c, type: 3}
   SpawnPoint: {fileID: 0}
   patrolGuard: 1

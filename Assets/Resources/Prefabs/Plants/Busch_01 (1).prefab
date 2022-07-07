@@ -189,8 +189,8 @@ MonoBehaviour:
   - {fileID: 694160576449556312}
   - {fileID: 5931191370580439580}
   m_Bounds:
-    m_Center: {x: -0.009525061, y: 0.033120036, z: 0}
-    m_Extent: {x: 1.099525, y: 1.4118803, z: 0}
+    m_Center: {x: -0.009525061, y: 0.033119917, z: 0}
+    m_Extent: {x: 1.099525, y: 1.41188, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -218,7 +218,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.19905, y: 2.82376}
+  m_Size: {x: 1.5, y: 2.82376}
   m_EdgeRadius: 0
 --- !u!1 &7781857645424061820
 GameObject:

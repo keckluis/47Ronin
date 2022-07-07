@@ -8,7 +8,7 @@ public class ObservingGuard : MonoBehaviour
     int detectionCounter;
     bool detected;
     public GameObject detectionStatusIcon;
-    private int AlarmTrigger = 80;
+    private int AlarmTrigger = 60;
     public SceneChanger sceneChanger;
 
     private bool alarm = false;

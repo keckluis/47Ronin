@@ -124,7 +124,7 @@ public class EnemyBehaviour_Level07 : MonoBehaviour
 
     public void Remove()
     {
-        GameObject dead = Instantiate(Dead, transform.position, Quaternion.Euler(0, 180, -90));
+        GameObject dead = Instantiate(Dead, new Vector3(transform.position.x, 0.5f, transform.position.z), Quaternion.Euler(0, 180, -90));
         SpriteRenderer[] rends = dead.GetComponentsInChildren<SpriteRenderer>();
 
         for (int i = 0; i < rends.Length; i++)

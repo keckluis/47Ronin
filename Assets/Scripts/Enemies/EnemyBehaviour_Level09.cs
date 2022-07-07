@@ -35,7 +35,7 @@ public class EnemyBehaviour_Level09 : MonoBehaviour
 
         for (int i = 0; i < rends.Length; i++)
         {
-            rends[i].sortingLayerName = "3";
+            rends[i].sortingLayerName = "2";
         }
         Destroy(gameObject);
     }

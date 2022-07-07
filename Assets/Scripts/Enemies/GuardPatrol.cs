@@ -43,6 +43,9 @@ public class GuardPatrol : MonoBehaviour
         {
             Animator = GetComponent<Animator>();
             Animator.SetBool("isWalking", true);
+
+            if(!patrolGuard)
+                Animator.SetBool("isWalking", false);
         }
        
             
@@ -64,7 +67,7 @@ public class GuardPatrol : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, PointOfInterest, 0.051f);
         lookAtDirection(transform.position, PointOfInterest);
         transform.Rotate(new Vector3(0, 180, 0));
-        Debug.Log("ssss");
+        Animator.SetBool("isWalking", true);
     }
 
     private void Patrol()
@@ -126,6 +129,7 @@ public class GuardPatrol : MonoBehaviour
                 if (index >= PatrolTargets.Length)
                     index = 0;
                 PatrolTargets[index].GetComponent<ColliderStatus>().active = true;
+
             }
         }
 
@@ -148,6 +152,7 @@ public class GuardPatrol : MonoBehaviour
             returning = false;
             lookAtDirection(transform.position, PointOfInterest);
             transform.Rotate(new Vector3(0, 180, 0));
+            Animator.SetBool("isWalking", false);
         }
 
     }

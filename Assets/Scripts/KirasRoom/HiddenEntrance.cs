@@ -32,7 +32,7 @@ public class HiddenEntrance : MonoBehaviour
 
     IEnumerator LevelEnd()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         SceneChanger.NextScene = true;
     }
 }

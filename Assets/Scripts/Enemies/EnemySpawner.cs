@@ -23,28 +23,31 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (transform.childCount < 6 && !justSpawned)
+        if (transform.childCount < 6)
         {
-            if (SpawnedGuards >= GuardTotal && !allKilled && transform.childCount == 0)
+            if (!justSpawned || transform.childCount == 0)
             {
-                Debug.Log("SUCCESS");
-                allKilled = true;
-                StartCoroutine(LevelEnd());
-            }
-
-            if (!allKilled)
-            {
-                int groupSize = Random.Range(1, 4);
-                int speed = Random.Range(15, 25);
-                SpawnedGuards += groupSize;
-
-                for (int i = 0; i < groupSize; i++)
+                if (SpawnedGuards >= GuardTotal && !allKilled && transform.childCount == 0)
                 {
-                    SpawnGuard(i * 1, speed);
+                    Debug.Log("SUCCESS");
+                    allKilled = true;
+                    StartCoroutine(LevelEnd());
                 }
-                justSpawned = true;
-                StartCoroutine(SpawnCooldown());
-            }        
+
+                if (!allKilled)
+                {
+                    int groupSize = Random.Range(1, 4);
+                    int speed = Random.Range(15, 25);
+                    SpawnedGuards += groupSize;
+
+                    for (int i = 0; i < groupSize; i++)
+                    {
+                        SpawnGuard(i * 1, speed);
+                    }
+                    justSpawned = true;
+                    StartCoroutine(SpawnCooldown());
+                }
+            }          
         }
     }
 

@@ -129,7 +129,7 @@ public class EnemyBehaviour_Level07 : MonoBehaviour
 
         for (int i = 0; i < rends.Length; i++)
         {
-            rends[i].sortingLayerName = "5";
+            rends[i].sortingLayerName = "6";
         }
         GameObject.Find("GuardManager").GetComponent<GuardManager_Level07>().RemoveGuard(this);
         Destroy(BloodHolder);

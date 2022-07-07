@@ -11,6 +11,7 @@ public class GuardPatrol : MonoBehaviour
     bool patroling = true;
     Vector3 PointOfInterest;
     public GameObject detectionStatusIcon;
+    public GameObject suspicionStatusIcon;
     public GameObject TriggerPrefab;
     public GameObject SpawnPoint;
 
@@ -43,6 +44,9 @@ public class GuardPatrol : MonoBehaviour
         {
             Animator = GetComponent<Animator>();
             Animator.SetBool("isWalking", true);
+
+            if(!patrolGuard)
+                Animator.SetBool("isWalking", false);
         }
        
             
@@ -64,7 +68,7 @@ public class GuardPatrol : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, PointOfInterest, 0.051f);
         lookAtDirection(transform.position, PointOfInterest);
         transform.Rotate(new Vector3(0, 180, 0));
-        Debug.Log("ssss");
+        Animator.SetBool("isWalking", true);
     }
 
     private void Patrol()
@@ -105,10 +109,16 @@ public class GuardPatrol : MonoBehaviour
         if (TargetPos.x > guardPos.x)
         {
             transform.localEulerAngles = new Vector3(0, 0, 0);
+            detectionStatusIcon.transform.localEulerAngles = new Vector3(0, 180, 0);
+            suspicionStatusIcon.transform.localEulerAngles = new Vector3(0, 180, 0);
+
+
         }
         else
         {
             transform.localEulerAngles = new Vector3(0, 180, 0);
+            detectionStatusIcon.transform.localEulerAngles = new Vector3(0, 0, 0);
+            suspicionStatusIcon.transform.localEulerAngles = new Vector3(0, 0, 0);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -126,6 +136,7 @@ public class GuardPatrol : MonoBehaviour
                 if (index >= PatrolTargets.Length)
                     index = 0;
                 PatrolTargets[index].GetComponent<ColliderStatus>().active = true;
+
             }
         }
 
@@ -148,6 +159,7 @@ public class GuardPatrol : MonoBehaviour
             returning = false;
             lookAtDirection(transform.position, PointOfInterest);
             transform.Rotate(new Vector3(0, 180, 0));
+            Animator.SetBool("isWalking", false);
         }
 
     }

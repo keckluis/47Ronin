@@ -11,6 +11,7 @@ public class GuardPatrol : MonoBehaviour
     bool patroling = true;
     Vector3 PointOfInterest;
     public GameObject detectionStatusIcon;
+    public GameObject suspicionStatusIcon;
     public GameObject TriggerPrefab;
     public GameObject SpawnPoint;
 
@@ -108,10 +109,16 @@ public class GuardPatrol : MonoBehaviour
         if (TargetPos.x > guardPos.x)
         {
             transform.localEulerAngles = new Vector3(0, 0, 0);
+            detectionStatusIcon.transform.localEulerAngles = new Vector3(0, 180, 0);
+            suspicionStatusIcon.transform.localEulerAngles = new Vector3(0, 180, 0);
+
+
         }
         else
         {
             transform.localEulerAngles = new Vector3(0, 180, 0);
+            detectionStatusIcon.transform.localEulerAngles = new Vector3(0, 0, 0);
+            suspicionStatusIcon.transform.localEulerAngles = new Vector3(0, 0, 0);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

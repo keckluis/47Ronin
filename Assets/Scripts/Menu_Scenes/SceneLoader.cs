@@ -34,7 +34,7 @@ public class SceneLoader : MonoBehaviour
         if (Language != null)
         {
             if (Language.currentLanguage == Languages.German)
-                LoadingText.text = "LÄDT...";
+                LoadingText.text = "Lï¿½DT...";
             else if (Language.currentLanguage == Languages.English)
                 LoadingText.text = "LOADING...";
         }

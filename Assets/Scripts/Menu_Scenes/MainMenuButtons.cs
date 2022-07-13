@@ -98,6 +98,7 @@ public class MainMenuButtons : MonoBehaviour
         {
             ActionMap.UI.B.canceled -= OpenCredits;
             ActionMap.UI.B.canceled += CloseScreens;
+            ActionMap.UI.Y.canceled -= OpenLevelSelect;
             LangButtons.SetActive(false);
             QuitButton.SetActive(false);
             Credits.SetActive(true);
@@ -110,6 +111,7 @@ public class MainMenuButtons : MonoBehaviour
         {
             ActionMap.UI.B.canceled -= OpenCredits;
             ActionMap.UI.B.canceled += CloseScreens;
+            ActionMap.UI.Y.canceled -= OpenLevelSelect;
             LangButtons.SetActive(false);
             QuitButton.SetActive(false);
             LevelSelect.SetActive(true);
@@ -120,7 +122,8 @@ public class MainMenuButtons : MonoBehaviour
     {
         ActionMap.UI.B.canceled -= CloseScreens;
         ActionMap.UI.B.canceled += OpenCredits;
-        
+        ActionMap.UI.Y.canceled += OpenLevelSelect;
+
         Credits.SetActive(false);
         LevelSelect.SetActive(false);
         LangButtons.SetActive(true);

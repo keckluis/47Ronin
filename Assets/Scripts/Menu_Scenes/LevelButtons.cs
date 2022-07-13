@@ -23,6 +23,9 @@ public class LevelButtons : MonoBehaviour
         if (GameObject.Find("SceneLoader"))
         {
             sceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
+            ActionMap = new Controls();
+            activated = true;
+            AddControls();
         }
     }
 
@@ -30,20 +33,23 @@ public class LevelButtons : MonoBehaviour
     {
         if (gameObject.activeInHierarchy && !activated)
         {
-            activated = true;
-            ActionMap = new Controls();
-
-            ActionMap.Enable();
-            ActionMap.UI.LevelSelect.started += SelectLevel;
-            ActionMap.UI.LevelSelect.canceled += MoveDone;
-            ActionMap.UI.A.performed += LoadScene;
-            ActionMap.UI.B.performed += RemoveControls;
+            AddControls();
+            activated = true;   
         }
         else if (!gameObject.activeInHierarchy && activated)
         {
             RemoveControls();
             activated = false;
         }
+    }
+
+    private void AddControls()
+    {
+        ActionMap.Enable();
+        ActionMap.UI.LevelSelect.started += SelectLevel;
+        ActionMap.UI.LevelSelect.canceled += MoveDone;
+        ActionMap.UI.A.performed += LoadScene;
+        ActionMap.UI.B.performed += RemoveControls;
     }
 
     private void RemoveControls(InputAction.CallbackContext context)

@@ -28,6 +28,7 @@ public class GuardPatrol : MonoBehaviour
     public bool detected { get; set; } = false;
 
     private Animator Animator;
+    private bool isWalking = false;
 
     private void Start()
     {
@@ -43,10 +44,10 @@ public class GuardPatrol : MonoBehaviour
         if (GetComponent<Animator>() != null)
         {
             Animator = GetComponent<Animator>();
-            Animator.SetBool("isWalking", true);
+            isWalking = true;
 
             if(!patrolGuard)
-                Animator.SetBool("isWalking", false);
+                isWalking = false;
         }
        
             
@@ -61,6 +62,8 @@ public class GuardPatrol : MonoBehaviour
             Patrol();
         else if (!patrolGuard && returning)
             returnToGuardPost();
+
+        Animator.SetBool("isWalking", isWalking);
     }
 
     private void moveToSuspicion()
@@ -68,7 +71,7 @@ public class GuardPatrol : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, PointOfInterest, 0.051f);
         lookAtDirection(transform.position, PointOfInterest);
         transform.Rotate(new Vector3(0, 180, 0));
-        Animator.SetBool("isWalking", true);
+        isWalking = true;
     }
 
     private void Patrol()
@@ -143,7 +146,7 @@ public class GuardPatrol : MonoBehaviour
         if (other.gameObject.layer == 12)
         {
             StartCoroutine(Wait(2));
-            Animator.SetBool("isWalking", false);
+            isWalking = false;
             suspicios = false;
             
             index = 0;
@@ -159,7 +162,7 @@ public class GuardPatrol : MonoBehaviour
             returning = false;
             lookAtDirection(transform.position, PointOfInterest);
             transform.Rotate(new Vector3(0, 180, 0));
-            Animator.SetBool("isWalking", false);
+            isWalking = false;
         }
 
     }
@@ -185,7 +188,7 @@ public class GuardPatrol : MonoBehaviour
         patroling = true;
         detectionStatusIcon.SetActive(false);
         returning = true;
-        Animator.SetBool("isWalking", true);
+        isWalking = true;
 
     }
 }

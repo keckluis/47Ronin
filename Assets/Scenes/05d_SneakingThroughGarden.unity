@@ -2053,8 +2053,8 @@ Camera:
   m_GameObject: {fileID: 977354858}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.31764707, g: 0.46274513, b: 0.21960786, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2189,10 +2189,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.73
       objectReference: {fileID: 0}
+    - target: {fileID: 1615250858653253567, guid: 734a453c954892748881341c6b04fef9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615250858653253568, guid: 734a453c954892748881341c6b04fef9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1615250858673106722, guid: 734a453c954892748881341c6b04fef9, type: 3}
       propertyPath: sceneChanger
       value: 
       objectReference: {fileID: 1900154366}
+    - target: {fileID: 1615250858934944569, guid: 734a453c954892748881341c6b04fef9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2748734274438349896, guid: 734a453c954892748881341c6b04fef9, type: 3}
       propertyPath: m_SortingLayer
       value: 4
@@ -2968,6 +2980,10 @@ PrefabInstance:
       propertyPath: sceneChanger
       value: 
       objectReference: {fileID: 1900154366}
+    - target: {fileID: 7472866028570466673, guid: a7761955792ba234d99c4a92335779fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8656341483936892886, guid: a7761955792ba234d99c4a92335779fc, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -4612,6 +4628,22 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1315826709
       objectReference: {fileID: 0}
+    - target: {fileID: 988938651558098069, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.53317124
+      objectReference: {fileID: 0}
+    - target: {fileID: 988938651558098069, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 988938651558098069, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.84600735
+      objectReference: {fileID: 0}
+    - target: {fileID: 988938651558098069, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1363699703182889741, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
       propertyPath: m_Name
       value: Wache_stehend (4)
@@ -4628,6 +4660,26 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1315826709
       objectReference: {fileID: 0}
+    - target: {fileID: 2860644378729703683, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99818194
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860644378729703683, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860644378729703683, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860644378729703683, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.06027327
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860644378729703683, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2920370336099490243, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
       propertyPath: m_SortingLayer
       value: 5
@@ -4635,6 +4687,26 @@ PrefabInstance:
     - target: {fileID: 2920370336099490243, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
       propertyPath: m_SortingLayerID
       value: -1315826709
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511773542973480387, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96148247
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511773542973480387, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511773542973480387, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511773542973480387, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.27486634
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511773542973480387, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4481178641822125751, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
       propertyPath: m_SortingLayer
@@ -4659,6 +4731,22 @@ PrefabInstance:
     - target: {fileID: 6767060116546531431, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
       propertyPath: m_SortingLayerID
       value: -1315826709
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249360552418027513, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.079078116
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249360552418027513, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249360552418027513, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.99686843
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249360552418027513, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9178281539414625450, guid: 0d23f4dccc7ea0d43b61122d92be83ea, type: 3}
       propertyPath: m_SortingLayer

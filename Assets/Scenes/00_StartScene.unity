@@ -2616,6 +2616,7 @@ MonoBehaviour:
   currentLanguage: 0
   FileNames:
   - 02_Intro
+  - 03_HouseScouting
   - 04_SneakingThroughGardenText
   - 06_BattleText
   - 08_AlarmBellText

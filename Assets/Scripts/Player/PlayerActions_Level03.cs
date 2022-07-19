@@ -21,6 +21,7 @@ public class PlayerActions_Level03 : MonoBehaviour
 
     public Controls ActionMap;
     public SceneChanger SceneChanger;
+    Transform AudioListener;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class PlayerActions_Level03 : MonoBehaviour
     void Start()
     {
         Animator = GetComponent<Animator>();
+        AudioListener = GameObject.Find("AudioListener").GetComponent<Transform>();
     }
 
     void FixedUpdate()
@@ -115,6 +117,7 @@ public class PlayerActions_Level03 : MonoBehaviour
             transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
             TextBlack.transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
             TextWhite.transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
+            AudioListener.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
         }
     }
 

@@ -30,6 +30,7 @@ public class GuardManager_Level03 : MonoBehaviour
     void Update()
     {
         CurrentDistance = Vector3.Distance(Player.position, transform.Find("Guard").position);
+        x = transform.position.x;
     }
 
     IEnumerator ChangeFloor() {       

@@ -2,14 +2,28 @@
     "Name" : "03_HouseScouting",
     "TextsDE" : 
     [
-        "Das scheint das Esszimmer zu sein.",
+        "Hier ist die Küche.",
+        "Das Esszimmer. Hier gibt es drei mögliche Ausgänge.",
         "Das muss muss das Schlafzimmer von Kira sein.",
-        "Hmmm."
+        "Hier haben Wachen den vorderen Bereich des Anwesens gut im Blick.",
+        "Das könnte Kiras Studierzimmer sein",
+        "Hier wartet die Arbeit auf mich!",
+        "Das wäre eine gute Position für Bogenschützen.",
+        "Von hier aus hat man eine gute Sicht auf das Haupttor.",
+        "Dōjō - der Trainingsraum.",
+        "Das wäre zu hoch für Bogenschützen."
     ],
     "TextsEN" : 
     [
-        "Led by Ōishi, the Rōnin attack Kira's estate at dawn.",
-        "Some of the attacking Rōnin try to sneak through the gardens up to Kira's house.",
-        "They need to be careful not to alarm the guards and if need be to skilfully distract them."
+        "This is the kitchen.",
+        "The dining room. There are three possible exits.",
+        "This must be Kira's bedroom.",
+        "Gguards have a good overview of the front area of the estate from here.",
+        "This might be Kira's study.",
+        "Oh well, work awaits!",
+        "This would be a good position for an archer.",
+        "From up here one has good sight upon the main gate.",
+        "Dōjō - the training room.",
+        "This would be too high for archers."
     ]
 }

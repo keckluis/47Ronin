@@ -26,8 +26,6 @@ public class DiscoverRoomsHandler : MonoBehaviour
         {
             lang = GameObject.Find("Language").GetComponent<Language>();
 
-            Debug.Log("Storylevels " + StoryLevels.Lvls.Count);
-
             foreach (StoryLevel slvl in StoryLevels.Lvls)
             {
                 if (slvl.Name == TextFileName)
@@ -36,7 +34,6 @@ public class DiscoverRoomsHandler : MonoBehaviour
                     if (lang.currentLanguage == Languages.German)
                     {
                         Texts = TextsSource.TextsDE;
-                        Debug.Log("TextsDE Found!");
                     }
                     else if (lang.currentLanguage == Languages.English)
                     {

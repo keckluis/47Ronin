@@ -6785,8 +6785,16 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: 54ecb0f02df7e8748bd88daa7240f134, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 54ecb0f02df7e8748bd88daa7240f134, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 54ecb0f02df7e8748bd88daa7240f134, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 54ecb0f02df7e8748bd88daa7240f134, type: 3}
       propertyPath: m_RootOrder
@@ -7125,7 +7133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  Speed: 0.2
+  Speed: 0.13
   TextBlack: {fileID: 1850037419}
   TextWhite: {fileID: 803514263}
   InteractionHandler: {fileID: 524841187}
@@ -9707,7 +9715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25160963a3d6204ca83041581d0ee20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Outline: 0.1
+  Outline: 0.05
   OutlineVisible: 0
   Player: {fileID: 1176476671}
   Radius: 3.5
@@ -10423,6 +10431,10 @@ PrefabInstance:
     - target: {fileID: 8792588695405029150, guid: c18bfdc795851224283fedbe8d773a8f, type: 3}
       propertyPath: m_Size.y
       value: 2.503981
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792588695405029150, guid: c18bfdc795851224283fedbe8d773a8f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8792588695405029150, guid: c18bfdc795851224283fedbe8d773a8f, type: 3}
       propertyPath: m_Offset.x

@@ -29,9 +29,10 @@ public class GuardManager_Level03 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentDistance = Vector3.Distance(Player.position, transform.Find("Guard").position);
-        x = transform.position.x;
-    }
+        // Get distance of x-coordinates of player and guard
+        CurrentDistance = Vector3.Distance(Player.position, new Vector3(transform.Find("Guard").position.x, Player.position.y, Player.position.z));
+        // Debug.Log(CurrentDistance);
+   }
 
     IEnumerator ChangeFloor() {       
         int rand_num = Random.Range(minNum, maxNum); 

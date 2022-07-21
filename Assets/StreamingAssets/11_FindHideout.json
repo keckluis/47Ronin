@@ -8,7 +8,8 @@
         "Seine Waffe ist noch hier.",
         "Hier ist nichts.",
         "Ist hier hinter etwas versteckt?",
-        "Ein versteckter Gang!"
+        "Ein versteckter Gang!",
+        "Kiras Schlafzimmer scheint leer zu sein. Untersuche den Raum nach Hinweisen zu seinem Verbleib."
     ],
     "TextsEN" : 
     [
@@ -18,6 +19,7 @@
         "His weapon is still here.",
         "There is nothing here.",
         "Maybe there is something hidden behind this?",
-        "A hidden passage!"
+        "A hidden passage!",
+        "Kiras bedroom seems to be empty. Investigate the room for clues of his whereabouts."
     ]
 }

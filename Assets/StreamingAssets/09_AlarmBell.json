@@ -1,0 +1,11 @@
+{
+    "Name" : "09_AlarmBell",
+    "TextsDE" : 
+    [
+        "Du musst verhindern, dass die Wachen die Alarmglocke erreichen und diese läuten können."
+    ],
+    "TextsEN" : 
+    [
+        "You have to prevent the guards from reaching the bell so they can't ring for help."
+    ]
+}

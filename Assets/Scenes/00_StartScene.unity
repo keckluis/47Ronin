@@ -2618,11 +2618,15 @@ MonoBehaviour:
   - 02_Intro
   - 03_HouseScouting
   - 04_SneakingThroughGardenText
+  - 05_SneakingThroughGarden
   - 06_BattleText
+  - 07_Battle
   - 08_AlarmBellText
+  - 09_AlarmBell
   - 10_FindHideoutText
   - 11_FindHideout
   - 12_FoundKiraText
+  - 13_BossFight
   - 14_KiraExecutionText
   - 15_Outro
   FileNamesUI:

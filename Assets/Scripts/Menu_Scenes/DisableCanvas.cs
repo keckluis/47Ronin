@@ -31,7 +31,7 @@ public class DisableCanvas : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (move){
             Image.transform.Translate(dir * Time.deltaTime * 600, Space.World);

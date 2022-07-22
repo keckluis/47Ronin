@@ -14,16 +14,16 @@ public class EnemySpawner : MonoBehaviour
     public SceneChanger SceneChanger;
 
     bool justSpawned = true;
+    bool levelStarted = false;
 
     void Start()
-    { 
-        SpawnGuard(0, 20);
-        StartCoroutine(SpawnCooldown());
+    {
+        StartCoroutine(LevelStart());
     }
 
     void Update()
     {
-        if (transform.childCount < 6)
+        if (transform.childCount < 6 && levelStarted)
         {
             if (!justSpawned || transform.childCount == 0)
             {
@@ -68,5 +68,13 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(10);
         justSpawned = false;
+    }
+
+    IEnumerator LevelStart()
+    {
+        yield return new WaitForSeconds(5);
+        SpawnGuard(0, 20);
+        StartCoroutine(SpawnCooldown());
+        levelStarted = true;
     }
 }

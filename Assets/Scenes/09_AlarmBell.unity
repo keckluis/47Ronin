@@ -996,6 +996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Hint
       objectReference: {fileID: 0}
+    - target: {fileID: 8140889077228143499, guid: 9bf5b8d6c3926b54e92c634feaafd925, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8140889077485576462, guid: 9bf5b8d6c3926b54e92c634feaafd925, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 60
@@ -1576,7 +1580,8 @@ MonoBehaviour:
   - {fileID: 8774876740218693154, guid: 4bff9d3dae02a75458ce2117478e18f5, type: 3}
   - {fileID: 3216474571992242434, guid: 39ad3aeef88a9ce449fc86a3238b9a51, type: 3}
   - {fileID: 5474742214616174501, guid: bac007b3a5db007499de1e267f325357, type: 3}
-  GuardTotal: 20
+  GuardTotal: 15
+  SpawnedGuards: 0
   SceneChanger: {fileID: 1108839700}
 --- !u!4 &925211549
 Transform:
@@ -3116,8 +3121,11 @@ MonoBehaviour:
   Arrow: {fileID: 1807711629}
   ArrowPrefab: {fileID: 8262177630945020084, guid: 866b35d8d76efd148b07b472b2c5ac06, type: 3}
   AudioManager: {fileID: 774350194}
-  PlayerInput: {fileID: 0}
+  LaunchForce: 15
   SceneChanger: {fileID: 1108839700}
+  point: {fileID: 1823312080896983698, guid: 1b810aaa2837cc64db23f53ea2678e73, type: 3}
+  numberOfPoints: 30
+  spaceBetweenPoints: 0.03
 --- !u!1 &2125022698
 GameObject:
   m_ObjectHideFlags: 0

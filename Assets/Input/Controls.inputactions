@@ -815,7 +815,7 @@
                 {
                     "name": "AD",
                     "id": "dc2b7ebd-5cbd-47d8-9523-d468f148cee5",
-                    "path": "1DAxis",
+                    "path": "1DAxis(whichSideWins=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -853,36 +853,80 @@
             "actions": [
                 {
                     "name": "Ride",
-                    "type": "Button",
-                    "id": "98fd214f-7e2e-45db-97c9-544db546c05c",
-                    "expectedControlType": "Button",
+                    "type": "Value",
+                    "id": "d1033b44-c632-4107-8eef-0bb6231d45e7",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "72ff8ae7-19f8-427e-bd47-fa84b5c48fef",
-                    "path": "<Keyboard>/a",
+                    "name": "Left Stick",
+                    "id": "d335bc71-dafb-49ef-9dc8-2228671ea5a7",
+                    "path": "1DAxis(whichSideWins=2)",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Ride",
-                    "isComposite": false,
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "48818027-9c76-4935-8bea-98cd1767c7f7",
+                    "name": "negative",
+                    "id": "1d77d301-2e42-402f-a451-64e67e961b0a",
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox Gamepad",
                     "action": "Ride",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "3e579eb7-d339-46f2-ae3b-f7a5b006975f",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Gamepad",
+                    "action": "Ride",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "AD",
+                    "id": "a7a7e53a-b72d-49c8-bc17-ca0bbfa00559",
+                    "path": "1DAxis(whichSideWins=2)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ride",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "d7aff442-c314-4010-b858-48b92c48f7cb",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Ride",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "b9a7a3ed-16b9-4cb3-ae49-2b4e05065da7",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Ride",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

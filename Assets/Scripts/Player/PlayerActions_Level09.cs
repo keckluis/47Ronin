@@ -12,15 +12,21 @@ public class PlayerActions_Level09 : MonoBehaviour
     public Transform Arrow;
     public GameObject ArrowPrefab;
     public AudioManager AudioManager;
-    public PlayerInput PlayerInput;
+    public float LaunchForce = 750;
 
     private float x = 0;
     private float y = 0;
+    private Vector2 shotDirection;
 
     public Controls ActionMap;
     public SceneChanger SceneChanger;
 
     private float keyboardAim = 0;
+
+    public GameObject point;
+    GameObject[] points;
+    public int numberOfPoints;
+    public float spaceBetweenPoints;
 
     private void Awake()
     {
@@ -47,7 +53,13 @@ public class PlayerActions_Level09 : MonoBehaviour
     private void Start()
     {
         Animator = GetComponent<Animator>();
-        PlayerInput = GetComponent<PlayerInput>();
+
+        points = new GameObject[numberOfPoints];
+
+        for (int i = 0; i < numberOfPoints; i++)
+        {
+            points[i] = Instantiate(point, Arrow.position, Quaternion.identity);
+        }
     }
 
     void Update()
@@ -74,6 +86,11 @@ public class PlayerActions_Level09 : MonoBehaviour
 
             Destroy(this);
         }
+
+        for (int i = 0; i < numberOfPoints; i++)
+        {
+            points[i].transform.position = PointPosition((i + 1) * spaceBetweenPoints);
+        }
     }
 
     private void FixedUpdate()
@@ -90,6 +107,8 @@ public class PlayerActions_Level09 : MonoBehaviour
         Spine.localEulerAngles = new Vector3(0, 0, z);
         x = (Mathf.Abs(z) / 90) - 1;
         y = -(z / 90);
+
+        shotDirection = new Vector2(x, y);
     }
 
     public void AimKeyboard(InputAction.CallbackContext context)
@@ -141,15 +160,20 @@ public class PlayerActions_Level09 : MonoBehaviour
     public void ArrowFlight()
     {
         Arrow.gameObject.SetActive(false);
-        GameObject arrow = Instantiate(ArrowPrefab);
-        arrow.transform.position = Arrow.position;
+        GameObject arrow = Instantiate(ArrowPrefab, Arrow.position, Arrow.rotation);
 
-        arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(x * 800 - 1, y * 750));
+        arrow.GetComponent<Rigidbody2D>().velocity = Spine.up * LaunchForce;
     }
 
     public void ShotDone()
     {
         isShooting = false;
         Arrow.gameObject.SetActive(true);
+    }
+
+    Vector3 PointPosition(float t)
+    {
+        Vector2 position = (Vector2)Arrow.position + (shotDirection.normalized * LaunchForce * t) + 0.5f * Physics2D.gravity * (t * t);
+        return new Vector3(position.x, position.y, -1.5f);
     }
 }

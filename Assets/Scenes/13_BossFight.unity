@@ -2886,7 +2886,7 @@ MonoBehaviour:
   actionPlaying: 0
   isCoolingDown: 0
   Player: {fileID: 457668846}
-  Health: 7
+  Health: 5
   Range: 3
   Cooldown: 0.5
   Speed: 0.04
@@ -5460,7 +5460,7 @@ MonoBehaviour:
   actionPlaying: 0
   isCoolingDown: 0
   Player: {fileID: 457668846}
-  Health: 7
+  Health: 5
   Range: 3
   Cooldown: 0.5
   Speed: 0.04
@@ -6359,7 +6359,7 @@ MonoBehaviour:
   actionPlaying: 0
   isCoolingDown: 0
   Player: {fileID: 457668846}
-  Health: 7
+  Health: 5
   Range: 3
   Cooldown: 0.5
   Speed: 0.04

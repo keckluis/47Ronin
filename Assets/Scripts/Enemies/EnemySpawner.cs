@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public List<GameObject> GuardPrefabs;
-    public int GuardTotal = 30;
+    public int GuardTotal = 15;
 
-    private int SpawnedGuards = 0;
+    public int SpawnedGuards = 0;
 
     private bool allKilled = false;
 
@@ -34,9 +34,9 @@ public class EnemySpawner : MonoBehaviour
                     StartCoroutine(LevelEnd());
                 }
 
-                if (!allKilled)
+                if (!allKilled && SpawnedGuards < GuardTotal)
                 {
-                    int groupSize = Random.Range(1, 4);
+                    int groupSize = Random.Range(1, 2);
                     int speed = Random.Range(15, 25);
                     SpawnedGuards += groupSize;
 

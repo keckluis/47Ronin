@@ -18,10 +18,13 @@ public class ShowControls : MonoBehaviour
 
     void Update()
     {
+        int count = 0;
         if (LSFunction != "")
         {
+            LS.transform.localPosition = new Vector3(-2, 770 - (count * 70), 0);
             LS.color = Color.white;
             LS.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = LSFunction;
+            count++;
         }
         else
         {
@@ -30,8 +33,10 @@ public class ShowControls : MonoBehaviour
         }
         if (RSFunction != "")
         {
+            RS.transform.localPosition = new Vector3(-2, 770 - (count * 70), 0);
             RS.color = Color.white;
             RS.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = RSFunction;
+            count++;
         }
         else
         {
@@ -40,8 +45,10 @@ public class ShowControls : MonoBehaviour
         }
         if (LTFunction != "")
         {
+            LT.transform.localPosition = new Vector3(-2, 770 - (count * 70), 0);
             LT.color = Color.white;
             LT.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = LTFunction;
+            count++;
         }
         else
         {
@@ -50,8 +57,10 @@ public class ShowControls : MonoBehaviour
         }
         if (RTFunction != "")
         {
+            RT.transform.localPosition = new Vector3(-2, 770 - (count * 70), 0);
             RT.color = Color.white;
             RT.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = RTFunction;
+            count++;
         }
         else
         {

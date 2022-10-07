@@ -157,7 +157,7 @@ public class PlayerActions_Level13 : MonoBehaviour
     {
         if (!actionPlaying)
         {
-            WeaponColliderOn();
+            //WeaponColliderOn();
             actionPlaying = true;
             isWalking = false;
             Animator.SetTrigger("strike");

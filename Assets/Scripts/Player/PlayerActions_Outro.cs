@@ -10,6 +10,7 @@ public class PlayerActions_Outro : MonoBehaviour
     public Controls ActionMap;
     public float Speed = 1;
     public SceneChanger SceneChanger;
+    public bool facingLeft = true;
 
     void Awake()
     {
@@ -38,6 +39,14 @@ public class PlayerActions_Outro : MonoBehaviour
 
         if (isWalking)
         {
+            if (facingLeft)
+            {
+                transform.eulerAngles = Vector3.zero;
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
             transform.Translate(-Speed, 0, 0);
         }
     }
@@ -57,6 +66,13 @@ public class PlayerActions_Outro : MonoBehaviour
 
     private void Ride(InputAction.CallbackContext context)
     {
+        float direction = context.ReadValue<float>();
+
+        if (direction < 0)
+            facingLeft = true;
+        else if (direction > 0)
+            facingLeft = false;
+
         isWalking = true;
     }
 

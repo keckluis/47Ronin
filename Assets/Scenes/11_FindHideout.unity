@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Hint
       objectReference: {fileID: 0}
+    - target: {fileID: 8140889077228143499, guid: 9bf5b8d6c3926b54e92c634feaafd925, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8140889077622038641, guid: 9bf5b8d6c3926b54e92c634feaafd925, type: 3}
       propertyPath: TextFileName
       value: 11_FindHideout
@@ -537,7 +541,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216296096}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9, y: 3.64, z: 0}
+  m_LocalPosition: {x: -0.27, y: 2.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1459,8 +1463,8 @@ GameObject:
   m_Component:
   - component: {fileID: 802695350}
   - component: {fileID: 802695349}
-  - component: {fileID: 802695352}
   - component: {fileID: 802695351}
+  - component: {fileID: 802695352}
   m_Layer: 0
   m_Name: Ofen
   m_TagString: Untagged
@@ -1552,19 +1556,33 @@ MonoBehaviour:
   Player: {fileID: 1181421063}
   Radius: 3.15
   Interacted: 0
---- !u!65 &802695352
-BoxCollider:
+--- !u!68 &802695352
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802695348}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.6603506, y: 2.4974277, z: 0.2}
-  m_Center: {x: 0.11482477, y: 0.1912857, z: 0}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 1.4935597, y: -0.7704767}
+  - {x: -1.0584793, y: 0.85486895}
+  - {x: -1.5825858, y: 0.4369424}
+  - {x: -1.5332443, y: -0.32596198}
+  - {x: -1.4574835, y: -0.9190444}
+  - {x: -0.3611475, y: -1.4334449}
+  - {x: 1.5345912, y: -0.7704767}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &814309167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,8 +2451,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1448284830}
   - component: {fileID: 1448284829}
-  - component: {fileID: 1448284828}
   - component: {fileID: 1448284827}
+  - component: {fileID: 1448284831}
   m_Layer: 0
   m_Name: Kiras Bett
   m_TagString: Untagged
@@ -2459,32 +2477,6 @@ MonoBehaviour:
   Player: {fileID: 1181421063}
   Radius: 3.93
   Interacted: 0
---- !u!61 &1448284828
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448284826}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.0774488, y: 0.44279993}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.59, y: 6.47}
-    newSize: {x: 10.59, y: 6.47}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 8.532743, y: 3.0560415}
-  m_EdgeRadius: 0
 --- !u!212 &1448284829
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2552,6 +2544,31 @@ Transform:
   m_Father: {fileID: 411424879}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &1448284831
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448284826}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 5.14497, y: 0.5332244}
+  - {x: -3.0319333, y: 3.0561528}
+  - {x: -5.284539, y: -0.69640315}
+  - {x: 2.3328862, y: -2.854529}
+  - {x: 5.0424213, y: 0.561288}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1483167695
 GameObject:
   m_ObjectHideFlags: 0
@@ -3325,13 +3342,13 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.10696697, y: -0.5096852}
+  - {x: 1.5934572, y: -0.39321798}
   - {x: 12.091484, y: 3.3774939}
   - {x: 13.373014, y: 3.6847937}
   - {x: 27.994907, y: -2.4469235}
   - {x: 28.044115, y: -7.3922453}
-  - {x: -0.22122145, y: -7.440993}
-  - {x: -0.17526197, y: -0.51054585}
+  - {x: 1.5723758, y: -7.440993}
+  - {x: 1.6416287, y: -0.3940786}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

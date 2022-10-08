@@ -14,7 +14,8 @@ public class EnemyBehaviour_Level09 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
-        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        if (GameObject.Find("AudioManager"))
+            AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void FixedUpdate()

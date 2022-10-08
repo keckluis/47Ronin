@@ -12,7 +12,7 @@ public class MenuButton : MonoBehaviour
         {
             uiButtons = GameObject.Find("MenuCanvas").GetComponent<UIButtons>();
 
-            gameObject.GetComponent<Button>().onClick.AddListener(uiButtons.OpenCloseMenu);
+            gameObject.GetComponent<Button>().onClick.AddListener(uiButtons.OpenMenu);
         }
     }
 }

@@ -16,8 +16,24 @@ public class ShowControls : MonoBehaviour
     public string LTFunction;
     public string RTFunction;
 
+    private SceneLoader SceneLoader;
+
+    private void Start()
+    {
+        if (GameObject.Find("SceneLoader"))
+            SceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
+    }
+
     void Update()
     {
+        if (SceneLoader.loadScene)
+        {
+            LSFunction = "";
+            RSFunction = "";
+            LTFunction = "";
+            RTFunction = "";
+        }
+
         int count = 0;
         if (LSFunction != "")
         {

@@ -36,7 +36,8 @@ public class InteractableObject : MonoBehaviour
         }
         else
         {
-            OutlineVisible = false;
+            //if (!Interacted)
+                OutlineVisible = false;
         }
 
         copy.SetActive(OutlineVisible); 

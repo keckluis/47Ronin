@@ -658,7 +658,7 @@
             "id": "c1c05e6f-b393-4f50-901e-27a162d995d7",
             "actions": [
                 {
-                    "name": "Menu",
+                    "name": "Start",
                     "type": "Button",
                     "id": "ea88c2a2-9fca-48d8-bb45-8fecb89920ec",
                     "expectedControlType": "Button",
@@ -720,7 +720,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Menu",
+                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -731,7 +731,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox Gamepad",
-                    "action": "Menu",
+                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -154,6 +154,11 @@ public class PlayerActions_Level09 : MonoBehaviour
             Animator.SetTrigger("shoot");
             Bow.SetTrigger("shoot");
             AudioManager.PlayClip(0);
+
+            for (int i = 0; i < numberOfPoints; i++)
+            {
+                points[i].SetActive(false);
+            }
         }  
     }
 
@@ -169,6 +174,10 @@ public class PlayerActions_Level09 : MonoBehaviour
     {
         isShooting = false;
         Arrow.gameObject.SetActive(true);
+        for (int i = 0; i < numberOfPoints; i++)
+        {
+            points[i].SetActive(true);
+        }
     }
 
     Vector3 PointPosition(float t)

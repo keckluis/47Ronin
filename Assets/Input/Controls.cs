@@ -680,7 +680,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ""id"": ""c1c05e6f-b393-4f50-901e-27a162d995d7"",
             ""actions"": [
                 {
-                    ""name"": ""Menu"",
+                    ""name"": ""Start"",
                     ""type"": ""Button"",
                     ""id"": ""ea88c2a2-9fca-48d8-bb45-8fecb89920ec"",
                     ""expectedControlType"": ""Button"",
@@ -742,7 +742,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Menu"",
+                    ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -753,7 +753,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Gamepad"",
-                    ""action"": ""Menu"",
+                    ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1003,7 +1003,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Level11_Interact = m_Level11.FindAction("Interact", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Menu = m_UI.FindAction("Menu", throwIfNotFound: true);
+        m_UI_Start = m_UI.FindAction("Start", throwIfNotFound: true);
         m_UI_A = m_UI.FindAction("A", throwIfNotFound: true);
         m_UI_B = m_UI.FindAction("B", throwIfNotFound: true);
         m_UI_X = m_UI.FindAction("X", throwIfNotFound: true);
@@ -1300,7 +1300,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
-    private readonly InputAction m_UI_Menu;
+    private readonly InputAction m_UI_Start;
     private readonly InputAction m_UI_A;
     private readonly InputAction m_UI_B;
     private readonly InputAction m_UI_X;
@@ -1310,7 +1310,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     {
         private @Controls m_Wrapper;
         public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Menu => m_Wrapper.m_UI_Menu;
+        public InputAction @Start => m_Wrapper.m_UI_Start;
         public InputAction @A => m_Wrapper.m_UI_A;
         public InputAction @B => m_Wrapper.m_UI_B;
         public InputAction @X => m_Wrapper.m_UI_X;
@@ -1325,9 +1325,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_UIActionsCallbackInterface != null)
             {
-                @Menu.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMenu;
-                @Menu.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMenu;
-                @Menu.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMenu;
+                @Start.started -= m_Wrapper.m_UIActionsCallbackInterface.OnStart;
+                @Start.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnStart;
+                @Start.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnStart;
                 @A.started -= m_Wrapper.m_UIActionsCallbackInterface.OnA;
                 @A.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnA;
                 @A.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnA;
@@ -1347,9 +1347,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Menu.started += instance.OnMenu;
-                @Menu.performed += instance.OnMenu;
-                @Menu.canceled += instance.OnMenu;
+                @Start.started += instance.OnStart;
+                @Start.performed += instance.OnStart;
+                @Start.canceled += instance.OnStart;
                 @A.started += instance.OnA;
                 @A.performed += instance.OnA;
                 @A.canceled += instance.OnA;
@@ -1450,7 +1450,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     }
     public interface IUIActions
     {
-        void OnMenu(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
         void OnA(InputAction.CallbackContext context);
         void OnB(InputAction.CallbackContext context);
         void OnX(InputAction.CallbackContext context);

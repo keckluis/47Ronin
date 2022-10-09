@@ -3822,10 +3822,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1b708f1b75cc84484dc088888b6f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3
   ThrowPos: {fileID: 1587302567}
   sceneChanger: {fileID: 1604652085}
   stone: {fileID: 6252658810889475664, guid: 083427100be91494f83667c36bbd02df, type: 3}
+  direction: 0
+  Speed: 0.1
 --- !u!50 &1462431108
 Rigidbody2D:
   serializedVersion: 4

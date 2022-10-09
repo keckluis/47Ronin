@@ -24,32 +24,41 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     ""name"": ""Controls"",
     ""maps"": [
         {
-            ""name"": ""PlayerControls"",
+            ""name"": ""Level 05"",
             ""id"": ""e5b18e61-d01e-41cc-8b6e-c495b064f506"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""9cf6a36a-7a71-4b78-b369-3d119e657c12"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""StoneTrowing"",
+                    ""name"": ""Walk"",
                     ""type"": ""Value"",
-                    ""id"": ""0ae94f44-98a5-4ce1-a1eb-9c6f84f45974"",
+                    ""id"": ""b0f83695-a51c-4933-abe0-0d6379ee8ce4"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""ActivateThrowMode"",
+                    ""name"": ""Throw"",
                     ""type"": ""Button"",
-                    ""id"": ""511975c4-cb35-434a-be95-0f9c49ef63c6"",
+                    ""id"": ""1cd9711d-5bcd-46cf-9a9e-a8435a2150bf"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""50eebaa9-04fc-40d4-8737-f0ed53c118cd"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""AimKeyboard"",
+                    ""type"": ""Value"",
+                    ""id"": ""6d43d8f8-17b0-497c-8697-b4cd736325e6"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -57,191 +66,136 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""WASDKeys"",
-                    ""id"": ""2c5f9b81-70ea-4d23-a39f-2bc9e5997f38"",
+                    ""name"": ""Keyboard"",
+                    ""id"": ""cd9c3fdf-410b-4f75-8753-12a4e0653b13"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Walk"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Left"",
-                    ""id"": ""592677dc-4ca0-4e5e-bfb3-237c69ab0064"",
+                    ""name"": ""left"",
+                    ""id"": ""4ce5eee7-5a26-4cad-88b1-a63998f70c66"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Right"",
-                    ""id"": ""3a975b92-aa60-4672-bbd9-e8c9d8906034"",
+                    ""name"": ""right"",
+                    ""id"": ""cf571f09-ae30-4bcf-b9f3-422506f36fb1"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""LeftStick"",
-                    ""id"": ""a71a2efe-4a20-4f3c-9f1d-58d8cc278be4"",
+                    ""name"": ""Gamepad"",
+                    ""id"": ""b1f209b7-c508-4b73-88d8-2954c629122e"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Walk"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""8946127e-6aea-4c42-9d55-f727e12675cf"",
+                    ""id"": ""2b3b2a69-b1b2-459b-a353-1fd24fe4501a"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""077f520c-f2f9-4323-9401-5c5d49cca4bd"",
+                    ""id"": ""b629cbd9-3951-497e-92dd-6cf76fe5a0ed"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""DPad"",
-                    ""id"": ""e22da76b-04f9-450b-97f9-5c98929107d2"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""bd89fc5f-d242-4beb-a5cc-b06d46093334"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""94d5b1e5-20f9-4e5f-9406-33f87c62c7f7"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ad71ceee-80c5-4e1f-8c71-5be43b4d10de"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""StoneTrowing"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""One Modifier"",
-                    ""id"": ""ba8707a1-0d80-449e-b3c6-97d0dbefd006"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""StoneTrowing"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""8645dd84-905e-441c-96d3-7b0178df2a14"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""StoneTrowing"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""4ddcb93f-bb88-49d3-9d9c-d1bae69cbcf7"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""StoneTrowing"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""One Modifier"",
-                    ""id"": ""7acc0721-a680-42b6-9a1d-ba0191dc3a0e"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""StoneTrowing"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""cc09a2b8-79b9-4d95-b318-6010153e784f"",
+                    ""id"": ""70c53081-fd6a-462f-b926-87cda72d12f1"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Gamepad"",
-                    ""action"": ""StoneTrowing"",
+                    ""action"": ""Throw"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""binding"",
-                    ""id"": ""fb8653a5-3943-40fa-a250-9901fe7d8b2d"",
+                    ""name"": """",
+                    ""id"": ""c26fb8a0-e35f-482c-a6fe-e3b0e77cefd6"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af76ba43-3be6-4f2e-ada3-71883bab4b9b"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Gamepad"",
-                    ""action"": ""StoneTrowing"",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""f0d45cc4-afe2-47e7-ab35-b4283a885e58"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimKeyboard"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""339f27ed-0676-48d3-9b60-2c3a64d0a123"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimKeyboard"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""9b61c6c7-258d-4e80-a0fd-cf228204f15a"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""name"": ""positive"",
+                    ""id"": ""4fa09cf3-1455-4a46-8692-d329a1fd78cd"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Gamepad"",
-                    ""action"": ""ActivateThrowMode"",
+                    ""groups"": """",
+                    ""action"": ""AimKeyboard"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -978,11 +932,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // PlayerControls
-        m_PlayerControls = asset.FindActionMap("PlayerControls", throwIfNotFound: true);
-        m_PlayerControls_Movement = m_PlayerControls.FindAction("Movement", throwIfNotFound: true);
-        m_PlayerControls_StoneTrowing = m_PlayerControls.FindAction("StoneTrowing", throwIfNotFound: true);
-        m_PlayerControls_ActivateThrowMode = m_PlayerControls.FindAction("ActivateThrowMode", throwIfNotFound: true);
+        // Level 05
+        m_Level05 = asset.FindActionMap("Level 05", throwIfNotFound: true);
+        m_Level05_Walk = m_Level05.FindAction("Walk", throwIfNotFound: true);
+        m_Level05_Throw = m_Level05.FindAction("Throw", throwIfNotFound: true);
+        m_Level05_Aim = m_Level05.FindAction("Aim", throwIfNotFound: true);
+        m_Level05_AimKeyboard = m_Level05.FindAction("AimKeyboard", throwIfNotFound: true);
         // Level 07 + 13
         m_Level0713 = asset.FindActionMap("Level 07 + 13", throwIfNotFound: true);
         m_Level0713_Strike = m_Level0713.FindAction("Strike", throwIfNotFound: true);
@@ -1068,54 +1023,62 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // PlayerControls
-    private readonly InputActionMap m_PlayerControls;
-    private IPlayerControlsActions m_PlayerControlsActionsCallbackInterface;
-    private readonly InputAction m_PlayerControls_Movement;
-    private readonly InputAction m_PlayerControls_StoneTrowing;
-    private readonly InputAction m_PlayerControls_ActivateThrowMode;
-    public struct PlayerControlsActions
+    // Level 05
+    private readonly InputActionMap m_Level05;
+    private ILevel05Actions m_Level05ActionsCallbackInterface;
+    private readonly InputAction m_Level05_Walk;
+    private readonly InputAction m_Level05_Throw;
+    private readonly InputAction m_Level05_Aim;
+    private readonly InputAction m_Level05_AimKeyboard;
+    public struct Level05Actions
     {
         private @Controls m_Wrapper;
-        public PlayerControlsActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_PlayerControls_Movement;
-        public InputAction @StoneTrowing => m_Wrapper.m_PlayerControls_StoneTrowing;
-        public InputAction @ActivateThrowMode => m_Wrapper.m_PlayerControls_ActivateThrowMode;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
+        public Level05Actions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Walk => m_Wrapper.m_Level05_Walk;
+        public InputAction @Throw => m_Wrapper.m_Level05_Throw;
+        public InputAction @Aim => m_Wrapper.m_Level05_Aim;
+        public InputAction @AimKeyboard => m_Wrapper.m_Level05_AimKeyboard;
+        public InputActionMap Get() { return m_Wrapper.m_Level05; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerControlsActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerControlsActions instance)
+        public static implicit operator InputActionMap(Level05Actions set) { return set.Get(); }
+        public void SetCallbacks(ILevel05Actions instance)
         {
-            if (m_Wrapper.m_PlayerControlsActionsCallbackInterface != null)
+            if (m_Wrapper.m_Level05ActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnMovement;
-                @StoneTrowing.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnStoneTrowing;
-                @StoneTrowing.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnStoneTrowing;
-                @StoneTrowing.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnStoneTrowing;
-                @ActivateThrowMode.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnActivateThrowMode;
-                @ActivateThrowMode.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnActivateThrowMode;
-                @ActivateThrowMode.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnActivateThrowMode;
+                @Walk.started -= m_Wrapper.m_Level05ActionsCallbackInterface.OnWalk;
+                @Walk.performed -= m_Wrapper.m_Level05ActionsCallbackInterface.OnWalk;
+                @Walk.canceled -= m_Wrapper.m_Level05ActionsCallbackInterface.OnWalk;
+                @Throw.started -= m_Wrapper.m_Level05ActionsCallbackInterface.OnThrow;
+                @Throw.performed -= m_Wrapper.m_Level05ActionsCallbackInterface.OnThrow;
+                @Throw.canceled -= m_Wrapper.m_Level05ActionsCallbackInterface.OnThrow;
+                @Aim.started -= m_Wrapper.m_Level05ActionsCallbackInterface.OnAim;
+                @Aim.performed -= m_Wrapper.m_Level05ActionsCallbackInterface.OnAim;
+                @Aim.canceled -= m_Wrapper.m_Level05ActionsCallbackInterface.OnAim;
+                @AimKeyboard.started -= m_Wrapper.m_Level05ActionsCallbackInterface.OnAimKeyboard;
+                @AimKeyboard.performed -= m_Wrapper.m_Level05ActionsCallbackInterface.OnAimKeyboard;
+                @AimKeyboard.canceled -= m_Wrapper.m_Level05ActionsCallbackInterface.OnAimKeyboard;
             }
-            m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
+            m_Wrapper.m_Level05ActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
-                @StoneTrowing.started += instance.OnStoneTrowing;
-                @StoneTrowing.performed += instance.OnStoneTrowing;
-                @StoneTrowing.canceled += instance.OnStoneTrowing;
-                @ActivateThrowMode.started += instance.OnActivateThrowMode;
-                @ActivateThrowMode.performed += instance.OnActivateThrowMode;
-                @ActivateThrowMode.canceled += instance.OnActivateThrowMode;
+                @Walk.started += instance.OnWalk;
+                @Walk.performed += instance.OnWalk;
+                @Walk.canceled += instance.OnWalk;
+                @Throw.started += instance.OnThrow;
+                @Throw.performed += instance.OnThrow;
+                @Throw.canceled += instance.OnThrow;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
+                @AimKeyboard.started += instance.OnAimKeyboard;
+                @AimKeyboard.performed += instance.OnAimKeyboard;
+                @AimKeyboard.canceled += instance.OnAimKeyboard;
             }
         }
     }
-    public PlayerControlsActions @PlayerControls => new PlayerControlsActions(this);
+    public Level05Actions @Level05 => new Level05Actions(this);
 
     // Level 07 + 13
     private readonly InputActionMap m_Level0713;
@@ -1420,11 +1383,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_XboxGamepadSchemeIndex];
         }
     }
-    public interface IPlayerControlsActions
+    public interface ILevel05Actions
     {
-        void OnMovement(InputAction.CallbackContext context);
-        void OnStoneTrowing(InputAction.CallbackContext context);
-        void OnActivateThrowMode(InputAction.CallbackContext context);
+        void OnWalk(InputAction.CallbackContext context);
+        void OnThrow(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
+        void OnAimKeyboard(InputAction.CallbackContext context);
     }
     public interface ILevel0713Actions
     {

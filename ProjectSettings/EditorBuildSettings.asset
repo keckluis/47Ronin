@@ -20,14 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/04_SneakingThroughGardenText.unity
     guid: d4be5940fe4e7d445aeb3b608eec75c8
-  - enabled: 0
-    path: Assets/Scenes/05a_SneakingThroughGarden.unity
-    guid: 977aa7bc72c3292498cf54863a66e9cc
   - enabled: 1
-    path: Assets/Scenes/05d_SneakingThroughGarden.unity
+    path: Assets/Scenes/05A_SneakingThroughGarden.unity
     guid: 9017d66c74aac664dac012f4d8c1a8c9
   - enabled: 1
-    path: Assets/Scenes/05e_SneakingThroughGarden.unity
+    path: Assets/Scenes/05B_SneakingThroughGarden.unity
     guid: 284019aec63cc2d408afe334e8ee5fb9
   - enabled: 1
     path: Assets/Scenes/06_BattleText.unity

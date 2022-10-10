@@ -18,7 +18,9 @@ public class PlayerActions_Level13 : MonoBehaviour
     public GameObject Blood;
     private GameObject BloodHolder;
 
-    public int Health = 100;
+    public int StartHealth = 10;
+    public int Health;
+    public Transform HealthBarFiller;
 
     public List<Transform> Ronins;
     public AudioManager AudioManager;
@@ -37,6 +39,8 @@ public class PlayerActions_Level13 : MonoBehaviour
         ActionMap.Level0713.Walk.canceled += StopWalking;
         ActionMap.Level0713.Strike.performed += Strike;
         ActionMap.Level0713.Block.performed += Dodge;
+
+        Health = StartHealth;
     }
 
     private void OnDestroy()
@@ -110,6 +114,13 @@ public class PlayerActions_Level13 : MonoBehaviour
                         SceneChanger.SceneLoader.LoadNextScene();
                 }
             }
+
+            if (direction == Facing.LEFT)
+                HealthBarFiller.parent.localEulerAngles = Vector3.zero;
+            else
+                HealthBarFiller.parent.localEulerAngles = new Vector3(0, 180, 0);
+
+            HealthBarFiller.localScale = new Vector3((1 / (float)StartHealth) * Health, 1, 1);
         }
     }
 

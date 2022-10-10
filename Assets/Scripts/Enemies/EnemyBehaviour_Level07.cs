@@ -11,7 +11,11 @@ public class EnemyBehaviour_Level07 : MonoBehaviour
     private bool isGettingHit = false;
 
     public GameObject Player;
-    public int Health = 100;
+
+    public int StartHealth = 3;
+    public int Health;
+    public Transform HealthBarFiller;
+
     public float Range = 4;
     public float Cooldown = 1f;
     public float Speed = 0.03f;
@@ -36,6 +40,13 @@ public class EnemyBehaviour_Level07 : MonoBehaviour
         {
             SceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
         }
+
+        Health = StartHealth;
+    }
+
+    private void Update()
+    {
+        HealthBarFiller.localScale = new Vector3((1 / (float)StartHealth) * Health, 1, 1);
     }
 
     void FixedUpdate()

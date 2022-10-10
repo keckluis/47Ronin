@@ -24,7 +24,10 @@ public class PlayerActions_Level07 : MonoBehaviour
     public GameObject Blood;
     private GameObject BloodHolder;
 
-    public int Health = 100;
+    public int StartHealth = 10;
+    public int Health;
+    public Transform HealthBarFiller;
+
     public AudioManager AudioManager;
 
     bool dead = false;
@@ -41,6 +44,8 @@ public class PlayerActions_Level07 : MonoBehaviour
         ActionMap.Level0713.Walk.canceled += StopWalking;
         ActionMap.Level0713.Strike.performed += Strike;
         ActionMap.Level0713.Block.performed += Block;
+
+        Health = StartHealth;
     }
 
     private void OnDestroy()
@@ -91,6 +96,13 @@ public class PlayerActions_Level07 : MonoBehaviour
                         SceneChanger.SceneLoader.LoadNextScene();
                 }
             }
+
+            if (direction == Facing.LEFT)
+                HealthBarFiller.parent.localEulerAngles = Vector3.zero;
+            else
+                HealthBarFiller.parent.localEulerAngles = new Vector3(0, 180, 0);
+
+            HealthBarFiller.localScale = new Vector3((1/(float)StartHealth) * Health, 1, 1);
         }
     }
 

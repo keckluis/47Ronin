@@ -10,17 +10,26 @@ public class EnemyBehaviour_Level09 : MonoBehaviour
     private AudioManager AudioManager;
     private Animator Animator;
     private Transform ArrowTransform;
+    public SceneLoader SceneLoader;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         if (GameObject.Find("AudioManager"))
             AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
+        if (GameObject.Find("SceneLoader"))
+        {
+            SceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
+        }
     }
 
     void FixedUpdate()
     {
-        transform.Translate(new Vector3(-0.001f * Speed, 0, 0));
+        if (SceneLoader != null && !SceneLoader.Loading)
+        {
+            transform.Translate(new Vector3(-0.001f * Speed, 0, 0));
+        }
     }
 
     public void Die()

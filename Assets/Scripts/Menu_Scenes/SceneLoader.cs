@@ -6,7 +6,7 @@ using TMPro;
 public class SceneLoader : MonoBehaviour
 {
 
-    public bool loadScene = false;
+    public bool Loading = false;
 
     public int NextScene  = 1;
     public int PreviousScene = -1;
@@ -39,7 +39,7 @@ public class SceneLoader : MonoBehaviour
                 LoadingText.text = "LOADING...";
         }
 
-        if (loadScene)
+        if (Loading)
         {
             LoadingCanvas.SetActive(true);
             LoadingText.color = new Color(LoadingText.color.r, LoadingText.color.g, LoadingText.color.b, Mathf.PingPong(Time.time, 1));
@@ -50,9 +50,9 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadNextScene()
     {
-        if (!loadScene)
+        if (!Loading)
         {
-            loadScene = true;
+            Loading = true;
             StartCoroutine(LoadNewScene(NextScene));
             NextScene += 1;
         }
@@ -60,9 +60,9 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadPreviousScene()
     {
-        if (!loadScene)
+        if (!Loading)
         {
-            loadScene = true;
+            Loading = true;
             StartCoroutine(LoadNewScene(PreviousScene));
             NextScene = PreviousScene + 1;
         }
@@ -92,6 +92,6 @@ public class SceneLoader : MonoBehaviour
             yield return null;
         }
         LoadingCanvas.SetActive(false);
-        loadScene = false;
+        Loading = false;
     }
 }

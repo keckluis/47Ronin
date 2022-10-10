@@ -26,7 +26,7 @@ public class ShowControls : MonoBehaviour
 
     void Update()
     {
-        if (SceneLoader.loadScene)
+        if (SceneLoader.Loading)
         {
             LSFunction = "";
             RSFunction = "";

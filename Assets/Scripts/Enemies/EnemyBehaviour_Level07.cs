@@ -25,40 +25,50 @@ public class EnemyBehaviour_Level07 : MonoBehaviour
     public GameObject Dead;
     public AudioManager AudioManager;
 
+    public SceneLoader SceneLoader;
+
     void Start()
     {
         Animator = GetComponent<Animator>();
         WeaponColliderOff();
+
+        if (GameObject.Find("SceneLoader"))
+        {
+            SceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
+        }
     }
 
     void FixedUpdate()
     {
-        float distance = transform.position.x - Player.transform.position.x;
-
-        if (direction == Facing.RIGHT && distance > -Range && distance <= 0 && !isCoolingDown && !actionPlaying)
+        if (SceneLoader != null && !SceneLoader.Loading)
         {
-            Action("strike");
-            WeaponColliderOn();
-        }
-        else if (direction == Facing.LEFT && distance < Range && distance >= 0 && !isCoolingDown && !actionPlaying)
-        {
-            Action("strike");
-            WeaponColliderOn();
-        }
+            float distance = transform.position.x - Player.transform.position.x;
 
-        float dir;
-        if (direction == Facing.LEFT)
-            dir = 0;
-        else
-            dir = 180;
-        transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
+            if (direction == Facing.RIGHT && distance > -Range && distance <= 0 && !isCoolingDown && !actionPlaying)
+            {
+                Action("strike");
+                WeaponColliderOn();
+            }
+            else if (direction == Facing.LEFT && distance < Range && distance >= 0 && !isCoolingDown && !actionPlaying)
+            {
+                Action("strike");
+                WeaponColliderOn();
+            }
 
-        Animator.SetBool("isWalking", isWalking);
-        if (isWalking)
-        {
-            WeaponColliderOff();
-            transform.Translate(-Speed, 0, 0);
-            Animator.SetBool("isWalking", true);
+            float dir;
+            if (direction == Facing.LEFT)
+                dir = 0;
+            else
+                dir = 180;
+            transform.localRotation = Quaternion.Euler(new Vector3(0, dir, 0));
+
+            Animator.SetBool("isWalking", isWalking);
+            if (isWalking)
+            {
+                WeaponColliderOff();
+                transform.Translate(-Speed, 0, 0);
+                Animator.SetBool("isWalking", true);
+            }
         }
     }
 

@@ -40,7 +40,7 @@ public class UIButtons : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (SceneLoader.loadScene)
+        if (SceneLoader.Loading)
         {     
             CloseMenu();
         }
@@ -59,22 +59,24 @@ public class UIButtons : MonoBehaviour
 
     public void OpenMenu()
     {
-        if (!SceneLoader.loadScene && SceneLoader.NextScene != 2 && SceneLoader.NextScene != 19 && SceneLoader.NextScene != 20)
+        if (!SceneLoader.Loading && SceneLoader.NextScene != 2 && SceneLoader.NextScene != 19 && SceneLoader.NextScene != 20)
         {
             if (!Menu.activeSelf)
             {
                 Menu.SetActive(true);
+                Time.timeScale = 0;
             }
         }
     }
 
     public void CloseMenu()
     {
-        if (!SceneLoader.loadScene && SceneLoader.NextScene != 2 && SceneLoader.NextScene != 19 && SceneLoader.NextScene != 20)
+        if (!SceneLoader.Loading && SceneLoader.NextScene != 2 && SceneLoader.NextScene != 19 && SceneLoader.NextScene != 20)
         {
             if (Menu.activeSelf)
             {
                 Menu.SetActive(false);
+                Time.timeScale = 1;
             }
         }
     }
@@ -98,6 +100,7 @@ public class UIButtons : MonoBehaviour
             SceneLoader.NextScene = 1;
             SceneLoader.LoadNextScene();
             Menu.SetActive(false);
+            Time.timeScale = 1;
         }
     }
     public void BackToMenu(InputAction.CallbackContext context)
@@ -113,15 +116,6 @@ public class UIButtons : MonoBehaviour
             Menu.SetActive(false);
         }
     }*/
-
-    public void SkipLevel(InputAction.CallbackContext context)
-    {
-        if (SceneLoader != null && Menu.activeSelf)
-        {
-            SceneLoader.LoadNextScene();
-            Menu.SetActive(false);
-        }
-    }
 
     public void LookForLanguage()
     {

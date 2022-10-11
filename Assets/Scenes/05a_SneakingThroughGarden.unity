@@ -828,7 +828,7 @@ MonoBehaviour:
   ThrowPos: {fileID: 110698126}
   stone: {fileID: 6252658810889475664, guid: 083427100be91494f83667c36bbd02df, type: 3}
   direction: 0
-  Speed: 0.1
+  Speed: 0.075
   LaunchForce: 10
   point: {fileID: 1823312080896983698, guid: 1b810aaa2837cc64db23f53ea2678e73, type: 3}
   numberOfPoints: 30

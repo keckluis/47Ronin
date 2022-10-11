@@ -250,6 +250,6 @@ public class PlayerInputManager : MonoBehaviour
     Vector3 PointPosition(float t)
     {
         Vector2 position = (Vector2)ThrowPos.position + (shotDirection.normalized * LaunchForce * t) + 0.5f * Physics2D.gravity * (t * t);
-        return new Vector3(position.x, position.y, -2);
+        return new Vector3(position.x, position.y, transform.position.z);
     }
 }

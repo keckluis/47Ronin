@@ -10,7 +10,7 @@ public class HintHandler : MonoBehaviour
     private StoryLevel TextsSource;
     private List<string> Texts = new List<string>();
     Language lang;
-    // Start is called before the first frame update
+
     void Start()
     {
         if (GameObject.Find("Language"))
@@ -36,18 +36,20 @@ public class HintHandler : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-         if (lang.currentLanguage == Languages.German)
+        if (lang != null)
         {
-            Texts = TextsSource.TextsDE;
-        }
-        else if (lang.currentLanguage == Languages.English)
-        {
-            Texts = TextsSource.TextsEN;
-        }
+            if (lang.currentLanguage == Languages.German)
+            {
+                Texts = TextsSource.TextsDE;
+            }
+            else if (lang.currentLanguage == Languages.English)
+            {
+                Texts = TextsSource.TextsEN;
+            }
 
-        Text.text = Texts[Texts.Count -1];
+            Text.text = Texts[Texts.Count - 1];
+        }  
     }
 }

@@ -69,15 +69,17 @@ public class DiscoverRoomsHandler : MonoBehaviour
             int i = 0;
             foreach (DiscoverRoom obj in Objects)
             {
-                if (obj.OutlineVisible)
+                if (obj.OutlineVisible && !obj.Interacted)
                 {
                     Debug.Log("interacted with: " + obj);
                     obj.Interaction(Texts[i]);
                     Cooldown = true;
                     StartCoroutine(StartCooldown(obj));
                     AudioManager.PlayClip(0);
-                    
+                    obj.GetComponent<DiscoverRoom>().Interacted = true;
                     InteractedObjects++;
+                    obj.OutlineVisible = true;
+                    
                     Debug.Log(InteractedObjects);
                     return;
                 }
@@ -90,13 +92,12 @@ public class DiscoverRoomsHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         Cooldown = false;
-        obj.GetComponent<DiscoverRoom>().enabled = false;
-        obj.OutlineVisible = false;
+        // obj.GetComponent<DiscoverRoom>().enabled = false;
     }
 
     IEnumerator LevelEnd()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         SceneChanger.NextScene = true;
     }
 }

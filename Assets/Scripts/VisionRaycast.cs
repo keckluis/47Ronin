@@ -15,7 +15,7 @@ public class VisionRaycast : MonoBehaviour
     int detectionCounter = 0;
     public TextMeshPro debugtext;
     GuardPatrol guardPatrol;
-    private int AlarmTrigger = 60;
+    [SerializeField] private int AlarmTrigger = 60;
     public SceneChanger sceneChanger;
     private bool alarm = false;
 

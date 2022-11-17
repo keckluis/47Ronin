@@ -37,7 +37,7 @@ public class DiscoverRoom : MonoBehaviour
         }
         else
         {
-            OutlineVisible = false;
+            if (!Interacted) OutlineVisible = false;
         }
 
         copy.SetActive(OutlineVisible); 

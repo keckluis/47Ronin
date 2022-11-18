@@ -6,7 +6,8 @@ using TMPro;
 
 public class ShowControls : MonoBehaviour
 {
-    public Image LS;
+    public Image LS_1D;
+    public Image LS_2D;
     public Image RS;
     public Image LT;
     public Image RT;
@@ -15,6 +16,7 @@ public class ShowControls : MonoBehaviour
     public string RSFunction;
     public string LTFunction;
     public string RTFunction;
+    public int WalkDimensions;
 
     private SceneLoader SceneLoader;
 
@@ -32,20 +34,37 @@ public class ShowControls : MonoBehaviour
             RSFunction = "";
             LTFunction = "";
             RTFunction = "";
+            WalkDimensions = 0;
         }
 
         int count = 0;
         if (LSFunction != "")
         {
-            LS.transform.localPosition = new Vector3(-2, 770 - (count * 70), 0);
-            LS.color = Color.white;
-            LS.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = LSFunction;
+            if (WalkDimensions == 1)
+            {
+                LS_1D.transform.localPosition = new Vector3(-2, 770 - (count * 70), 0);
+                LS_1D.color = Color.white;
+                LS_1D.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = LSFunction;
+                LS_2D.color = new Color(1, 1, 1, 0);
+                LS_2D.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+            }
+            else
+            {
+                LS_2D.transform.localPosition = new Vector3(-2, 770 - (count * 70), 0);
+                LS_2D.color = Color.white;
+                LS_2D.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = LSFunction;
+                LS_1D.color = new Color(1, 1, 1, 0);
+                LS_1D.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+            }
+
             count++;
         }
         else
         {
-            LS.color = new Color(1, 1, 1, 0);
-            LS.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+            LS_1D.color = new Color(1, 1, 1, 0);
+            LS_1D.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+            LS_2D.color = new Color(1, 1, 1, 0);
+            LS_2D.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
         }
         if (RSFunction != "")
         {

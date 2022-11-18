@@ -7,5 +7,6 @@
     "LS_EN" : "walk",
     "RS_EN" : "",
     "LT_EN" : "",
-    "RT_EN" : "inspect"
+    "RT_EN" : "inspect",
+    "WalkDimensions": "2"
 }

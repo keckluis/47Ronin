@@ -7,5 +7,6 @@
     "LS_EN" : "ride",
     "RS_EN" : "",
     "LT_EN" : "",
-    "RT_EN" : ""
+    "RT_EN" : "",
+    "WalkDimensions": "1"
 }

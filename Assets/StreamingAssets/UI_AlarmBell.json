@@ -7,5 +7,6 @@
     "LS_EN" : "",
     "RS_EN" : "aim",
     "LT_EN" : "",
-    "RT_EN" : "shoot"
+    "RT_EN" : "shoot",
+    "WalkDimensions": "0"
 }

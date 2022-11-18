@@ -56,7 +56,7 @@ public class Language : MonoBehaviour
         {
             file = "UI_HouseScouting";
         }
-        else if (sceneName == "05d_SneakingThroughGarden" || sceneName == "05e_SneakingThroughGarden")
+        else if (sceneName == "05A_SneakingThroughGarden" || sceneName == "05B_SneakingThroughGarden")
         {
             file = "UI_SneakingThroughGarden";
         }
@@ -91,6 +91,7 @@ public class Language : MonoBehaviour
                     Controls.RSFunction = cs.RS_DE;
                     Controls.LTFunction = cs.LT_DE;
                     Controls.RTFunction = cs.RT_DE;
+                    Controls.WalkDimensions = cs.WalkDimensions;
                 }
                 else if (currentLanguage == Languages.English)
                 {
@@ -98,7 +99,9 @@ public class Language : MonoBehaviour
                     Controls.RSFunction = cs.RS_EN;
                     Controls.LTFunction = cs.LT_EN;
                     Controls.RTFunction = cs.RT_EN;
+                    Controls.WalkDimensions = cs.WalkDimensions;
                 }
+                
                 break;
             }
         }
@@ -192,4 +195,5 @@ public class ControlScheme
     public string RS_EN;
     public string LT_EN;
     public string RT_EN;
+    public int WalkDimensions;
 }

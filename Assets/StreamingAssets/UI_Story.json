@@ -7,5 +7,6 @@
     "LS_EN" : "",
     "RS_EN" : "",
     "LT_EN" : "scroll left",
-    "RT_EN" : "scroll right"
+    "RT_EN" : "scroll right",
+    "WalkDimensions": "0"
 }

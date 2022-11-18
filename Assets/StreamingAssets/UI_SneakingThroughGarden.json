@@ -7,5 +7,6 @@
     "LS_EN" : "walk",
     "RS_EN" : "aim",
     "LT_EN" : "",
-    "RT_EN" : "throw"
+    "RT_EN" : "throw",
+    "WalkDimensions": "1"
 }

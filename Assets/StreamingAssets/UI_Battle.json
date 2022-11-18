@@ -7,5 +7,6 @@
     "LS_EN" : "walk",
     "RS_EN" : "",
     "LT_EN" : "block",
-    "RT_EN" : "strike"
+    "RT_EN" : "strike",
+    "WalkDimensions": "1"
 }

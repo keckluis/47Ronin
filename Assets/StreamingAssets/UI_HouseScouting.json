@@ -7,5 +7,6 @@
     "LS_EN" : "walk",
     "RS_EN" : "",
     "LT_EN" : "",
-    "RT_EN" : "interact"
+    "RT_EN" : "interact",
+    "WalkDimensions": "2"
 }
